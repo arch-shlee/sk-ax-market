@@ -1,0 +1,12 @@
+# macOS
+.DS_Store
+._*
+
+# 편집기
+.vscode/
+.idea/
+*.swp
+
+# 임시 파일
+*.tmp
+~$*

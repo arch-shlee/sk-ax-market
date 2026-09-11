@@ -1,0 +1,16 @@
+전체 구성을 그려보자.
+
+우리는 운영 으로 Runtime
+두가지를 사용할것이다.
+하나는 Databricks apps
+또하나는 private cloud
+사용자의 application 혹은 이 app 데이터브릭스 내의 데이터가 필요한 경우에는 databircks 를 apps
+그외에는 프라이빗 클라우드를 활용한다.
+단계적으로 적용할 예정이며 1안으로 데이터브릭스 앱스를 우선 적용할 Runtime요소로써 적용한다.
+이거는 좀더 배경과 명분을 강화해야 할 필요는 있다.
+현재의 방향성은 다음과 같다.
+AX App이란 AX 에서 Playground 개발되어 Git 기반의 검증·승인 절차를 거친 후 Databricks 에 Apps 배
+포되고, 임직원이 AX App 을 Market 통해 검색하고 권한에 따라 실행할 수 있는 업무용 웹서비스이다.
+AX 은 App 일반 업무용 Web App뿐만 아니라, Databricks 와 Agent 연계하여 대화형·자동화 기능을 제공
+하는 Agent 활용 을 App 포함한다.
+
