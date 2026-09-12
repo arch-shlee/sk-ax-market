@@ -1,0 +1,295 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mxfile host="app.diagrams.net" agent="Claude/AXM v0.1" pages="2">
+  <diagram name="인프라 뷰" id="infra">
+    <mxGraphModel dx="1600" dy="1100" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1900" pageHeight="1420" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="onp" value="온프렘 (Private Cloud)" style="rounded=0;whiteSpace=wrap;html=1;verticalAlign=top;fontSize=13;fontStyle=1;fillColor=#f5f5f5;strokeColor=#9e9e9e;" vertex="1" parent="1">
+          <mxGeometry x="30" y="60" width="340" height="1180" as="geometry" />
+        </mxCell>
+        <mxCell id="vdi" value="임직원 VDI" style="rounded=1;whiteSpace=wrap;html=1;fontSize=11;fillColor=#DAE8FC;strokeColor=#6C8EBF;" vertex="1" parent="1">
+          <mxGeometry x="55" y="105" width="290" height="44" as="geometry" />
+        </mxCell>
+        <mxCell id="gl" value="GitLab (온프렘)&lt;br&gt;형상관리 · CI · 정책 강제" style="rounded=1;whiteSpace=wrap;html=1;fontSize=11;fillColor=#DAE8FC;strokeColor=#6C8EBF;" vertex="1" parent="1">
+          <mxGeometry x="55" y="170" width="290" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="vks" value="Private Cloud (VKS)" style="rounded=0;whiteSpace=wrap;html=1;verticalAlign=top;fontSize=11;fillColor=#F0F7FF;strokeColor=#7EA6E0;dashed=1;" vertex="1" parent="1">
+          <mxGeometry x="45" y="240" width="310" height="420" as="geometry" />
+        </mxCell>
+        <mxCell id="iap" value="Ingress forward-auth&lt;br&gt;신원 헤더 주입 (AXM-0011)" style="rounded=1;whiteSpace=wrap;html=1;fontSize=11;fillColor=#DAE8FC;strokeColor=#6C8EBF;" vertex="1" parent="1">
+          <mxGeometry x="65" y="285" width="270" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="pcapp" value="Web App 실행" style="rounded=1;whiteSpace=wrap;html=1;fontSize=11;fillColor=#DAE8FC;strokeColor=#6C8EBF;" vertex="1" parent="1">
+          <mxGeometry x="65" y="350" width="270" height="44" as="geometry" />
+        </mxCell>
+        <mxCell id="harbor" value="Harbor · Cosign 서명" style="rounded=1;whiteSpace=wrap;html=1;fontSize=11;fillColor=#DAE8FC;strokeColor=#6C8EBF;" vertex="1" parent="1">
+          <mxGeometry x="65" y="410" width="270" height="44" as="geometry" />
+        </mxCell>
+        <mxCell id="flux" value="Flux + agentk" style="rounded=1;whiteSpace=wrap;html=1;fontSize=11;fillColor=#DAE8FC;strokeColor=#6C8EBF;" vertex="1" parent="1">
+          <mxGeometry x="65" y="470" width="270" height="44" as="geometry" />
+        </mxCell>
+        <mxCell id="kyv" value="Kyverno admission" style="rounded=1;whiteSpace=wrap;html=1;fontSize=11;fillColor=#DAE8FC;strokeColor=#6C8EBF;" vertex="1" parent="1">
+          <mxGeometry x="65" y="530" width="270" height="44" as="geometry" />
+        </mxCell>
+        <mxCell id="sysg" value="사내 업무 시스템" style="rounded=0;whiteSpace=wrap;html=1;verticalAlign=top;fontSize=11;fillColor=#F0F7FF;strokeColor=#7EA6E0;dashed=1;" vertex="1" parent="1">
+          <mxGeometry x="45" y="690" width="310" height="130" as="geometry" />
+        </mxCell>
+        <mxCell id="sys" value="MES · SRM · ERP&lt;br&gt;Wehub · CRM" style="rounded=1;whiteSpace=wrap;html=1;fontSize=11;fillColor=#DAE8FC;strokeColor=#6C8EBF;" vertex="1" parent="1">
+          <mxGeometry x="65" y="730" width="270" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="n_dns" value="사내 DNS&lt;br&gt;· databricksapps.com 조건부 포워딩&lt;br&gt;· 앱마켓 사내 도메인&lt;br&gt;· Route53 Resolver 연동" style="shape=note;whiteSpace=wrap;html=1;fontSize=10;align=left;verticalAlign=top;fillColor=#FFF2CC;strokeColor=#D6B656;size=14;" vertex="1" parent="1">
+          <mxGeometry x="55" y="850" width="290" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="dxg" value="" style="rounded=0;whiteSpace=wrap;html=1;verticalAlign=top;fontSize=13;fontStyle=1;fillColor=#f5f5f5;strokeColor=#9e9e9e;" vertex="1" parent="1">
+          <mxGeometry x="400" y="600" width="150" height="130" as="geometry" />
+        </mxCell>
+        <mxCell id="dx" value="Direct Connect&lt;br&gt;+ VPN&lt;br&gt;(기구축)" style="rounded=1;whiteSpace=wrap;html=1;fontSize=11;fillColor=#D5E8D4;strokeColor=#82B366;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="415" y="640" width="120" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="aws" value="AWS · ap-northeast-2" style="rounded=0;whiteSpace=wrap;html=1;verticalAlign=top;fontSize=14;fontStyle=1;fillColor=none;strokeColor=#ED7100;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="580" y="40" width="1290" height="1350" as="geometry" />
+        </mxCell>
+        <mxCell id="a_net" value="공유 네트워크 계정 (존재 여부 확인 필요)" style="rounded=0;whiteSpace=wrap;html=1;verticalAlign=top;fontSize=12;fontStyle=1;fillColor=#FFF6E5;strokeColor=#D6B656;" vertex="1" parent="1">
+          <mxGeometry x="600" y="85" width="1250" height="170" as="geometry" />
+        </mxCell>
+        <mxCell id="tgw" value="Transit Gateway" style="rounded=1;whiteSpace=wrap;html=1;fontSize=11;fillColor=#D5E8D4;strokeColor=#82B366;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="625" y="140" width="200" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="nlb" value="내부 NLB&lt;br&gt;NCC 사설EP 종단&lt;br&gt;배치 계정 미정" style="rounded=1;whiteSpace=wrap;html=1;fontSize=11;fillColor=#D5E8D4;strokeColor=#82B366;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="860" y="130" width="250" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="r53" value="Route53 Resolver&lt;br&gt;inbound / outbound" style="rounded=1;whiteSpace=wrap;html=1;fontSize=11;fillColor=#DAE8FC;strokeColor=#6C8EBF;" vertex="1" parent="1">
+          <mxGeometry x="1145" y="140" width="230" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="n_nlb" value="NLB 타깃을 온프렘 IP로 두는&lt;br&gt;구성은 검증 필요 (AXM-0004)" style="shape=note;whiteSpace=wrap;html=1;fontSize=10;align=left;verticalAlign=top;fillColor=#FFF2CC;strokeColor=#D6B656;size=14;" vertex="1" parent="1">
+          <mxGeometry x="1405" y="130" width="420" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="a_mkt" value="앱마켓 운영 계정 · 전용 VPC (신규)" style="rounded=0;whiteSpace=wrap;html=1;verticalAlign=top;fontSize=12;fontStyle=1;fillColor=#FFF6E5;strokeColor=#D6B656;" vertex="1" parent="1">
+          <mxGeometry x="600" y="275" width="1250" height="330" as="geometry" />
+        </mxCell>
+        <mxCell id="alb" value="내부 ALB (2 AZ)&lt;br&gt;ACM + 사내 도메인" style="rounded=1;whiteSpace=wrap;html=1;fontSize=11;fillColor=#DAE8FC;strokeColor=#6C8EBF;" vertex="1" parent="1">
+          <mxGeometry x="630" y="325" width="290" height="55" as="geometry" />
+        </mxCell>
+        <mxCell id="az_a" value="Private Subnet · AZ-a" style="rounded=0;whiteSpace=wrap;html=1;verticalAlign=top;fontSize=11;fillColor=#F0F7FF;strokeColor=#7EA6E0;dashed=1;" vertex="1" parent="1">
+          <mxGeometry x="630" y="400" width="290" height="175" as="geometry" />
+        </mxCell>
+        <mxCell id="web_a" value="앱마켓 web (ECS)" style="rounded=1;whiteSpace=wrap;html=1;fontSize=11;fillColor=#DAE8FC;strokeColor=#6C8EBF;" vertex="1" parent="1">
+          <mxGeometry x="650" y="440" width="250" height="44" as="geometry" />
+        </mxCell>
+        <mxCell id="wrk" value="조정 워커&lt;br&gt;동일 이미지 · 분리 선택" style="rounded=1;whiteSpace=wrap;html=1;fontSize=11;fillColor=#DAE8FC;strokeColor=#6C8EBF;dashed=1;" vertex="1" parent="1">
+          <mxGeometry x="650" y="500" width="250" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="az_c" value="Private Subnet · AZ-c" style="rounded=0;whiteSpace=wrap;html=1;verticalAlign=top;fontSize=11;fillColor=#F0F7FF;strokeColor=#7EA6E0;dashed=1;" vertex="1" parent="1">
+          <mxGeometry x="945" y="400" width="290" height="175" as="geometry" />
+        </mxCell>
+        <mxCell id="web_c" value="앱마켓 web (ECS)" style="rounded=1;whiteSpace=wrap;html=1;fontSize=11;fillColor=#DAE8FC;strokeColor=#6C8EBF;" vertex="1" parent="1">
+          <mxGeometry x="965" y="440" width="250" height="44" as="geometry" />
+        </mxCell>
+        <mxCell id="rds" value="Aurora Multi-AZ&lt;br&gt;레지스트리" style="rounded=1;whiteSpace=wrap;html=1;fontSize=11;fillColor=#DAE8FC;strokeColor=#6C8EBF;" vertex="1" parent="1">
+          <mxGeometry x="1260" y="400" width="270" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="s3" value="S3 증적 (불변)" style="rounded=1;whiteSpace=wrap;html=1;fontSize=11;fillColor=#DAE8FC;strokeColor=#6C8EBF;" vertex="1" parent="1">
+          <mxGeometry x="1260" y="480" width="270" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="mep" value="VPC 인터페이스 EP&lt;br&gt;Databricks REST" style="rounded=1;whiteSpace=wrap;html=1;fontSize=11;fillColor=#DAE8FC;strokeColor=#6C8EBF;" vertex="1" parent="1">
+          <mxGeometry x="1555" y="400" width="270" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="a_dbx" value="Databricks 전용 계정" style="rounded=0;whiteSpace=wrap;html=1;verticalAlign=top;fontSize=12;fontStyle=1;fillColor=#FFF6E5;strokeColor=#D6B656;" vertex="1" parent="1">
+          <mxGeometry x="600" y="625" width="1250" height="215" as="geometry" />
+        </mxCell>
+        <mxCell id="ws" value="Databricks 워크스페이스&lt;br&gt;앱 100개 / WS (고정)" style="rounded=1;whiteSpace=wrap;html=1;fontSize=11;fillColor=#DAE8FC;strokeColor=#6C8EBF;" vertex="1" parent="1">
+          <mxGeometry x="630" y="675" width="265" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="fep" value="front-end PrivateLink EP" style="rounded=1;whiteSpace=wrap;html=1;fontSize=11;fillColor=#DAE8FC;strokeColor=#6C8EBF;" vertex="1" parent="1">
+          <mxGeometry x="920" y="675" width="265" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="uc" value="Unity Catalog&lt;br&gt;계정 레벨" style="rounded=1;whiteSpace=wrap;html=1;fontSize=11;fillColor=#DAE8FC;strokeColor=#6C8EBF;" vertex="1" parent="1">
+          <mxGeometry x="1210" y="675" width="265" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="wh" value="공용 SQL Warehouse&lt;br&gt;앱 전용 금지 (AXM-0005)" style="rounded=1;whiteSpace=wrap;html=1;fontSize=11;fillColor=#DAE8FC;strokeColor=#6C8EBF;" vertex="1" parent="1">
+          <mxGeometry x="1500" y="675" width="265" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="n_ag" value="에이전트 = UC 등록 모델 + 서빙 EP → 계정 레벨 자원이므로 앱 100개 한도와 무관 (AXM-0012)" style="shape=note;whiteSpace=wrap;html=1;fontSize=10;align=left;verticalAlign=top;fillColor=#FFF2CC;strokeColor=#D6B656;size=14;" vertex="1" parent="1">
+          <mxGeometry x="630" y="755" width="1135" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="a_srv" value="Databricks 서버리스 · Databricks 소유 계정 (우리 통제 밖)" style="rounded=0;whiteSpace=wrap;html=1;verticalAlign=top;fontSize=12;fontStyle=1;fillColor=#FDF0EF;strokeColor=#B85450;dashed=1;" vertex="1" parent="1">
+          <mxGeometry x="600" y="860" width="1250" height="195" as="geometry" />
+        </mxCell>
+        <mxCell id="apps" value="Databricks Apps 실행&lt;br&gt;OBO" style="rounded=1;whiteSpace=wrap;html=1;fontSize=11;fillColor=#DAE8FC;strokeColor=#6C8EBF;" vertex="1" parent="1">
+          <mxGeometry x="630" y="910" width="270" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="agsv" value="Agent 서빙 엔드포인트" style="rounded=1;whiteSpace=wrap;html=1;fontSize=11;fillColor=#DAE8FC;strokeColor=#6C8EBF;" vertex="1" parent="1">
+          <mxGeometry x="925" y="910" width="270" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="ncc" value="NCC 사설 엔드포인트" style="rounded=1;whiteSpace=wrap;html=1;fontSize=11;fillColor=#D5E8D4;strokeColor=#82B366;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="1220" y="910" width="270" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="n_ent" value="Enterprise tier 필요&lt;br&gt;(AXM-0002 · F3)" style="shape=note;whiteSpace=wrap;html=1;fontSize=10;align=left;verticalAlign=top;fillColor=#FFF2CC;strokeColor=#D6B656;size=14;" vertex="1" parent="1">
+          <mxGeometry x="1520" y="910" width="300" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="a_pg" value="Playground 계정 (PoC 가동 중)" style="rounded=0;whiteSpace=wrap;html=1;verticalAlign=top;fontSize=12;fontStyle=1;fillColor=#FFF6E5;strokeColor=#D6B656;" vertex="1" parent="1">
+          <mxGeometry x="600" y="1075" width="1250" height="180" as="geometry" />
+        </mxCell>
+        <mxCell id="coder" value="Coder Server&lt;br&gt;운영 전환 시 Multi-AZ · 관리형 DB" style="rounded=1;whiteSpace=wrap;html=1;fontSize=11;fillColor=#DAE8FC;strokeColor=#6C8EBF;dashed=1;" vertex="1" parent="1">
+          <mxGeometry x="630" y="1125" width="270" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="wsec2" value="워크스페이스 EC2&lt;br&gt;VS Code + Claude Code" style="rounded=1;whiteSpace=wrap;html=1;fontSize=11;fillColor=#DAE8FC;strokeColor=#6C8EBF;" vertex="1" parent="1">
+          <mxGeometry x="925" y="1125" width="270" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="bed" value="Bedrock VPC EP&lt;br&gt;현재 NAT 경유" style="rounded=1;whiteSpace=wrap;html=1;fontSize=11;fillColor=#DAE8FC;strokeColor=#6C8EBF;dashed=1;" vertex="1" parent="1">
+          <mxGeometry x="1220" y="1125" width="270" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="n_poc" value="PoC 구성은 그대로 운영 전환 불가&lt;br&gt;→ 05 문서 §7 체크리스트" style="shape=note;whiteSpace=wrap;html=1;fontSize=10;align=left;verticalAlign=top;fillColor=#FFF2CC;strokeColor=#D6B656;size=14;" vertex="1" parent="1">
+          <mxGeometry x="1520" y="1125" width="300" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="t1" value="AX App Market — 인프라 뷰 v0.1 (2026-09-12)&lt;br&gt;점선 = 미확정이거나 나중에 교체될 자리.  경로별 흐름은 2페이지 참조." style="text;html=1;align=left;verticalAlign=top;fontSize=13;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="30" y="15" width="900" height="35" as="geometry" />
+        </mxCell>
+        <mxCell id="e1" value="사내망" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;fontSize=10;strokeColor=#555555;" edge="1" parent="1" source="vdi" target="dx">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e2" value="Direct Connect / VPN" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;fontSize=10;strokeColor=#555555;" edge="1" parent="1" source="dx" target="tgw">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e3" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;fontSize=10;strokeColor=#555555;" edge="1" parent="1" source="tgw" target="alb">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e4" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;fontSize=10;strokeColor=#555555;" edge="1" parent="1" source="tgw" target="fep">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e5" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;fontSize=10;strokeColor=#555555;" edge="1" parent="1" source="tgw" target="nlb">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e6" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;fontSize=10;strokeColor=#555555;" edge="1" parent="1" source="tgw" target="coder">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e7" value="PrivateLink" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;fontSize=10;strokeColor=#2E7D32;strokeWidth=2;dashed=1;" edge="1" parent="1" source="ncc" target="nlb">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e8" value="온프렘 IP 타깃" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;fontSize=10;strokeColor=#2E7D32;strokeWidth=2;dashed=1;" edge="1" parent="1" source="nlb" target="tgw">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e9" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;fontSize=10;strokeColor=#555555;" edge="1" parent="1" source="mep" target="ws">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e10" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;fontSize=10;strokeColor=#555555;" edge="1" parent="1" source="dx" target="sys">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram name="경로 뷰" id="paths">
+    <mxGraphModel dx="1600" dy="1100" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1750" pageHeight="850" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="p2t" value="AX App Market — 경로 뷰 v0.1&lt;br&gt;A 사용자 진입 (파랑) · B 앱에서 사내 시스템 (초록) · C 조정 루프 (주황 점선)" style="text;html=1;align=left;verticalAlign=top;fontSize=13;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="30" y="15" width="900" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="q_onp" value="온프렘" style="rounded=0;whiteSpace=wrap;html=1;verticalAlign=top;fontSize=13;fontStyle=1;fillColor=#f5f5f5;strokeColor=#9e9e9e;" vertex="1" parent="1">
+          <mxGeometry x="30" y="80" width="300" height="700" as="geometry" />
+        </mxCell>
+        <mxCell id="q_vdi" value="임직원 VDI" style="rounded=1;whiteSpace=wrap;html=1;fontSize=11;fillColor=#DAE8FC;strokeColor=#6C8EBF;" vertex="1" parent="1">
+          <mxGeometry x="55" y="125" width="250" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="q_gl" value="GitLab" style="rounded=1;whiteSpace=wrap;html=1;fontSize=11;fillColor=#DAE8FC;strokeColor=#6C8EBF;" vertex="1" parent="1">
+          <mxGeometry x="55" y="200" width="250" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="q_vks" value="VKS Web App&lt;br&gt;(Ingress forward-auth)" style="rounded=1;whiteSpace=wrap;html=1;fontSize=11;fillColor=#DAE8FC;strokeColor=#6C8EBF;" vertex="1" parent="1">
+          <mxGeometry x="55" y="275" width="250" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="q_sys" value="MES · SRM · ERP&lt;br&gt;Wehub · CRM" style="rounded=1;whiteSpace=wrap;html=1;fontSize=11;fillColor=#DAE8FC;strokeColor=#6C8EBF;" vertex="1" parent="1">
+          <mxGeometry x="55" y="640" width="250" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="q_dx" value="Direct Connect&lt;br&gt;+ Transit Gateway" style="rounded=1;whiteSpace=wrap;html=1;fontSize=11;fillColor=#D5E8D4;strokeColor=#82B366;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="395" y="380" width="220" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="q_mkt" value="앱마켓 운영 계정" style="rounded=0;whiteSpace=wrap;html=1;verticalAlign=top;fontSize=12;fontStyle=1;fillColor=#FFF6E5;strokeColor=#D6B656;" vertex="1" parent="1">
+          <mxGeometry x="700" y="80" width="420" height="330" as="geometry" />
+        </mxCell>
+        <mxCell id="q_alb" value="내부 ALB" style="rounded=1;whiteSpace=wrap;html=1;fontSize=11;fillColor=#DAE8FC;strokeColor=#6C8EBF;" vertex="1" parent="1">
+          <mxGeometry x="730" y="130" width="360" height="45" as="geometry" />
+        </mxCell>
+        <mxCell id="q_web" value="앱마켓 web&lt;br&gt;카탈로그 · /launch" style="rounded=1;whiteSpace=wrap;html=1;fontSize=11;fillColor=#DAE8FC;strokeColor=#6C8EBF;" vertex="1" parent="1">
+          <mxGeometry x="730" y="195" width="360" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="q_wrk" value="조정 워커" style="rounded=1;whiteSpace=wrap;html=1;fontSize=11;fillColor=#DAE8FC;strokeColor=#6C8EBF;dashed=1;" vertex="1" parent="1">
+          <mxGeometry x="730" y="280" width="360" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="q_reg" value="레지스트리 (Aurora)" style="rounded=1;whiteSpace=wrap;html=1;fontSize=11;fillColor=#DAE8FC;strokeColor=#6C8EBF;" vertex="1" parent="1">
+          <mxGeometry x="730" y="345" width="360" height="45" as="geometry" />
+        </mxCell>
+        <mxCell id="q_dbx" value="Databricks 전용 계정" style="rounded=0;whiteSpace=wrap;html=1;verticalAlign=top;fontSize=12;fontStyle=1;fillColor=#FFF6E5;strokeColor=#D6B656;" vertex="1" parent="1">
+          <mxGeometry x="700" y="450" width="420" height="150" as="geometry" />
+        </mxCell>
+        <mxCell id="q_fep" value="front-end PrivateLink EP" style="rounded=1;whiteSpace=wrap;html=1;fontSize=11;fillColor=#DAE8FC;strokeColor=#6C8EBF;" vertex="1" parent="1">
+          <mxGeometry x="730" y="495" width="360" height="45" as="geometry" />
+        </mxCell>
+        <mxCell id="q_ws" value="워크스페이스 · UC · 웨어하우스" style="rounded=1;whiteSpace=wrap;html=1;fontSize=11;fillColor=#DAE8FC;strokeColor=#6C8EBF;" vertex="1" parent="1">
+          <mxGeometry x="730" y="550" width="360" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="q_srv" value="Databricks 서버리스 (통제 밖)" style="rounded=0;whiteSpace=wrap;html=1;verticalAlign=top;fontSize=12;fontStyle=1;fillColor=#FDF0EF;strokeColor=#B85450;dashed=1;" vertex="1" parent="1">
+          <mxGeometry x="700" y="640" width="420" height="150" as="geometry" />
+        </mxCell>
+        <mxCell id="q_apps" value="Databricks Apps (OBO)&lt;br&gt;Agent 서빙 EP" style="rounded=1;whiteSpace=wrap;html=1;fontSize=11;fillColor=#DAE8FC;strokeColor=#6C8EBF;" vertex="1" parent="1">
+          <mxGeometry x="730" y="685" width="360" height="55" as="geometry" />
+        </mxCell>
+        <mxCell id="q_ncc" value="NCC 사설 EP" style="rounded=1;whiteSpace=wrap;html=1;fontSize=11;fillColor=#D5E8D4;strokeColor=#82B366;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="730" y="750" width="360" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="q_nlb" value="내부 NLB" style="rounded=1;whiteSpace=wrap;html=1;fontSize=11;fillColor=#D5E8D4;strokeColor=#82B366;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="1210" y="700" width="220" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="a1" value="A. HTTPS" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;fontSize=11;strokeColor=#1F6FB2;strokeWidth=3;" edge="1" parent="1" source="q_vdi" target="q_dx">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="a2" value="A. 앱마켓" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;fontSize=11;strokeColor=#1F6FB2;strokeWidth=3;" edge="1" parent="1" source="q_dx" target="q_alb">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="a3" value="A. Databricks 앱" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;fontSize=11;strokeColor=#1F6FB2;strokeWidth=3;" edge="1" parent="1" source="q_dx" target="q_fep">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="a4" value="A." style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;fontSize=11;strokeColor=#1F6FB2;strokeWidth=3;" edge="1" parent="1" source="q_fep" target="q_apps">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="a5" value="A. 302 후 직통" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;fontSize=11;strokeColor=#1F6FB2;strokeWidth=3;" edge="1" parent="1" source="q_dx" target="q_vks">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="b1" value="B." style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;fontSize=11;strokeColor=#2E7D32;strokeWidth=3;" edge="1" parent="1" source="q_apps" target="q_ncc">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="b2" value="B. PrivateLink" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;fontSize=11;strokeColor=#2E7D32;strokeWidth=3;" edge="1" parent="1" source="q_ncc" target="q_nlb">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="b3" value="B. IP 타깃" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;fontSize=11;strokeColor=#2E7D32;strokeWidth=3;" edge="1" parent="1" source="q_nlb" target="q_dx">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="b4" value="B. 사내 시스템" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;fontSize=11;strokeColor=#2E7D32;strokeWidth=3;" edge="1" parent="1" source="q_dx" target="q_sys">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="c1" value="C. 조회 pull" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;fontSize=11;strokeColor=#E07B00;strokeWidth=2;dashed=1;" edge="1" parent="1" source="q_wrk" target="q_dx">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="c2" value="C. GitLab" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;fontSize=11;strokeColor=#E07B00;strokeWidth=2;dashed=1;" edge="1" parent="1" source="q_dx" target="q_gl">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="c3" value="C. Databricks API" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;fontSize=11;strokeColor=#E07B00;strokeWidth=2;dashed=1;" edge="1" parent="1" source="q_wrk" target="q_ws">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="c4" value="C. VKS API" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;fontSize=11;strokeColor=#E07B00;strokeWidth=2;dashed=1;" edge="1" parent="1" source="q_dx" target="q_vks">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="c5" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;fontSize=11;strokeColor=#E07B00;strokeWidth=2;dashed=1;" edge="1" parent="1" source="q_wrk" target="q_reg">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="q_lg" value="범례&lt;br&gt;A 사용자 진입 — 인터넷 노출 없음 (AXM-0003)&lt;br&gt;   앱마켓은 /launch 302 후 경로에서 빠진다 (AXM-0009)&lt;br&gt;B 앱 → 사내 시스템 — Enterprise tier 필요 (AXM-0004)&lt;br&gt;C 조정 루프 — 마켓이 소스를 조회한다 (AXM-0008)" style="shape=note;whiteSpace=wrap;html=1;fontSize=10;align=left;verticalAlign=top;fillColor=#FFF2CC;strokeColor=#D6B656;size=14;" vertex="1" parent="1">
+          <mxGeometry x="1210" y="120" width="470" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="q_n1" value="프록시 방식이었다면 B 경로가&lt;br&gt;온프렘 → AWS → 온프렘으로&lt;br&gt;DX를 왕복 4회 건넜다 (AXM-0009)" style="shape=note;whiteSpace=wrap;html=1;fontSize=10;align=left;verticalAlign=top;fillColor=#FFF2CC;strokeColor=#D6B656;size=14;" vertex="1" parent="1">
+          <mxGeometry x="1210" y="270" width="470" height="80" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

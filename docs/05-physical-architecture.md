@@ -29,6 +29,8 @@
 
 ### 1-1. 계정 구성
 
+> 📐 **도면**: `ax-market_target 아키텍처.drawio.xml` — 1페이지 인프라 뷰(배치·물리 연결), 2페이지 경로 뷰(사용자 진입 / 앱→사내 시스템 / 조정 루프).
+
 F2·F6·F7에 따라 최소 3개 계정이 존재한다. **Playground ADR-0002**의 dual-account 원칙과 정합한다. → `AXM-0002`
 
 | 계정 | 역할 | 상태 | 주요 자원 |
@@ -326,7 +328,8 @@ PoC 도면의 원칙("단일 replica · 도메인 X · built-in DB · 자체서�
 
 ## 관련 문서
 
-- `docs/axplayground_PoC 아키텍처.drawio.xml` — Playground PoC 아키텍처 (논리 뷰 / 인프라 뷰)
+- `docs/ax-market_target 아키텍처.drawio.xml` — **목표 인프라 도면** (인프라 뷰 / 경로 뷰). 본 문서 §1~§5를 그림으로 옮긴 것
+- `docs/axplayground_PoC 아키텍처.drawio.xml` — Playground PoC 아키텍처 (논리 뷰 / 인프라 뷰). 전환 범위 대조용
 - `docs/adr/` — 아키텍처 결정 기록 (`AXM-` 시리즈). 각 결정의 근거와 기각된 대안
 - `docs/03-runtime-decision-and-architecture.md` — 확정된 전제 F1~F7, 판정 트리, To-Be 논리 구성
 - `docs/04-cost-model.md` — 운영 비용 모델
