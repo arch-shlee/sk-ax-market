@@ -277,4 +277,5 @@ OBO가 사용자 신원을 그대로 전달하므로 웨어하우스를 공유�
 - `docs/03-runtime-decision-and-architecture.md` — 런타임 판정 기준 (§3 Q8, §6 메타데이터)
 - `docs/02-cicd-pipeline-design.md` — CI/CD 파이프라인 설계 (§6-1 validate, §9-3 운영 지표)
 - `docs/05-physical-architecture.md` — 물리 아키텍처. §1-3 계산 전제(리전·계정·tier)의 근거
+- `docs/06-app-market-architecture.md` — 앱마켓 내부. 엔티티·관계, 모듈 구조, 조정 루프, 워커 분리 판단
 - `docs/adr/` — 아키텍처 결정 기록 (`AXM-` 시리즈). 각 결정의 근거와 기각된 대안
