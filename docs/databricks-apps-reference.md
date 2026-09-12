@@ -314,3 +314,4 @@ PDF의 AX App 정의는 일반 Web App뿐 아니라 **Databricks Agent 연계 �
 - `docs/AX앱마켓구성1.pdf` — AX App Market 기획 초안 (전체 구성, As-Is/To-Be, 주요 기능)
 - `docs/04-cost-model.md` — 운영 비용 모델. §3의 DBU는 앱 컨테이너 몫뿐이며, 전체 비용 구조는 이 문서를 볼 것
 - `docs/05-physical-architecture.md` — 물리 아키텍처. §7 네트워크의 경로를 물리 자원에 매핑
+- `docs/adr/` — 아키텍처 결정 기록 (`AXM-` 시리즈). 각 결정의 근거와 기각된 대안

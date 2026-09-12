@@ -325,7 +325,7 @@ Active Directory (단일 소스)
 | 단계 | Private Cloud | Databricks Apps |
 |---|---|---|
 | 앱마켓에서 공개범위 지정 | AD 그룹 / 조직 단위 지정 | 동일 |
-| 런타임 권한 부여 | Keycloak RBAC + Ingress 인가 정책 | **Databricks 그룹에 `CAN_USE` 부여** |
+| 런타임 권한 부여 | Keycloak RBAC + **Ingress forward-auth** (`AXM-0011`) | **Databricks 그룹에 `CAN_USE` 부여** |
 | 사용자 인증 | Keycloak SSO | Databricks 계정 SSO |
 | 데이터 접근 통제 | **앱 코드 책임** | **OBO → UC 행·열 보안 자동 적용** |
 | 권한 회수 반영 | Keycloak 즉시 | 그룹 동기화 주기에 의존 |
@@ -335,6 +335,10 @@ Active Directory (단일 소스)
 1. **`CAN_USE`가 Databricks 트랙의 실질적 실행 권한 수단이다.** 앱마켓 RBAC → AD 그룹 → Databricks 그룹 → `CAN_USE` 경로를 API로 자동화한다.
 2. **권한 회수 반영 지연을 명시한다.** SCIM 동기화 주기만큼 시차가 발생한다. 즉시 차단이 필요한 경우(퇴사·사고)의 별도 절차를 정의해야 한다.
 3. **앱 권한이 `CAN_USE`/`CAN_MANAGE` 2단계뿐이므로**, 앱 내부의 세분 역할(조회자/승인자/관리자)은 앱마켓이 전달하는 권한 정보 또는 UC 권한으로 처리한다. Databricks 앱 권한만으로는 표현할 수 없다.
+
+**4. 실행은 리다이렉트다 (`AXM-0009`).** 앱마켓은 트래픽 경로에 있지 않다. 마켓이 소유한 실행 엔드포인트(`/launch/<app_id>`)를 한 번 거쳐 현재 런타임 주소로 302하고 빠진다. 두 런타임의 물리적 위치가 다르므로(앱마켓 AWS / VKS 온프렘) 프록시 방식은 온프렘 트래픽을 AWS로 왕복시킨다.
+
+**5. 두 트랙의 신원 주입을 대칭으로 만든다 (`AXM-0011`).** Databricks Apps는 플랫폼이 `x-forwarded-access-token`으로 신원을 주입하지만 VKS 앱에는 그 장치가 없어 앱마다 인증 품질이 갈린다. Ingress forward-auth로 플랫폼이 검증된 신원을 헤더로 주입한다. **단, 행·열 수준 데이터 통제의 격차는 이것으로 해소되지 않는다** — 그것이 Q5가 Databricks를 선호하는 이유다.
 
 ---
 
@@ -480,4 +484,5 @@ Active Directory (단일 소스)
 - `docs/02-cicd-pipeline-design.md` — CI/CD 파이프라인 상세 설계
 - `docs/04-cost-model.md` — 운영 비용 모델. §3 3층 판정과 §6 메타데이터의 비용 필드 근거
 - `docs/05-physical-architecture.md` — 물리 아키텍처. 계정 토폴로지·진입 경로·Q1 경로의 물리적 실체
+- `docs/adr/` — 아키텍처 결정 기록 (`AXM-` 시리즈). 각 결정의 근거와 기각된 대안
 - `docs/axplayground_PoC 아키텍처.drawio.xml` — Playground PoC 아키텍처
