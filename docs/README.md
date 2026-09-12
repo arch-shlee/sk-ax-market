@@ -27,6 +27,7 @@
 **깊이 파는 경우**
 
 - CI/CD·보안 게이트 → [`design/02`](design/02-cicd-pipeline-design.md)
+- 보안 검토·통제 요약 → [`design/07`](design/07-secure-delivery.md)
 - 비용 → [`design/04`](design/04-cost-model.md)
 - Databricks 기술 제약 → [`reference/databricks-apps-reference.md`](reference/databricks-apps-reference.md)
 - 업계 동향·근거 → [`reference/cicd-devsecops-research.md`](reference/cicd-devsecops-research.md)
@@ -42,6 +43,7 @@
 | 04 | [비용 모델](design/04-cost-model.md) | 3층 비용 구조, 규모 시나리오, 통제 규칙 |
 | 05 | [물리 아키텍처](design/05-physical-architecture.md) | 계정 토폴로지, 진입 경로, DNS, 앱마켓 배치 |
 | 06 | [앱마켓 내부 아키텍처](design/06-app-market-architecture.md) | 엔티티·관계, 모듈, 조정 루프, 수명주기 상태 머신 |
+| 07 | [DevSecOps 안전한 배포 경로](design/07-secure-delivery.md) | 통제 지도, 개발자가 할 수 없는 것, 신뢰 경계·자격증명, **보안팀 결정 요청** |
 
 ## 확정된 전제
 
@@ -79,7 +81,8 @@
 | 엔티티·관계 | `design/06` §2 (mermaid) |
 | 조정 루프 | `design/06` §4 (mermaid) |
 | 앱 수명주기 상태 머신 | `design/06` §6 (mermaid) |
-| **목표 인프라 · 경로** | [`diagrams/ax-market_target 아키텍처.drawio.xml`](diagrams/) (2페이지) |
+| DevSecOps 통제 지도 | `design/07` §1 (mermaid) |
+| **목표 인프라 · 경로 · 보안** | [`diagrams/ax-market_target 아키텍처.drawio.xml`](diagrams/) (3페이지) |
 | Playground PoC | [`diagrams/axplayground_PoC 아키텍처.drawio.xml`](diagrams/) (2페이지) |
 
 > 논리·흐름 도면은 **mermaid로 문서 안에** 둔다(diff가 읽히고 수정이 빠름). 물리 배치는 **draw.io**로 둔다.
