@@ -314,5 +314,5 @@ Phase 3을 진행하는 김에 같이 확인하면 별도 작업이 절약된다
 
 ## 관련 문서
 
-- `docs/cicd-devsecops-research.md` — CI/CD·DevSecOps 자료조사
-- `docs/databricks-apps-reference.md` — Databricks Apps 기술 레퍼런스
+- `docs/reference/cicd-devsecops-research.md` — CI/CD·DevSecOps 자료조사
+- `docs/reference/databricks-apps-reference.md` — Databricks Apps 기술 레퍼런스

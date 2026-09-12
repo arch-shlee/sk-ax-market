@@ -321,5 +321,5 @@ PDF의 검증 파이프라인 항목을 조사 결과에 맞춰 구체화한 안
 
 ## 관련 문서
 
-- `docs/AX앱마켓구성1.pdf` — AX App Market 기획 초안
-- `docs/databricks-apps-reference.md` — Databricks Apps 기술 레퍼런스
+- `docs/source/AX앱마켓구성1.pdf` — AX App Market 기획 초안
+- `docs/reference/databricks-apps-reference.md` — Databricks Apps 기술 레퍼런스

@@ -183,7 +183,93 @@ flowchart LR
 
 ---
 
-## 6. 미결
+## 6. 앱 수명주기 상태 머신
+
+지금 상태 값이 여러 문서에 흩어져 있다 — `databricks-apps-reference.md`의 Databricks 앱 생애주기, `03` §6의 `deployment.status`와 `deprecation.status`, `AXM-0005`의 유휴 정지 토글, §4-4의 고아 처리, §4-5의 섀도 발견. **하나로 정리하지 않으면 세 모듈이 같은 상태를 다르게 해석한다.** 카탈로그는 `stopped`를 고장으로 표시하고, 조정 루프는 정상 유휴로 판정하고, 대시보드는 가용성 지표를 깎는 식이다.
+
+### 6-1. 두 축으로 나눈다
+
+섞으면 안 된다. 바꾸는 주체가 다르고 변경 빈도가 다르다.
+
+| 축 | 의미 | 바꾸는 주체 | 빈도 |
+|---|---|---|---|
+| **A. 등록 수명주기** (`lifecycle`) | 이 앱이 조직의 절차상 어디에 있는가 | 사람 · 프로세스 (일부는 조정 루프) | 드물다 |
+| **B. 런타임 상태** (`runtime_status`) | 지금 실제로 도는가 | **조정 루프가 관측만 한다** | 하루에도 여러 번 |
+
+### 6-2. A. 등록 수명주기
+
+```mermaid
+stateDiagram-v2
+    [*] --> requested : 등록 신청
+    requested --> assessed : 런타임 판정 Q1~Q8
+    assessed --> in_development : 저장소 · 스캐폴드 생성
+    in_development --> in_review : MR 생성 · 검증 게이트
+    in_review --> in_development : 반려
+    in_review --> approved : 보호된 환경 승인
+    approved --> live : verify 통과 (헬스체크)
+    live --> in_development : 신규 버전 개발
+    live --> deprecated : 일몰 예고
+    deprecated --> live : 철회
+    deprecated --> sunset : 서비스 종료
+    sunset --> archived : 보관
+    live --> orphaned : 소스 소실 (조정 루프)
+    orphaned --> live : 복구
+    orphaned --> archived : N일 경과
+    archived --> [*]
+
+    [*] --> unregistered : 마켓 밖에서 발견
+    unregistered --> requested : 등록 유도
+    unregistered --> [*] : 차단 · 삭제
+```
+
+**`unregistered`가 별도 진입점인 것이 요점이다.** 조정 루프가 소스를 전수 조회하므로 마켓을 거치지 않은 앱·에이전트가 발견된다(§4-5). 이들은 정상 절차의 어느 단계도 밟지 않았으므로 `requested`로 바로 넣으면 안 되고, 별도 상태에서 등록을 유도하거나 차단한다.
+
+### 6-3. B. 런타임 상태
+
+**`live`일 때만 의미가 있다.** 조정 루프가 소스에서 읽어 기록할 뿐, 마켓이 판단하지 않는다.
+
+| 값 | 의미 | 카탈로그 표시 |
+|---|---|---|
+| `running` | 서빙 중 | 실행 가능 |
+| `stopped` | **정상 유휴 정지** (`AXM-0005`) | 실행 가능 — 클릭 시 시작 (`AXM-0009`) |
+| `starting` | 기동 중 (콜드 스타트) | 대기 화면 |
+| `crashed` | 비정상 종료 | 실행 불가 · 소유자 알림 |
+| `absent` | 런타임에 배포가 없음 | 실행 불가 |
+
+> ⚠️ **`stopped`는 장애가 아니다.** 유휴 정지 정책이 의도적으로 만든 상태이므로 가용성 지표에서 제외한다. 이 구분이 없으면 비용을 아낄수록 가용성 지표가 나빠진다.
+>
+> ⚠️ **`absent`와 `crashed`는 다르다.** `absent`는 배포 자체가 없는 것이고 `crashed`는 배포는 있으나 기동 실패다. 전자는 `orphaned` 판정의 입력이 되고 후자는 장애 대응 대상이다.
+
+### 6-4. 전이 주체와 카탈로그 노출
+
+**"누가 바꾸는가"를 명시하지 않으면 두 주체가 같은 값을 반대로 쓴다.**
+
+| lifecycle | 전이 주체 | 임직원 카탈로그 | 개발자·운영 콘솔 |
+|---|---|---|---|
+| `requested` · `assessed` | 신청자 / 판정자(플랫폼팀) | 숨김 | 표시 |
+| `in_development` | 파이프라인 (자동) | 숨김 | 표시 |
+| `in_review` | MR · 승인 게이트 | 숨김 | 표시 |
+| `approved` | 보호된 환경 승인자 | 숨김 | 표시 |
+| **`live`** | **조정 루프** (verify 통과 확인) | **표시 · 실행 가능** | 표시 |
+| `deprecated` | 소유자 / 플랫폼팀 | 표시 · **일몰 예고 배지** | 표시 |
+| `sunset` | 정책 기한 (자동) | 숨김 · 링크는 안내 페이지로 | 표시 |
+| `orphaned` | **조정 루프** (완전성 신호 있을 때만, §4-3) | 숨김 | 표시 · **소유자 알림** |
+| `archived` | 정책 기한 (자동) | 숨김 | 검색 시에만 |
+| `unregistered` | **조정 루프** | 숨김 | 표시 · **등록 유도 알림** |
+| (runtime) `running`/`stopped`/`starting` | 조정 루프 관측 | 실행 가능 | 표시 |
+| (runtime) `crashed`/`absent` | 조정 루프 관측 | 실행 불가 표시 | 표시 · 알림 |
+
+**증적은 어떤 상태에서도 삭제하지 않는다.** `archived`에서도 보존한다 — 감사 대상이다(§4-4).
+
+### 6-5. 설계 규칙 셋
+
+1. **런타임 상태는 마켓이 판단하지 않는다.** 소스에서 읽은 값을 그대로 기록한다. 마켓이 추론하기 시작하면 소스와 어긋난다
+2. **수명주기 전이 중 조정 루프가 하는 것은 셋뿐이다** — `approved → live`, `live → orphaned`, `unregistered` 진입. 나머지는 사람 또는 파이프라인이 바꾼다
+3. **`stopped`를 장애로 집계하지 않는다.** 가용성 지표는 `crashed`와 `absent`만 센다
+
+---
+
+## 7. 미결
 
 | # | 항목 | 영향 |
 |---|---|---|
@@ -193,6 +279,8 @@ flowchart LR
 | 4 | 임직원 UI와 개발자 콘솔을 **한 프론트엔드로 할지** | §1 |
 | 5 | `unregistered` 발견 시 조치 절차 (알림 · 등록 유도 · 차단) | §4-5 |
 | 6 | 이벤트 힌트의 전달 수단 (HTTP POST 유지 / 큐) | §4-2 |
+| 7 | `deprecated → sunset → archived` 각 단계의 유예 기간 | §6-2 |
+| 8 | `crashed` 지속 시 자동 조치 (재시작 시도 / 소유자 에스컬레이션) | §6-3 |
 
 > 1번은 파일럿에서 실측해야 한다. `AXM-0005`의 유휴 정지 정책이 도입되면 앱 상태가 하루에도 여러 번 바뀌므로, 주기가 너무 길면 카탈로그의 상태 표시가 계속 틀리게 된다.
 
@@ -201,6 +289,6 @@ flowchart LR
 ## 관련 문서
 
 - `docs/adr/` — `AXM-0007`, `AXM-0008`, `AXM-0009`, `AXM-0011`, `AXM-0012`
-- `docs/03-runtime-decision-and-architecture.md` — §4 To-Be 전체 구성, §6 메타데이터 스키마
-- `docs/05-physical-architecture.md` — §5 앱마켓 물리 구성과 사이징
-- `docs/04-cost-model.md` — 지표·비용 정규화의 입력값
+- `docs/design/03-runtime-decision-and-architecture.md` — §4 To-Be 전체 구성, §6 메타데이터 스키마
+- `docs/design/05-physical-architecture.md` — §5 앱마켓 물리 구성과 사이징
+- `docs/design/04-cost-model.md` — 지표·비용 정규화의 입력값

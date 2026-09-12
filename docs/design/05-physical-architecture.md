@@ -328,11 +328,11 @@ PoC 도면의 원칙("단일 replica · 도메인 X · built-in DB · 자체서�
 
 ## 관련 문서
 
-- `docs/ax-market_target 아키텍처.drawio.xml` — **목표 인프라 도면** (인프라 뷰 / 경로 뷰). 본 문서 §1~§5를 그림으로 옮긴 것
-- `docs/axplayground_PoC 아키텍처.drawio.xml` — Playground PoC 아키텍처 (논리 뷰 / 인프라 뷰). 전환 범위 대조용
+- `docs/diagrams/ax-market_target 아키텍처.drawio.xml` — **목표 인프라 도면** (인프라 뷰 / 경로 뷰). 본 문서 §1~§5를 그림으로 옮긴 것
+- `docs/diagrams/axplayground_PoC 아키텍처.drawio.xml` — Playground PoC 아키텍처 (논리 뷰 / 인프라 뷰). 전환 범위 대조용
 - `docs/adr/` — 아키텍처 결정 기록 (`AXM-` 시리즈). 각 결정의 근거와 기각된 대안
-- `docs/03-runtime-decision-and-architecture.md` — 확정된 전제 F1~F7, 판정 트리, To-Be 논리 구성
-- `docs/04-cost-model.md` — 운영 비용 모델
-- `docs/06-app-market-architecture.md` — 앱마켓 내부. 엔티티·관계, 모듈 구조, 조정 루프, 워커 분리 판단
-- `docs/02-cicd-pipeline-design.md` — CI/CD 파이프라인 설계
-- `docs/databricks-apps-reference.md` — Databricks Apps 기술 레퍼런스 (§7 네트워크)
+- `docs/design/03-runtime-decision-and-architecture.md` — 확정된 전제 F1~F7, 판정 트리, To-Be 논리 구성
+- `docs/design/04-cost-model.md` — 운영 비용 모델
+- `docs/design/06-app-market-architecture.md` — 앱마켓 내부. 엔티티·관계, 모듈 구조, 조정 루프, 워커 분리 판단
+- `docs/design/02-cicd-pipeline-design.md` — CI/CD 파이프라인 설계
+- `docs/reference/databricks-apps-reference.md` — Databricks Apps 기술 레퍼런스 (§7 네트워크)
