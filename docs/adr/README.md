@@ -39,6 +39,7 @@ AX App Market 플랫폼의 아키텍처 결정을 기록한다. **왜 그렇게 
 | [AXM-0008](0008-catalog-reconciliation.md) | 카탈로그 등록 모델 — 조정 루프 기반 | Proposed | 2026-09-12 |
 | [AXM-0010](0010-no-backstage-framework.md) | Backstage를 프레임워크로 채택하지 않는다 | Proposed | 2026-09-12 |
 | [AXM-0011](0011-vks-ingress-forward-auth.md) | Private Cloud 트랙의 신원 주입은 Ingress forward-auth로 | Proposed | 2026-09-12 |
+| [AXM-0012](0012-agents-as-first-class-entities.md) | Databricks Agent를 1급 엔티티로 편입, 거버넌스는 UC에 위임 | Proposed | 2026-09-12 |
 
 ## 작성 규칙
 

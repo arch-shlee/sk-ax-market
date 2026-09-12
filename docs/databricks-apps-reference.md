@@ -70,6 +70,8 @@ Databricks Apps는 Databricks **서버리스 플랫폼 위에서 동작하는 �
 ### 한도
 
 - **워크스페이스당 Databricks App 100개 — 조정 불가(fixed)**
+- 참고: **워크스페이스 자체는 계정당 Enterprise 50개 / Premium 10개이며 조정 가능**하다. 따라서 실질 천장은 (워크스페이스 수 × 100)이고, 늘릴 수 있는 쪽은 워크스페이스뿐이다.
+- ⚠️ **에이전트는 이 한도에 걸리지 않는다.** 에이전트는 UC 자원(계정 레벨)이므로 워크스페이스 경계를 타지 않는다 → `AXM-0012`
 
 **AX App Market 설계 함의** — 전사 앱마켓이 수백 개 앱을 목표로 한다면 **워크스페이스 분할 전략이 초기 설계에 포함되어야 한다.** 앱마켓이 여러 워크스페이스에 걸쳐 앱을 등록·조회·실행하는 구조를 전제로 메타데이터 스키마(워크스페이스 ID 포함)를 잡아야 나중에 뒤집지 않는다.
 
@@ -241,11 +243,11 @@ PDF의 AX App 정의는 일반 Web App뿐 아니라 **Databricks Agent 연계 �
 
 - **Agent Bricks Custom Agents / Agent Framework**: 임의의 LLM으로 프로덕션 규모 에이전트를 구축. RAG 애플리케이션 등.
 - **Agent Evaluation**: AI 보조 평가 + 사람 피드백 UI로 에이전트 출력 품질을 검증하는 별도 기능.
-- **Genie space**: 에이전트가 UC 테이블을 질의해야 할 때 권장되는 방식. **최대 25개 UC 테이블**을 컨텍스트로 유지하며 자연어 질의 처리. 에이전트는 **사전 구성된 MCP URL**로 Genie space에 접근.
+- **Genie space**: 에이전트가 UC 테이블을 질의해야 할 때 권장되는 방식. **테이블·뷰 30개/space (조정 가능, 2026-09-11 기준)** 를 컨텍스트로 유지하며 자연어 질의 처리. 에이전트는 **사전 구성된 MCP URL**로 Genie space에 접근.
 - **Genie Conversation API**: 애플리케이션·챗봇·에이전트 프레임워크에서 자연어 데이터 질의를 수행하는 Chat 모드 API.
 - 표준 조합: **Databricks Apps(React 등 프런트엔드) + Databricks Agents(백엔드)** — 외부 호스팅 인프라 없이 플랫폼의 보안·컴플라이언스·자원 관리를 상속.
 
-**AX App Market 설계 함의** — 앞서 지적한 **"Agent App 전용 검증 게이트"** 를 Agent Evaluation 위에 얹을 수 있다. 일반 코드 검증(SAST/SCA/Secret/SBOM)만으로는 프롬프트 주입, 툴 권한 범위, 데이터 반출, 응답 품질을 잡아내지 못한다. Genie space의 25 테이블 상한도 Agent App 설계 제약으로 문서화해 둘 것.
+**AX App Market 설계 함의** — 앞서 지적한 **"Agent App 전용 검증 게이트"** 를 Agent Evaluation 위에 얹을 수 있다. 일반 코드 검증(SAST/SCA/Secret/SBOM)만으로는 프롬프트 주입, 툴 권한 범위, 데이터 반출, 응답 품질을 잡아내지 못한다. Genie space의 30 테이블 상한도 Agent App 설계 제약으로 문서화해 둘 것.
 
 ---
 
@@ -262,7 +264,7 @@ PDF의 AX App 정의는 일반 Web App뿐 아니라 **Databricks Agent 연계 �
 | 7 | 서버리스 → 온프렘 아웃바운드 제약 (확인 필요) | 사실 확인 시 **사내 시스템 직접 연동 앱 = Private Cloud 트랙**. 런타임 분기의 핵심 근거 |
 | 8 | 시스템 테이블로 감사·비용·사용현황 수집 가능 | 두 런타임의 지표 정규화 계층 + 비용 환산 기준 정의 |
 | 9 | 앱 종료 시 로그 소실 | 구조화 로깅 + UC 볼륨 출력을 **표준 앱 템플릿에 기본 탑재** |
-| 10 | Agent Evaluation, Genie space(25 테이블) | Agent App 전용 검증 게이트를 Agent Evaluation 기반으로 설계 |
+| 10 | Agent Evaluation, Genie space(30 테이블) | Agent App 전용 검증 게이트를 Agent Evaluation 기반으로 설계 |
 
 ---
 

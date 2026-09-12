@@ -350,7 +350,7 @@ verify:databricks:prod:
 | **AI-BOM 등록** | 사용 모델·에이전트·툴 인벤토리 | 미등록 시 실패 |
 | **툴 권한 범위 검토** | OWASP LLM03 과도한 권한 — 모델 출력이 자율적으로 셸 실행·API 호출·DB 트랜잭션 수행 | 셸 실행/쓰기 권한 툴은 승인 필수 |
 | **시스템 프롬프트 하드닝 확인** | OWASP LLM01 프롬프트 인젝션 | 체크리스트 |
-| **데이터 반출 경로 검토** | OWASP LLM02 민감정보 노출 | Genie space 테이블 목록 검토 (최대 25개) |
+| **데이터 반출 경로 검토** | OWASP LLM02 민감정보 노출 | Genie space 테이블 목록 검토 (30개/space, 조정 가능) |
 | **자원 한도 설정** | Unbounded Consumption — 재무적 DoS | 토큰·호출 한도 설정 여부 |
 | **품질 평가** | Databricks Agent Evaluation | 기준치 미달 시 승인 보류 |
 

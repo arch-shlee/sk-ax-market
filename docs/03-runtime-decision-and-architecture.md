@@ -136,7 +136,7 @@ flowchart TD
 | # | 질문 | 근거 |
 |---|---|---|
 | **Q5** | UC 행·열 보안 상속? | OBO 사용 시 **UC의 행 필터·컬럼 마스킹이 자동 적용**된다. Private Cloud에서 동등 통제를 구현하려면 앱 코드가 책임져야 하며, 이는 검증으로 잡아내기 가장 어려운 유형의 위험이다 |
-| **Q6** | Agent·Genie·모델서빙이 본체? | Apps + Agents 조합이 표준. Genie space는 MCP URL로 접근, 최대 25개 UC 테이블 |
+| **Q6** | Agent·Genie·모델서빙이 본체? | Apps + Agents 조합이 표준. Genie space는 MCP URL로 접근, **테이블·뷰 30개/space (조정 가능)** |
 | **Q7** | 대용량 인메모리 처리? | 데이터 근접성. 단 Large도 4 vCPU / 12 GB 상한 |
 
 > **Q5의 판정 가치가 가장 높다.** 데이터 거버넌스 책임을 앱 코드에서 플랫폼으로 옮길 수 있다는 것은 단순 편의가 아니라 **보안 통제 등급의 차이**다.
@@ -184,6 +184,8 @@ flowchart TD
 
 ## 4. To-Be 전체 구성
 
+> **2026-09-12 개정.** `AXM-0007`~`0011` 반영. 종전 도면은 (a) 런타임이 마켓으로 상태를 밀어 넣는 push 등록, (b) 레지스트리 없이 카탈로그·증적·대시보드가 각자 진실을 갖는 구조, (c) 실행 경로에 마켓이 상주하는 형태였다. 셋 다 이후 결정으로 뒤집혔다.
+
 ```mermaid
 flowchart TB
     subgraph USERS["이용 주체"]
@@ -201,8 +203,8 @@ flowchart TB
     end
 
     subgraph MAKE["MAKE · 개발"]
-        PG["AX Playground<br/>Golden Path 시작점"]
-        SCAF["표준 스캐폴드<br/>CI · 보안정책 · 로깅 결선"]
+        PG["AX Playground<br/>Coder 기반 클라우드 개발환경<br/>(AXM-0006)"]
+        SCAF["표준 스캐폴드<br/>Coder 템플릿 + Dev Container<br/>CI · 보안정책 · 로깅 결선"]
         PG --> SCAF
     end
 
@@ -219,14 +221,16 @@ flowchart TB
     end
 
     subgraph RUNTIME["ADOPT · 운영 런타임"]
-        subgraph RT_PC["Private Cloud (VKS)"]
+        subgraph RT_PC["Private Cloud (VKS) · 온프렘"]
             HARBOR["Harbor<br/>이미지 + Cosign 서명"]
             FLUX["Flux + agentk<br/>Pull 기반 GitOps"]
             KYV["Kyverno<br/>서명 · provenance 검증"]
+            IAP["Ingress forward-auth<br/>신원 헤더 주입 (AXM-0011)"]
             PCAPP["Web App 실행"]
             HARBOR --> FLUX --> KYV --> PCAPP
+            IAP --> PCAPP
         end
-        subgraph RT_DBX["Databricks Apps"]
+        subgraph RT_DBX["Databricks Apps · AWS"]
             BUNDLE["Bundle 배포<br/>deploy + run"]
             HEALTH["헬스체크<br/>서빙 버전 확인"]
             DBXAPP["App 실행 (OBO)"]
@@ -238,24 +242,20 @@ flowchart TB
         end
     end
 
-    subgraph MARKET["AX App Market"]
-        CAT["앱 카탈로그<br/>검색 · 분류 · 상세"]
-        PERM["권한 관리<br/>공개범위 · RBAC"]
-        EVID["증적 저장소<br/>SBOM · 서명 · 승인이력"]
-        OPS["운영 대시보드<br/>상태 · 사용량 · 비용"]
+    subgraph MARKET["AX App Market (AWS 전용 계정)"]
+        RECON["조정 루프 · 프로바이더<br/>GitLab · Databricks · VKS<br/>지표 · 비용 정규화 (AXM-0008)"]
+        REG["레지스트리 — 진실의 원천<br/>앱 · 소유자 · 상태 · 판정근거<br/>증적 · 권한 · 비용 (AXM-0007)"]
+        VIEW["프로젝션<br/>카탈로그 · 운영 대시보드 · 증적 뷰"]
+        LAUNCH["실행 엔드포인트<br/>/launch/:app_id (AXM-0009)"]
+        RECON --> REG
+        REG --> VIEW
+        REG --> LAUNCH
     end
 
-    subgraph OBSERV["관측 · 감사"]
-        NORM["지표 정규화 계층"]
-        PROM["Prometheus · Grafana · Loki"]
-        SYST["system.access.audit<br/>system.billing.usage"]
-        PROM --> NORM
-        SYST --> NORM
-        NORM --> OPS
-    end
+    OBSSRC["외부 지표 소스<br/>Prometheus · Loki<br/>system.access.audit · system.billing.usage"]
 
     subgraph LEGACY["온프렘 · 사내 업무 시스템"]
-        NLB["내부 NLB (우리 VPC)<br/>NCC 사설EP 종단"]
+        NLB["내부 NLB<br/>NCC 사설EP 종단"]
         SYS["MES · SRM · ERP<br/>Wehub · CRM"]
     end
 
@@ -263,27 +263,76 @@ flowchart TB
     SCAF --> GL
     APR -->|"runtime:private-cloud"| HARBOR
     APR -->|"runtime:databricks"| BUNDLE
-    CI -.증적.-> EVID
-    APR -.승인이력.-> EVID
-    HEALTH -.배포완료 등록.-> CAT
-    KYV -.배포완료 등록.-> CAT
-    PCAPP <-->|"직접 연동 가능"| SYS
+
+    RECON -.조회 pull.-> GL
+    RECON -.조회 pull.-> DBXAPP
+    RECON -.조회 pull.-> PCAPP
+    RECON -.조회 pull.-> OBSSRC
+
+    PCAPP <-->|"직접 연동"| SYS
     DBXAPP -.->|"NCC 사설EP → 내부 NLB<br/>→ TGW → DX (F3·F4)"| NLB
     NLB --> SYS
 
-    EMP --> CAT
-    CAT --> PERM
-    PERM -->|"실행: SSO + 권한"| PCAPP
-    PERM -->|"실행: SSO + CAN_USE"| DBXAPP
-    KC -.인증.-> CAT
-    KC -.인증.-> PCAPP
-    DBXID -.인증.-> DBXAPP
+    OWN -->|"공개범위 · 승인"| REG
     OWN --> APR
-    OWN --> PERM
+    REG -.CAN_USE 부여·회수.-> DBXAPP
+    REG -.RBAC 반영.-> KC
 
-    DBXAPP -.피드백 · 재배포.-> PG
-    PCAPP -.피드백 · 재배포.-> PG
+    EMP --> VIEW
+    VIEW --> LAUNCH
+    LAUNCH -->|302| DBXAPP
+    LAUNCH -->|302| IAP
+
+    KC -.인증.-> VIEW
+    KC -.인증.-> IAP
+    DBXID -.인증.-> DBXAPP
 ```
+
+### 도면에서 읽어야 할 세 가지
+
+**1. 화살표가 마켓에서 런타임으로 나간다 (`RECON -.조회 pull.->`)**
+
+종전에는 런타임이 마켓으로 "배포완료 등록"을 밀어 넣었다. 이제 **마켓이 GitLab·Databricks·VKS를 주기적으로 조회해 진실을 만든다.** 파이프라인이 보내는 것은 지연을 줄이기 위한 **이벤트 힌트**일 뿐이다.
+
+화살표는 **연결을 누가 시작하는가**를 그린 것이다. 데이터는 반대로 흐른다. 이 방향이 앱마켓의 아웃바운드 경로와 보안그룹을 결정한다.
+
+**2. 레지스트리가 가운데 있고 나머지는 파생이다**
+
+카탈로그·운영 대시보드·증적 뷰가 각자 외부와 연결되지 않는다. 전부 레지스트리를 읽는다. 화면이 늘어도 레지스트리 스키마는 흔들리지 않는다.
+
+**3. 마켓은 실행 경로에 없다**
+
+한 번 넘긴 뒤 빠진다. 이 성질 때문에 앱마켓이 저트래픽 서비스로 사이징된다(`05` §5-1). 상세는 아래 실행 경로 도면.
+
+> **이 도면은 앱마켓 내부를 4개 박스로만 표현한다.** 모듈 구조·프로바이더 상세·조정 루프의 동작은 별도 뷰에서 다룬다.
+> 배포 파이프라인이 보내는 **이벤트 힌트**와 조정 루프의 동작 순서도 같은 뷰에서 다룬다.
+
+### 4-1. 실행 경로 (`AXM-0009`)
+
+```mermaid
+flowchart LR
+    EMP["임직원<br/>VDI"]
+    VIEW["앱마켓 카탈로그"]
+    LAUNCH["실행 엔드포인트<br/>/launch/:app_id"]
+    CHK{"권한 확인<br/>앱 상태 확인"}
+    WAIT["시작 요청 + 대기 화면<br/>(유휴 정지 시 · AXM-0005)"]
+    DBXAPP2["Databricks App<br/>SSO + CAN_USE + OBO"]
+    PCAPP2["VKS Web App<br/>Ingress forward-auth"]
+
+    EMP --> VIEW --> LAUNCH --> CHK
+    CHK -->|"정지 상태"| WAIT
+    WAIT --> R302
+    CHK -->|"실행 중"| R302{{"302 리다이렉트"}}
+    R302 -->|"runtime:databricks"| DBXAPP2
+    R302 -->|"runtime:private-cloud"| PCAPP2
+
+    EMP -.->|"이후 모든 트래픽 직통 — 마켓 경유 없음"| DBXAPP2
+    EMP -.->|"이후 모든 트래픽 직통 — 마켓 경유 없음"| PCAPP2
+```
+
+마켓이 관여하는 것은 **최초 한 번**이다. 이후 화면 갱신·차트·클릭은 사용자와 런타임 직통이므로, 마켓이 처리하는 것은 "실행 클릭 횟수"이지 "앱 사용량"이 아니다.
+
+`/launch/:app_id`가 마켓 소유의 안정된 주소이므로 **앱이 런타임을 옮겨도 사용자 북마크와 공유 링크는 유지된다.** 비용 때문에 Databricks → Private Cloud로 이동하거나(`AXM-0005`) 데이터 요건 때문에 반대로 가는 경우에 뒤에서 대상만 바꿔 끼운다.
 
 ### 구성요소별 역할
 
@@ -294,7 +343,7 @@ flowchart TB
 | TRUST | **Security Policy Project** | 스캔·승인 정책을 코드로 관리. `[skip ci]` 우회 차단 | 신규 |
 | ADOPT | **Private Cloud (VKS)** | 사내 시스템 연동 앱, 커스텀 런타임 앱 | 기구축 |
 | ADOPT | **Databricks Apps** | UC 데이터 앱, Agent App. **1안 우선 적용 대상** | 신규 |
-| MARKET | **AX App Market** | 카탈로그 · 권한 · 증적 · 운영 지표 | 신규 |
+| MARKET | **AX App Market** | **레지스트리(진실의 원천) + 프로젝션.** 조정 루프가 세 소스에서 상태를 수집하고, 카탈로그·운영 대시보드·증적 뷰는 그 파생. 실행은 리다이렉트 | 신규 |
 | 신원 | **AD → Keycloak / Databricks** | 권한의 단일 소스 | 일부 기구축 |
 
 ---
@@ -336,7 +385,7 @@ Active Directory (단일 소스)
 2. **권한 회수 반영 지연을 명시한다.** SCIM 동기화 주기만큼 시차가 발생한다. 즉시 차단이 필요한 경우(퇴사·사고)의 별도 절차를 정의해야 한다.
 3. **앱 권한이 `CAN_USE`/`CAN_MANAGE` 2단계뿐이므로**, 앱 내부의 세분 역할(조회자/승인자/관리자)은 앱마켓이 전달하는 권한 정보 또는 UC 권한으로 처리한다. Databricks 앱 권한만으로는 표현할 수 없다.
 
-**4. 실행은 리다이렉트다 (`AXM-0009`).** 앱마켓은 트래픽 경로에 있지 않다. 마켓이 소유한 실행 엔드포인트(`/launch/<app_id>`)를 한 번 거쳐 현재 런타임 주소로 302하고 빠진다. 두 런타임의 물리적 위치가 다르므로(앱마켓 AWS / VKS 온프렘) 프록시 방식은 온프렘 트래픽을 AWS로 왕복시킨다.
+**4. 실행은 리다이렉트다 (`AXM-0009`).** 앱마켓은 트래픽 경로에 있지 않다. 마켓이 소유한 실행 엔드포인트(`/launch/:app_id`)를 한 번 거쳐 현재 런타임 주소로 302하고 빠진다. 두 런타임의 물리적 위치가 다르므로(앱마켓 AWS / VKS 온프렘) 프록시 방식은 온프렘 트래픽을 AWS로 왕복시킨다.
 
 **5. 두 트랙의 신원 주입을 대칭으로 만든다 (`AXM-0011`).** Databricks Apps는 플랫폼이 `x-forwarded-access-token`으로 신원을 주입하지만 VKS 앱에는 그 장치가 없어 앱마다 인증 품질이 갈린다. Ingress forward-auth로 플랫폼이 검증된 신원을 헤더로 주입한다. **단, 행·열 수준 데이터 통제의 격차는 이것으로 해소되지 않는다** — 그것이 Q5가 Databricks를 선호하는 이유다.
 
@@ -344,19 +393,36 @@ Active Directory (단일 소스)
 
 ## 6. 앱마켓 메타데이터 스키마 (초안)
 
-지금까지의 제약을 반영한 최소 스키마다. **`workspace_id`와 런타임별 조건부 필드가 핵심**이다.
+지금까지의 제약을 반영한 최소 스키마다. **`workspace_id`, 런타임별 조건부 필드, 그리고 `kind`·`uses`가 핵심**이다.
+
+> ⚠️ JSON 주석(`//`)은 설명용이다. 실제 스키마에는 넣지 않는다.
+
+### 6-1. 엔티티 종류
+
+`AXM-0012`에 따라 레지스트리는 세 종류를 담는다. 에이전트는 여러 앱이 공유하는 부품이므로 앱의 속성으로는 표현할 수 없다.
+
+| kind | 실체 | 권한 집행 | 실행 |
+|---|---|---|---|
+| `app` | Databricks App / VKS Web App | `CAN_USE` / Ingress forward-auth | 실행 엔드포인트 → 302 |
+| `agent` | UC 등록 모델 + Model Serving 엔드포인트 | UC `EXECUTE` | UI가 있으면 앱을 통해, 없으면 API 호출 |
+| `tool` | UC function · Genie space · Vector index · MCP | UC 권한 | 직접 실행 대상 아님 |
+
+### 6-2. 앱 엔티티
 
 ```json
 {
-  "app_id": "ax-app-0001",
+  "entity_id": "ax-app-0001",
+  "kind": "app",
   "name": "설비 이상 조회",
   "description": "...",
   "owner": { "user": "...", "org": "...", "backup": "..." },
   "category": ["제조", "품질"],
   "tags": ["MES", "이상탐지"],
 
-  "type": "webapp | agent",
+  "type": "webapp | agent-frontend",
   "runtime": "private-cloud | databricks",
+
+  "uses": ["ax-agent-0007"],
 
   "decision": {
     "answers": { "q1": false, "q2": false, "q5": true, "...": "..." },
@@ -397,13 +463,7 @@ Active Directory (단일 소스)
     "approved_at": "..."
   },
 
-  "ai_bom": {                            // type:agent 인 경우 필수
-    "models": ["..."],
-    "agents": ["..."],
-    "tools": [{ "name": "...", "permissions": "read|write|exec" }],
-    "genie_spaces": ["..."],
-    "eval_score": 0.0
-  },
+  "data_class": "C1 | C2 | C3",         // 데이터 등급 (A5 확정 후) — `05` §8-1
 
   "operations": {
     "cost_monthly_krw": 0,               // 공통 환산 기준 적용
@@ -420,7 +480,60 @@ Active Directory (단일 소스)
 - `decision`: 판정 근거를 남긴다. 나중에 "왜 이 앱이 여기 있나"를 재구성할 수 있어야 한다.
 - `databricks_auth_mode`: SP 모드를 예외로 관리하기 위한 필드. 기본은 `obo`.
 - `deprecation`: 기획서에 없던 항목. 앱 일몰 절차가 없으면 카탈로그가 수년 내 방치된 앱으로 채워진다.
-- `ai_bom`: AI 모델은 기존 스캐너가 읽을 수 없는 서드파티 의존성이다.
+- `kind` · `uses`: 에이전트는 재사용되는 부품이다. 앱의 속성으로 두면 같은 에이전트가 여러 앱에 중복 기록되고 실제 인벤토리를 만들 수 없다. **관계는 나중에 추가하면 스키마를 뒤집어야 하는 항목이다** — `workspace_id`와 같은 종류.
+- ~~`ai_bom`~~ → **에이전트 엔티티로 승격**(§6-3). AI 모델은 기존 스캐너가 읽을 수 없는 서드파티 의존성이며, 이제 독립 엔티티로 관리한다.
+
+### 6-3. 에이전트 엔티티
+
+```json
+{
+  "entity_id": "ax-agent-0007",
+  "kind": "agent",
+  "name": "품질 이상 원인 분석 에이전트",
+  "owner": { "user": "...", "org": "...", "backup": "..." },
+
+  "uc": {
+    "registered_model": "catalog.schema.quality_agent",
+    "model_version": "12",
+    "serving_endpoint": "quality-agent-prod"
+  },
+
+  "uses": ["ax-tool-genie-quality", "ax-tool-fn-lookup"],
+  "used_by": ["ax-app-0001", "ax-app-0042"],
+
+  "ai_bom": {
+    "base_models": ["..."],
+    "system_prompt_ref": "...",
+    "tools": [{ "ref": "ax-tool-...", "permissions": "read|write|exec" }],
+    "resource_limits": { "tokens_per_call": 0, "calls_per_day": 0 }
+  },
+
+  "evaluation": {
+    "eval_score": 0.0,
+    "evaluated_at": "...",
+    "base_model_at_eval": "...",
+    "reeval_required": false
+  },
+
+  "authz": {
+    "uc_execute_groups": ["..."],
+    "obo": true
+  },
+
+  "operations": {
+    "cost_monthly_krw": 0,
+    "budget_limit_krw": 0,
+    "calls_30d": 0
+  }
+}
+```
+
+**설계 의도**
+
+- `used_by`는 `uses`의 역방향 파생이다. 저장하지 않고 프로젝션에서 계산해도 되지만, **"이 에이전트를 고치면 어디가 영향받는가"** 가 가장 자주 묻는 질문이라 뷰에 반드시 노출한다
+- `evaluation.base_model_at_eval`: 기반 모델이 바뀌면 재평가해야 한다. 평가 시점의 모델을 기록해야 판정할 수 있다. **앱에는 없는 수명주기 개념이다**
+- `authz.uc_execute_groups`: 마켓은 부여를 오케스트레이션하고 실제 grant는 UC가 수행한다(`AXM-0012`). 데이터 접근은 OBO가 처리하므로 마켓의 책임 범위는 "호출 가능 여부"까지다
+- `operations.budget_limit_krw`: Unity Gateway의 사용자·그룹별 예산 한도를 쓸 수 있다 → `04` §2-3
 - `operations.cost_monthly_krw`: 앱 컨테이너 DBU만으로는 부족하다. 공용 웨어하우스 분담분과 Agent App의 변동비(모델 서빙·Genie)를 별도 항목으로 분리해야 showback이 성립한다. → `04-cost-model.md` §2, §6-4
 
 ---
