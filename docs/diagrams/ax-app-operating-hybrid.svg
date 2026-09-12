@@ -1,0 +1,252 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="2400" height="1510" viewBox="0 0 2400 1510" role="img" aria-labelledby="title desc">
+<title id="title">AX 앱 운영 체계 — 논리·인프라 통합 구성</title><desc id="desc">온프렘, 우리 AWS 계정, Databricks 운영 영역의 물리 경계 안에 개발·배포·마켓·앱 실행 기능을 배치한다. 앱마켓 이중화, 사설 진입, 사내 연동 경로와 검증 대기 사항을 표현한 목표 설계다.</desc><defs>
+<marker id="182C46" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto" markerUnits="userSpaceOnUse"><path d="M0 0L9 5L0 10Z" fill="#182C46"/></marker>
+<marker id="2563B9" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto" markerUnits="userSpaceOnUse"><path d="M0 0L9 5L0 10Z" fill="#2563B9"/></marker>
+<marker id="087E83" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto" markerUnits="userSpaceOnUse"><path d="M0 0L9 5L0 10Z" fill="#087E83"/></marker>
+<marker id="DA623C" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto" markerUnits="userSpaceOnUse"><path d="M0 0L9 5L0 10Z" fill="#DA623C"/></marker>
+<marker id="B7791F" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto" markerUnits="userSpaceOnUse"><path d="M0 0L9 5L0 10Z" fill="#B7791F"/></marker>
+<marker id="64748B" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto" markerUnits="userSpaceOnUse"><path d="M0 0L9 5L0 10Z" fill="#64748B"/></marker>
+</defs><g font-family="Apple SD Gothic Neo, Noto Sans CJK KR, sans-serif">
+<rect x="0" y="0" width="2400" height="1510" rx="0" fill="white" stroke="none" stroke-width="1.4"/>
+<rect x="40" y="40" width="7" height="76" rx="2" fill="#DA623C" stroke="none" stroke-width="1.4"/>
+<text x="68" y="83" font-size="46" fill="#182C46" font-weight="700" text-anchor="start">AX 앱 운영 체계</text>
+<text x="68" y="120" font-size="25" fill="#64748B" font-weight="400" text-anchor="start">논리 서비스와 실제 배치 환경을 연결한 목표 아키텍처</text>
+<rect x="2070" y="51" width="290" height="26" rx="5" fill="#EDF1F6" stroke="none" stroke-width="1.4"/>
+<text x="2215.0" y="69" font-size="14" fill="#182C46" font-weight="700" text-anchor="middle">논리·인프라 통합 뷰 · 설계 단계</text>
+<text x="2070" y="111" font-size="15" fill="#64748B" font-weight="400" text-anchor="start">HYBRID ARCHITECTURE  /  2026.09.12</text>
+<rect x="40" y="163" width="2320" height="74" rx="12" fill="#182C46" stroke="none" stroke-width="1.4"/>
+<g transform="translate(64,180) scale(0.609375)"><g fill="none" stroke="#FFFFFF" stroke-width="2.7" stroke-linecap="round" stroke-linejoin="round"><rect x="7" y="9" width="50" height="44" rx="6"/><path d="M7 21h50M14 15h1m5 0h1M25 30l-8 7 8 7m14-14 8 7-8 7m-4-18-6 26"/></g></g>
+<text x="121" y="191" font-size="22" fill="white" font-weight="700" text-anchor="start">현업·개발자</text>
+<text x="121" y="217" font-size="18" fill="#CAD8E8" font-weight="400" text-anchor="start">Playground에서 개발</text>
+<g transform="translate(645,180) scale(0.609375)"><g fill="none" stroke="#FFFFFF" stroke-width="2.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="32" cy="18" r="10"/><path d="M12 56V46c0-18 40-18 40 0v10Z"/></g></g>
+<text x="702" y="191" font-size="22" fill="white" font-weight="700" text-anchor="start">임직원</text>
+<text x="702" y="217" font-size="18" fill="#CAD8E8" font-weight="400" text-anchor="start">마켓에서 검색·권한 신청·실행</text>
+<g transform="translate(1310,180) scale(0.609375)"><g fill="none" stroke="#FFFFFF" stroke-width="2.7" stroke-linecap="round" stroke-linejoin="round"><path d="m32 5 23 9v18c0 12-12 22-23 27C21 54 9 44 9 32V14Z"/><path d="m21 31 8 8 16-18"/></g></g>
+<text x="1367" y="191" font-size="22" fill="white" font-weight="700" text-anchor="start">앱 소유자·승인자</text>
+<text x="1367" y="217" font-size="18" fill="#CAD8E8" font-weight="400" text-anchor="start">검증 결과 확인·운영 승인</text>
+<g transform="translate(1870,180) scale(0.609375)"><g fill="none" stroke="#FFFFFF" stroke-width="2.7" stroke-linecap="round" stroke-linejoin="round"><path d="M8 9v47h49M18 43V32m12 11V22m12 21V12"/><path d="m14 26 14-13 13 4L55 5"/></g></g>
+<text x="1927" y="191" font-size="22" fill="white" font-weight="700" text-anchor="start">플랫폼 운영팀</text>
+<text x="1927" y="217" font-size="18" fill="#CAD8E8" font-weight="400" text-anchor="start">권한·가용성·비용·감사 관리</text>
+<rect x="40" y="274" width="570" height="1004" rx="16" fill="#F5F8FC" stroke="#CBD5E1" stroke-width="1.7"/>
+<rect x="40" y="274" width="570" height="70" rx="12" fill="#2563B9" stroke="none" stroke-width="1.4"/>
+<rect x="58" y="291" width="36" height="36" rx="18" fill="white" stroke="none" stroke-width="1.4"/>
+<text x="76" y="317" font-size="24" fill="#2563B9" font-weight="700" text-anchor="middle">1</text>
+<text x="109" y="308" font-size="25" fill="white" font-weight="700" text-anchor="start">온프렘 · Private Cloud</text>
+<text x="109" y="330" font-size="12" fill="#E4EBF5" font-weight="400" text-anchor="start">ON-PREMISES  /  OUR OPERATIONS</text>
+<rect x="660" y="274" width="1120" height="1004" rx="16" fill="#F2F8F7" stroke="#CBD5E1" stroke-width="1.7"/>
+<rect x="660" y="274" width="1120" height="70" rx="12" fill="#087E83" stroke="none" stroke-width="1.4"/>
+<rect x="678" y="291" width="36" height="36" rx="18" fill="white" stroke="none" stroke-width="1.4"/>
+<text x="696" y="317" font-size="24" fill="#087E83" font-weight="700" text-anchor="middle">2</text>
+<text x="729" y="308" font-size="25" fill="white" font-weight="700" text-anchor="start">AWS · 서울 / 우리 계정</text>
+<text x="729" y="330" font-size="12" fill="#E4EBF5" font-weight="400" text-anchor="start">AWS AP-NORTHEAST-2  /  ACCOUNT ISOLATION</text>
+<rect x="1830" y="274" width="530" height="1004" rx="16" fill="#FFF8F3" stroke="#CBD5E1" stroke-width="1.7"/>
+<rect x="1830" y="274" width="530" height="70" rx="12" fill="#DA623C" stroke="none" stroke-width="1.4"/>
+<rect x="1848" y="291" width="36" height="36" rx="18" fill="white" stroke="none" stroke-width="1.4"/>
+<text x="1866" y="317" font-size="24" fill="#DA623C" font-weight="700" text-anchor="middle">3</text>
+<text x="1899" y="308" font-size="25" fill="white" font-weight="700" text-anchor="start">Databricks 운영 영역</text>
+<text x="1899" y="330" font-size="12" fill="#E4EBF5" font-weight="400" text-anchor="start">DATABRICKS-OWNED ACCOUNT  /  MANAGED SERVERLESS</text>
+<rect x="64" y="369" width="522" height="205" rx="12" fill="white" stroke="#CBD5E1" stroke-width="1.4"/>
+<g transform="translate(82,385) scale(0.5)"><g fill="none" stroke="#2563B9" stroke-width="2.7" stroke-linecap="round" stroke-linejoin="round"><path d="M32 55 7 35 12 9 23 28h18L52 9l5 26Z" fill="#2563B9" stroke="none"/><path d="M7 35h50L32 55 23 28m9 27 9-27" stroke="white" stroke-width="1.7"/></g></g>
+<text x="125" y="411" font-size="23" fill="#2563B9" font-weight="700" text-anchor="start">형상관리 · 검증 · 배포</text>
+<rect x="470" y="383" width="95" height="26" rx="5" fill="#EBF2FD" stroke="none" stroke-width="1.4"/>
+<text x="517.5" y="401" font-size="14" fill="#2563B9" font-weight="700" text-anchor="middle">목표 구성</text>
+<g transform="translate(127.5,431) scale(0.703125)"><g fill="none" stroke="#2563B9" stroke-width="2.7" stroke-linecap="round" stroke-linejoin="round"><path d="M32 55 7 35 12 9 23 28h18L52 9l5 26Z" fill="#2563B9" stroke="none"/><path d="M7 35h50L32 55 23 28m9 27 9-27" stroke="white" stroke-width="1.7"/></g></g>
+<text x="150" y="502" font-size="18" fill="#23364D" font-weight="700" text-anchor="middle">GitLab · Runner</text>
+<text x="150" y="525" font-size="15" fill="#64748B" font-weight="400" text-anchor="middle">코드·정책·승인</text>
+<g transform="translate(302.5,431) scale(0.703125)"><g fill="none" stroke="#2563B9" stroke-width="2.7" stroke-linecap="round" stroke-linejoin="round"><path d="m7 18 25-12 25 12v29L32 59 7 47ZM7 18l25 12 25-12M32 30v29M20 12l25 12v13"/></g></g>
+<text x="325" y="502" font-size="18" fill="#23364D" font-weight="700" text-anchor="middle">Harbor · Cosign</text>
+<text x="325" y="525" font-size="15" fill="#64748B" font-weight="400" text-anchor="middle">이미지·서명</text>
+<g transform="translate(477.5,431) scale(0.703125)"><g fill="none" stroke="#2563B9" stroke-width="2.7" stroke-linecap="round" stroke-linejoin="round"><path d="m32 5 23 9v18c0 12-12 22-23 27C21 54 9 44 9 32V14Z"/><path d="m21 31 8 8 16-18"/></g></g>
+<text x="500" y="502" font-size="18" fill="#23364D" font-weight="700" text-anchor="middle">보안·AI 게이트</text>
+<text x="500" y="525" font-size="15" fill="#64748B" font-weight="400" text-anchor="middle">SBOM·품질 평가</text>
+<text x="85" y="555" font-size="18" fill="#23364D" font-weight="400" text-anchor="start">승인 후: Databricks Bundles / VKS GitOps 배포</text>
+<rect x="64" y="594" width="522" height="93" rx="8" fill="white" stroke="#CBD5E1" stroke-width="1.4"/>
+<g transform="translate(76,607) scale(0.59375)"><g fill="none" stroke="#2563B9" stroke-width="2.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="22" cy="23" r="14"/><path d="m32 34 22 22m-9-9 8-8m-16 0 8-8"/></g></g>
+<text x="125" y="627" font-size="20" fill="#2563B9" font-weight="700" text-anchor="start">사내 신원 · 사용자 진입</text>
+<text x="125" y="654" font-size="16" fill="#64748B" font-weight="400" text-anchor="start">AD · Keycloak / 임직원 VDI · 사내 DNS</text>
+<rect x="64" y="715" width="522" height="292" rx="12" fill="white" stroke="#CBD5E1" stroke-width="1.4"/>
+<g transform="translate(82,731) scale(0.5)"><g fill="none" stroke="#2563B9" stroke-width="2.7" stroke-linecap="round" stroke-linejoin="round"><path d="m32 3 23 12 6 26-17 20H20L3 41l6-26Z" fill="#2563B9" stroke="none"/><circle cx="32" cy="32" r="14" stroke="white"/><circle cx="32" cy="32" r="4" stroke="white"/><path d="M32.00 37.00L32.00 53.00" stroke="white"/><path d="M35.91 35.12L48.42 45.09" stroke="white"/><path d="M36.87 30.89L52.47 27.33" stroke="white"/><path d="M34.17 27.50L41.11 13.08" stroke="white"/><path d="M29.83 27.50L22.89 13.08" stroke="white"/><path d="M27.13 30.89L11.53 27.33" stroke="white"/><path d="M28.09 35.12L15.58 45.09" stroke="white"/></g></g>
+<text x="125" y="757" font-size="23" fill="#2563B9" font-weight="700" text-anchor="start">Private Cloud 앱 실행</text>
+<rect x="470" y="729" width="95" height="26" rx="5" fill="#EBF2FD" stroke="none" stroke-width="1.4"/>
+<text x="517.5" y="747" font-size="14" fill="#2563B9" font-weight="700" text-anchor="middle">기존 VKS</text>
+<rect x="84" y="776" width="482" height="33" rx="5" fill="#EEF3F8" stroke="none" stroke-width="1.4"/>
+<text x="96" y="799" font-size="17" fill="#2563B9" font-weight="700" text-anchor="start">Ingress · SSO 연계 → 업무 Web App / 컨테이너 앱</text>
+<text x="84" y="838" font-size="18" fill="#23364D" font-weight="400" text-anchor="start">Flux · agentk → Kyverno → 승인된 이미지 실행</text>
+<text x="84" y="865" font-size="16" fill="#64748B" font-weight="400" text-anchor="start">인증 연계: Ingress forward-auth (제안)</text>
+<polyline points="325,875 325,900" fill="none" stroke="#64748B" stroke-width="2" stroke-linejoin="round" marker-end="url(#64748B)"/>
+<rect x="84" y="901" width="482" height="87" rx="8" fill="#EEF3FA" stroke="none" stroke-width="1.4"/>
+<g transform="translate(99,920) scale(0.640625)"><g fill="none" stroke="#2563B9" stroke-width="2.7" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="7" width="44" height="38" rx="5" opacity=".35"/><rect x="11" y="13" width="44" height="38" rx="5" fill="white"/><rect x="17" y="19" width="42" height="38" rx="5" fill="white"/><path d="M17 30h42M24 25h1m5 0h1"/><rect x="25" y="37" width="10" height="10" rx="1"/><path d="M41 38h10m-10 7h10"/></g></g>
+<text x="155" y="928" font-size="20" fill="#23364D" font-weight="700" text-anchor="start">사내 업무 시스템</text>
+<text x="155" y="961" font-size="18" fill="#64748B" font-weight="400" text-anchor="start">MES · SRM · ERP · Wehub · CRM</text>
+<rect x="64" y="1036" width="522" height="215" rx="12" fill="white" stroke="#CBD5E1" stroke-width="1.4"/>
+<g transform="translate(82,1052) scale(0.5)"><g fill="none" stroke="#2563B9" stroke-width="2.7" stroke-linecap="round" stroke-linejoin="round"><path d="m7 20 7-12h36l7 12v35H7Z"/><path d="M7 20h50M7 38h50M16 28h20m-20 18h20"/><circle cx="48" cy="29" r="1.5"/><circle cx="48" cy="47" r="1.5"/></g></g>
+<text x="125" y="1078" font-size="23" fill="#2563B9" font-weight="700" text-anchor="start">기구축 인프라 기반</text>
+<g transform="translate(125,1100) scale(0.828125)"><g fill="none" stroke="#2563B9" stroke-width="2.7" stroke-linecap="round" stroke-linejoin="round"><path d="m7 20 7-12h36l7 12v35H7Z"/><path d="M7 20h50M7 38h50M16 28h20m-20 18h20"/><circle cx="48" cy="29" r="1.5"/><circle cx="48" cy="47" r="1.5"/></g></g>
+<g transform="translate(208,1100) scale(0.828125)"><g fill="none" stroke="#2563B9" stroke-width="2.7" stroke-linecap="round" stroke-linejoin="round"><path d="m7 20 7-12h36l7 12v35H7Z"/><path d="M7 20h50M7 38h50M16 28h20m-20 18h20"/><circle cx="48" cy="29" r="1.5"/><circle cx="48" cy="47" r="1.5"/></g></g>
+<g transform="translate(291,1100) scale(0.828125)"><g fill="none" stroke="#2563B9" stroke-width="2.7" stroke-linecap="round" stroke-linejoin="round"><path d="m7 20 7-12h36l7 12v35H7Z"/><path d="M7 20h50M7 38h50M16 28h20m-20 18h20"/><circle cx="48" cy="29" r="1.5"/><circle cx="48" cy="47" r="1.5"/></g></g>
+<g transform="translate(395,1100) scale(0.828125)"><g fill="none" stroke="#2563B9" stroke-width="2.7" stroke-linecap="round" stroke-linejoin="round"><path d="M10 16v32c0 12 44 12 44 0V16"/><ellipse cx="32" cy="16" rx="22" ry="9"/><path d="M10 31c0 12 44 12 44 0M10 44c0 12 44 12 44 0"/></g></g>
+<text x="230" y="1180" font-size="19" fill="#23364D" font-weight="700" text-anchor="middle">VKS 컴퓨트 자원 풀</text>
+<text x="424" y="1180" font-size="18" fill="#23364D" font-weight="700" text-anchor="middle">스토리지</text>
+<text x="85" y="1226" font-size="16" fill="#64748B" font-weight="400" text-anchor="start">개념 표현 · 노드 수·사양·가용 용량은 별도 확인</text>
+<rect x="682" y="369" width="302" height="657" rx="10" fill="white" stroke="#CBD5E1" stroke-width="1.4"/>
+<rect x="696" y="383" width="274" height="33" rx="5" fill="#EEF3F8" stroke="none" stroke-width="1.4"/>
+<text x="708" y="406" font-size="17" fill="#087E83" font-weight="700" text-anchor="start">Playground 계정</text>
+<rect x="697" y="428" width="120" height="26" rx="5" fill="#E5F3F0" stroke="none" stroke-width="1.4"/>
+<text x="757.0" y="446" font-size="14" fill="#087E83" font-weight="700" text-anchor="middle">PoC → 운영 전환</text>
+<g transform="translate(800,472) scale(1.0)"><g fill="none" stroke="#087E83" stroke-width="2.7" stroke-linecap="round" stroke-linejoin="round"><rect x="7" y="9" width="50" height="44" rx="6"/><path d="M7 21h50M14 15h1m5 0h1M25 30l-8 7 8 7m14-14 8 7-8 7m-4-18-6 26"/></g></g>
+<text x="833" y="570" font-size="25" fill="#087E83" font-weight="700" text-anchor="middle">AX Playground</text>
+<text x="833" y="599" font-size="18" fill="#64748B" font-weight="400" text-anchor="middle">표준 개발환경 · AI 코딩</text>
+<rect x="697" y="628" width="272" height="85" rx="8" fill="white" stroke="#CBD5E1" stroke-width="1.4"/>
+<g transform="translate(709,641) scale(0.59375)"><g fill="none" stroke="#087E83" stroke-width="2.7" stroke-linecap="round" stroke-linejoin="round"><path d="m7 20 7-12h36l7 12v35H7Z"/><path d="M7 20h50M7 38h50M16 28h20m-20 18h20"/><circle cx="48" cy="29" r="1.5"/><circle cx="48" cy="47" r="1.5"/></g></g>
+<text x="758" y="661" font-size="20" fill="#087E83" font-weight="700" text-anchor="start">Coder Server</text>
+<text x="758" y="688" font-size="16" fill="#64748B" font-weight="400" text-anchor="start">워크스페이스 관리</text>
+<polyline points="833,713 833,741" fill="none" stroke="#087E83" stroke-width="2" stroke-linejoin="round" marker-end="url(#087E83)"/>
+<rect x="697" y="741" width="272" height="139" rx="8" fill="#F0F7F5" stroke="#CBD5E1" stroke-width="1.4"/>
+<g transform="translate(718,761) scale(0.71875)"><g fill="none" stroke="#087E83" stroke-width="2.7" stroke-linecap="round" stroke-linejoin="round"><path d="m7 20 7-12h36l7 12v35H7Z"/><path d="M7 20h50M7 38h50M16 28h20m-20 18h20"/><circle cx="48" cy="29" r="1.5"/><circle cx="48" cy="47" r="1.5"/></g></g>
+<g transform="translate(778,761) scale(0.71875)"><g fill="none" stroke="#087E83" stroke-width="2.7" stroke-linecap="round" stroke-linejoin="round"><path d="m7 20 7-12h36l7 12v35H7Z"/><path d="M7 20h50M7 38h50M16 28h20m-20 18h20"/><circle cx="48" cy="29" r="1.5"/><circle cx="48" cy="47" r="1.5"/></g></g>
+<g transform="translate(838,761) scale(0.71875)"><g fill="none" stroke="#087E83" stroke-width="2.7" stroke-linecap="round" stroke-linejoin="round"><path d="m7 20 7-12h36l7 12v35H7Z"/><path d="M7 20h50M7 38h50M16 28h20m-20 18h20"/><circle cx="48" cy="29" r="1.5"/><circle cx="48" cy="47" r="1.5"/></g></g>
+<text x="833" y="833" font-size="20" fill="#087E83" font-weight="700" text-anchor="middle">워크스페이스 EC2</text>
+<text x="833" y="860" font-size="13" fill="#64748B" font-weight="400" text-anchor="middle">VS Code · Claude Code · Dev Container</text>
+<rect x="697" y="909" width="272" height="85" rx="8" fill="white" stroke="#CBD5E1" stroke-width="1.4"/>
+<g transform="translate(709,922) scale(0.59375)"><g fill="none" stroke="#087E83" stroke-width="2.7" stroke-linecap="round" stroke-linejoin="round"><path d="m32 5 7 19 20 8-20 8-7 19-7-19-20-8 20-8ZM52 3v12m-6-6h12"/></g></g>
+<text x="758" y="942" font-size="20" fill="#087E83" font-weight="700" text-anchor="start">Amazon Bedrock</text>
+<text x="758" y="969" font-size="16" fill="#64748B" font-weight="400" text-anchor="start">운영 사설 EP 구성 검토</text>
+<rect x="1008" y="369" width="452" height="657" rx="10" fill="white" stroke="#CBD5E1" stroke-width="1.4"/>
+<rect x="1022" y="383" width="424" height="33" rx="5" fill="#EEF3F8" stroke="none" stroke-width="1.4"/>
+<text x="1034" y="406" font-size="17" fill="#087E83" font-weight="700" text-anchor="start">앱마켓 운영 계정 · 전용 VPC</text>
+<rect x="1338" y="428" width="108" height="26" rx="5" fill="#E5F3F0" stroke="none" stroke-width="1.4"/>
+<text x="1392.0" y="446" font-size="14" fill="#087E83" font-weight="700" text-anchor="middle">신규 구축</text>
+<g transform="translate(1030,433) scale(0.734375)"><g fill="none" stroke="#087E83" stroke-width="2.7" stroke-linecap="round" stroke-linejoin="round"><path d="M9 26v30h46V26M6 25l6-17h40l6 17M6 25c0 10 13 10 13 0 0 10 13 10 13 0 0 10 13 10 13 0 0 10 13 10 13 0"/><path d="M26 56V40h14v16"/></g></g>
+<text x="1090" y="465" font-size="27" fill="#087E83" font-weight="700" text-anchor="start">AX App Market</text>
+<text x="1030" y="497" font-size="19" fill="#23364D" font-weight="400" text-anchor="start">카탈로그 · 권한 신청 · 실행 · 운영 콘솔</text>
+<rect x="1052" y="534" width="364" height="77" rx="8" fill="white" stroke="#CBD5E1" stroke-width="1.4"/>
+<g transform="translate(1064,547) scale(0.59375)"><g fill="none" stroke="#087E83" stroke-width="2.7" stroke-linecap="round" stroke-linejoin="round"><rect x="21" y="5" width="22" height="15" rx="3"/><rect x="4" y="43" width="22" height="15" rx="3"/><rect x="38" y="43" width="22" height="15" rx="3"/><path d="M32 20v12H15v11m17-11h17v11"/></g></g>
+<text x="1113" y="567" font-size="20" fill="#087E83" font-weight="700" text-anchor="start">내부 ALB</text>
+<text x="1113" y="594" font-size="16" fill="#64748B" font-weight="400" text-anchor="start">사내 도메인 · 사설 진입</text>
+<polyline points="1234,611 1234,633 1129,633 1129,651" fill="none" stroke="#087E83" stroke-width="2" stroke-linejoin="round" marker-end="url(#087E83)"/>
+<polyline points="1234,633 1339,633 1339,651" fill="none" stroke="#087E83" stroke-width="2" stroke-linejoin="round" marker-end="url(#087E83)"/>
+<rect x="1027" y="651" width="194" height="154" rx="8" fill="#EEF7F4" stroke="#CBD5E1" stroke-width="1.4"/>
+<text x="1042" y="676" font-size="15" fill="#087E83" font-weight="700" text-anchor="start">Private Subnet · AZ-a</text>
+<g transform="translate(1096,691) scale(0.8125)"><g fill="none" stroke="#087E83" stroke-width="2.7" stroke-linecap="round" stroke-linejoin="round"><path d="m7 20 7-12h36l7 12v35H7Z"/><path d="M7 20h50M7 38h50M16 28h20m-20 18h20"/><circle cx="48" cy="29" r="1.5"/><circle cx="48" cy="47" r="1.5"/></g></g>
+<text x="1124" y="776" font-size="20" fill="#23364D" font-weight="700" text-anchor="middle">앱마켓 서비스</text>
+<text x="1124" y="796" font-size="13" fill="#64748B" font-weight="400" text-anchor="middle">web · 상태 조회 기능</text>
+<rect x="1237" y="651" width="194" height="154" rx="8" fill="#EEF7F4" stroke="#CBD5E1" stroke-width="1.4"/>
+<text x="1252" y="676" font-size="15" fill="#087E83" font-weight="700" text-anchor="start">Private Subnet · AZ-c</text>
+<g transform="translate(1306,691) scale(0.8125)"><g fill="none" stroke="#087E83" stroke-width="2.7" stroke-linecap="round" stroke-linejoin="round"><path d="m7 20 7-12h36l7 12v35H7Z"/><path d="M7 20h50M7 38h50M16 28h20m-20 18h20"/><circle cx="48" cy="29" r="1.5"/><circle cx="48" cy="47" r="1.5"/></g></g>
+<text x="1334" y="776" font-size="20" fill="#23364D" font-weight="700" text-anchor="middle">앱마켓 서비스</text>
+<text x="1334" y="796" font-size="13" fill="#64748B" font-weight="400" text-anchor="middle">web · 상태 조회 기능</text>
+<polyline points="1124,805 1124,822 1234,822 1234,832" fill="none" stroke="#64748B" stroke-width="2" stroke-linejoin="round"/>
+<polyline points="1334,805 1334,822 1234,822" fill="none" stroke="#64748B" stroke-width="2" stroke-linejoin="round"/>
+<rect x="1027" y="842" width="194" height="86" rx="8" fill="white" stroke="#CBD5E1" stroke-width="1.4"/>
+<g transform="translate(1039,855) scale(0.59375)"><g fill="none" stroke="#087E83" stroke-width="2.7" stroke-linecap="round" stroke-linejoin="round"><path d="M10 16v32c0 12 44 12 44 0V16"/><ellipse cx="32" cy="16" rx="22" ry="9"/><path d="M10 31c0 12 44 12 44 0M10 44c0 12 44 12 44 0"/></g></g>
+<text x="1088" y="875" font-size="20" fill="#087E83" font-weight="700" text-anchor="start">관리형 DB</text>
+<text x="1088" y="902" font-size="16" fill="#64748B" font-weight="400" text-anchor="start">Multi-AZ · 백업</text>
+<rect x="1237" y="842" width="194" height="86" rx="8" fill="white" stroke="#CBD5E1" stroke-width="1.4"/>
+<g transform="translate(1249,855) scale(0.59375)"><g fill="none" stroke="#087E83" stroke-width="2.7" stroke-linecap="round" stroke-linejoin="round"><rect x="12" y="6" width="40" height="52" rx="5"/><path d="M22 18h21M22 28h21M22 38h21M22 48h13"/></g></g>
+<text x="1298" y="875" font-size="20" fill="#087E83" font-weight="700" text-anchor="start">S3 증적</text>
+<text x="1298" y="902" font-size="16" fill="#64748B" font-weight="400" text-anchor="start">승인이력 · SBOM</text>
+<polyline points="1234,832 1124,832 1124,842" fill="none" stroke="#64748B" stroke-width="2" stroke-linejoin="round" marker-end="url(#64748B)"/>
+<polyline points="1234,832 1334,832 1334,842" fill="none" stroke="#64748B" stroke-width="2" stroke-linejoin="round" marker-end="url(#64748B)"/>
+<text x="1030" y="959" font-size="17" fill="#23364D" font-weight="400" text-anchor="start">목표: 2 AZ 분산 / DB 복구·증적 보존</text>
+<text x="1030" y="989" font-size="15" fill="#64748B" font-weight="400" text-anchor="start">컴퓨트 제품 미정 · 조정 워커 분리는 필요 시</text>
+<rect x="1484" y="369" width="274" height="657" rx="10" fill="white" stroke="#CBD5E1" stroke-width="1.4"/>
+<rect x="1498" y="383" width="246" height="33" rx="5" fill="#EEF3F8" stroke="none" stroke-width="1.4"/>
+<text x="1510" y="406" font-size="17" fill="#087E83" font-weight="700" text-anchor="start">Databricks 전용 계정</text>
+<rect x="1499" y="428" width="95" height="26" rx="5" fill="#E5F3F0" stroke="none" stroke-width="1.4"/>
+<text x="1546.5" y="446" font-size="14" fill="#087E83" font-weight="700" text-anchor="middle">기존 계정</text>
+<g transform="translate(1589,474) scale(1.0)"><g fill="none" stroke="#087E83" stroke-width="2.7" stroke-linecap="round" stroke-linejoin="round"><path d="M17 49h32c16 0 16-24 1-25C45 4 20 6 17 24 0 25 1 49 17 49Z"/><path d="M23 35h18m-9-8v16"/></g></g>
+<text x="1621" y="575" font-size="23" fill="#087E83" font-weight="700" text-anchor="middle">워크스페이스 귀속</text>
+<text x="1621" y="606" font-size="17" fill="#64748B" font-weight="400" text-anchor="middle">우리 계정과 서비스 연계</text>
+<rect x="1498" y="632" width="246" height="98" rx="8" fill="#F3F7F9" stroke="#CBD5E1" stroke-width="1.4" stroke-dasharray="7 5"/>
+<text x="1621" y="662" font-size="18" fill="#23364D" font-weight="700" text-anchor="middle">워크스페이스 구성·연계</text>
+<text x="1621" y="690" font-size="16" fill="#64748B" font-weight="400" text-anchor="middle">Apps 서버리스 실행 위치는</text>
+<text x="1621" y="714" font-size="16" fill="#DA623C" font-weight="400" text-anchor="middle">우측 Databricks 운영 영역</text>
+<rect x="1498" y="773" width="246" height="137" rx="8" fill="#ECF5F4" stroke="#CBD5E1" stroke-width="1.4"/>
+<g transform="translate(1513,790) scale(0.640625)"><g fill="none" stroke="#087E83" stroke-width="2.7" stroke-linecap="round" stroke-linejoin="round"><rect x="21" y="5" width="22" height="15" rx="3"/><rect x="4" y="43" width="22" height="15" rx="3"/><rect x="38" y="43" width="22" height="15" rx="3"/><path d="M32 20v12H15v11m17-11h17v11"/></g></g>
+<text x="1570" y="814" font-size="23" fill="#087E83" font-weight="700" text-anchor="start">PrivateLink</text>
+<text x="1513" y="852" font-size="17" fill="#23364D" font-weight="400" text-anchor="start">Front-end 인터페이스 EP</text>
+<text x="1513" y="882" font-size="16" fill="#64748B" font-weight="400" text-anchor="start">사용자·API 사설 진입</text>
+<text x="1500" y="950" font-size="14" fill="#64748B" font-weight="400" text-anchor="start">사내 DNS ↔ Route53 Resolver</text>
+<text x="1500" y="979" font-size="15" fill="#64748B" font-weight="400" text-anchor="start">Apps 도메인 조건부 포워딩</text>
+<rect x="682" y="1068" width="1076" height="183" rx="10" fill="#EAF3F2" stroke="#CBD5E1" stroke-width="1.4"/>
+<text x="702" y="1098" font-size="22" fill="#087E83" font-weight="700" text-anchor="start">공통 네트워크 · 사내 연동</text>
+<text x="1245" y="1097" font-size="16" fill="#B7791F" font-weight="400" text-anchor="start">공유 계정 존재 여부·NLB 배치 계정 미정</text>
+<rect x="704" y="1121" width="225" height="99" rx="8" fill="white" stroke="#CBD5E1" stroke-width="1.4"/>
+<g transform="translate(716,1134) scale(0.59375)"><g fill="none" stroke="#087E83" stroke-width="2.7" stroke-linecap="round" stroke-linejoin="round"><rect x="21" y="5" width="22" height="15" rx="3"/><rect x="4" y="43" width="22" height="15" rx="3"/><rect x="38" y="43" width="22" height="15" rx="3"/><path d="M32 20v12H15v11m17-11h17v11"/></g></g>
+<text x="765" y="1154" font-size="20" fill="#087E83" font-weight="700" text-anchor="start">TGW</text>
+<text x="765" y="1181" font-size="16" fill="#64748B" font-weight="400" text-anchor="start">VPC · 사내망 라우팅</text>
+<rect x="960" y="1121" width="265" height="99" rx="8" fill="white" stroke="#CBD5E1" stroke-width="1.4"/>
+<g transform="translate(972,1134) scale(0.59375)"><g fill="none" stroke="#087E83" stroke-width="2.7" stroke-linecap="round" stroke-linejoin="round"><rect x="21" y="5" width="22" height="15" rx="3"/><rect x="4" y="43" width="22" height="15" rx="3"/><rect x="38" y="43" width="22" height="15" rx="3"/><path d="M32 20v12H15v11m17-11h17v11"/></g></g>
+<text x="1021" y="1154" font-size="20" fill="#087E83" font-weight="700" text-anchor="start">Route53 Resolver</text>
+<text x="1021" y="1181" font-size="16" fill="#64748B" font-weight="400" text-anchor="start">사내 DNS 연계</text>
+<rect x="1256" y="1121" width="478" height="99" rx="8" fill="white" stroke="#CBD5E1" stroke-width="1.4"/>
+<g transform="translate(1268,1134) scale(0.59375)"><g fill="none" stroke="#B7791F" stroke-width="2.7" stroke-linecap="round" stroke-linejoin="round"><rect x="21" y="5" width="22" height="15" rx="3"/><rect x="4" y="43" width="22" height="15" rx="3"/><rect x="38" y="43" width="22" height="15" rx="3"/><path d="M32 20v12H15v11m17-11h17v11"/></g></g>
+<text x="1317" y="1154" font-size="20" fill="#B7791F" font-weight="700" text-anchor="start">VPC Endpoint Service → 내부 NLB</text>
+<text x="1317" y="1181" font-size="16" fill="#64748B" font-weight="400" text-anchor="start">사내 시스템 연동 · 온프렘 IP 타깃 검증 필요</text>
+<rect x="1854" y="369" width="482" height="239" rx="12" fill="white" stroke="#CBD5E1" stroke-width="1.4"/>
+<g transform="translate(1872,385) scale(0.5)"><g fill="none" stroke="#DA623C" stroke-width="2.7" stroke-linecap="round" stroke-linejoin="round"><path d="m7 18 25-12 25 12-25 12ZM7 29l25 12 25-12M7 40l25 12 25-12"/></g></g>
+<text x="1915" y="411" font-size="23" fill="#DA623C" font-weight="700" text-anchor="start">Databricks Apps</text>
+<rect x="2210" y="383" width="105" height="26" rx="5" fill="#FFF0E9" stroke="none" stroke-width="1.4"/>
+<text x="2262.5" y="401" font-size="14" fill="#DA623C" font-weight="700" text-anchor="middle">우선 적용</text>
+<g transform="translate(1948.0,437) scale(0.875)"><g fill="none" stroke="#DA623C" stroke-width="2.7" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="7" width="44" height="38" rx="5" opacity=".35"/><rect x="11" y="13" width="44" height="38" rx="5" fill="white"/><rect x="17" y="19" width="42" height="38" rx="5" fill="white"/><path d="M17 30h42M24 25h1m5 0h1"/><rect x="25" y="37" width="10" height="10" rx="1"/><path d="M41 38h10m-10 7h10"/></g></g>
+<text x="1976" y="519" font-size="18" fill="#23364D" font-weight="700" text-anchor="middle">업무 Web App</text>
+<text x="1976" y="542" font-size="15" fill="#64748B" font-weight="400" text-anchor="middle">사용자 권한 기반 접근</text>
+<g transform="translate(2186.0,437) scale(0.875)"><g fill="none" stroke="#DA623C" stroke-width="2.7" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="19" width="46" height="34" rx="9"/><path d="M32 19V9m-5 0h10M3 30v12m58-12v12M23 44h18"/><circle cx="23" cy="32" r="3"/><circle cx="41" cy="32" r="3"/></g></g>
+<text x="2214" y="519" font-size="18" fill="#23364D" font-weight="700" text-anchor="middle">Agent 활용 앱</text>
+<text x="2214" y="542" font-size="15" fill="#64748B" font-weight="400" text-anchor="middle">대화 · 업무 자동화</text>
+<text x="1874" y="586" font-size="19" fill="#23364D" font-weight="400" text-anchor="start">Bundle 배포 · 유휴 정지 · 앱별 비용 관리</text>
+<rect x="1854" y="644" width="482" height="226" rx="12" fill="white" stroke="#CBD5E1" stroke-width="1.4"/>
+<g transform="translate(1872,660) scale(0.5)"><g fill="none" stroke="#DA623C" stroke-width="2.7" stroke-linecap="round" stroke-linejoin="round"><path d="M10 16v32c0 12 44 12 44 0V16"/><ellipse cx="32" cy="16" rx="22" ry="9"/><path d="M10 31c0 12 44 12 44 0M10 44c0 12 44 12 44 0"/></g></g>
+<text x="1915" y="686" font-size="23" fill="#DA623C" font-weight="700" text-anchor="start">데이터·AI 서비스</text>
+<rect x="2208" y="658" width="107" height="26" rx="5" fill="#FFF0E9" stroke="none" stroke-width="1.4"/>
+<text x="2261.5" y="676" font-size="14" fill="#DA623C" font-weight="700" text-anchor="middle">논리 구성</text>
+<text x="1874" y="724" font-size="19" fill="#23364D" font-weight="700" text-anchor="start">Unity Catalog · 사용자 권한 / 행·열 통제</text>
+<text x="1874" y="764" font-size="21" fill="#23364D" font-weight="400" text-anchor="start">Agent · Genie · Model Serving</text>
+<text x="1874" y="804" font-size="19" fill="#23364D" font-weight="400" text-anchor="start">공용 SQL Warehouse · 데이터 질의</text>
+<text x="1874" y="848" font-size="15" fill="#64748B" font-weight="400" text-anchor="start">서비스 관계 표현 · 개별 물리 자원 배치를 뜻하지 않음</text>
+<polyline points="2095,608 2095,644" fill="none" stroke="#DA623C" stroke-width="2" stroke-linejoin="round" marker-end="url(#DA623C)"/>
+<rect x="1854" y="935" width="482" height="106" rx="8" fill="white" stroke="#CBD5E1" stroke-width="1.4"/>
+<g transform="translate(1866,948) scale(0.59375)"><g fill="none" stroke="#DA623C" stroke-width="2.7" stroke-linecap="round" stroke-linejoin="round"><rect x="21" y="5" width="22" height="15" rx="3"/><rect x="4" y="43" width="22" height="15" rx="3"/><rect x="38" y="43" width="22" height="15" rx="3"/><path d="M32 20v12H15v11m17-11h17v11"/></g></g>
+<text x="1915" y="968" font-size="20" fill="#DA623C" font-weight="700" text-anchor="start">NCC 사설 엔드포인트</text>
+<text x="1915" y="995" font-size="16" fill="#64748B" font-weight="400" text-anchor="start">앱 → 승인된 사내 자원으로 PrivateLink 연결</text>
+<polyline points="2336,553 2348,553 2348,920 2095,920 2095,935" fill="none" stroke="#DA623C" stroke-width="2" stroke-linejoin="round" marker-end="url(#DA623C)"/>
+<rect x="1854" y="1104" width="482" height="147" rx="12" fill="white" stroke="#CBD5E1" stroke-width="1.4"/>
+<g transform="translate(1872,1120) scale(0.5)"><g fill="none" stroke="#DA623C" stroke-width="2.7" stroke-linecap="round" stroke-linejoin="round"><path d="M17 49h32c16 0 16-24 1-25C45 4 20 6 17 24 0 25 1 49 17 49Z"/><path d="M23 35h18m-9-8v16"/></g></g>
+<text x="1915" y="1146" font-size="23" fill="#DA623C" font-weight="700" text-anchor="start">관리형 서버리스 컴퓨트</text>
+<text x="1874" y="1182" font-size="20" fill="#23364D" font-weight="400" text-anchor="start">Apps · Agent 실행 / 공급자 운영</text>
+<text x="1874" y="1213" font-size="18" fill="#64748B" font-weight="400" text-anchor="start">우리 EC2·VKS 자원 풀과 분리된 실행 기반</text>
+<polyline points="682,561 634,561 634,480 586,480" fill="none" stroke="#2563B9" stroke-width="2" stroke-linejoin="round" marker-end="url(#2563B9)"/>
+<rect x="601" y="510" width="62" height="26" rx="5" fill="#EBF2FD" stroke="none" stroke-width="1.4"/>
+<text x="632.0" y="528" font-size="14" fill="#2563B9" font-weight="700" text-anchor="middle">Git</text>
+<polyline points="325,369 325,357 2095,357 2095,369" fill="none" stroke="#2563B9" stroke-width="2" stroke-linejoin="round" marker-end="url(#2563B9)"/>
+<rect x="1100" y="347" width="246" height="20" rx="3" fill="#F2F8F7" stroke="none" stroke-width="1.4"/>
+<text x="1223" y="362" font-size="15" fill="#2563B9" font-weight="700" text-anchor="middle">승인된 소스 · Bundle 배포</text>
+<polyline points="64,479 52,479 52,795 64,795" fill="none" stroke="#2563B9" stroke-width="2" stroke-linejoin="round" marker-end="url(#2563B9)"/>
+<polyline points="586,1170 704,1170" fill="none" stroke="#087E83" stroke-width="3" stroke-linejoin="round" marker-end="url(#087E83)"/>
+<rect x="554" y="1125" width="143" height="26" rx="5" fill="#E5F3F0" stroke="none" stroke-width="1.4"/>
+<text x="625.5" y="1143" font-size="14" fill="#087E83" font-weight="700" text-anchor="middle">DX · VPN</text>
+<polyline points="815,1121 815,1044 1448,1044 1448,573 1416,573" fill="none" stroke="#087E83" stroke-width="2.4" stroke-linejoin="round" marker-end="url(#087E83)"/>
+<polyline points="1448,1044 1768,1044 1768,875 1744,875" fill="none" stroke="#087E83" stroke-width="2.4" stroke-linejoin="round" marker-end="url(#087E83)"/>
+<rect x="892" y="1031" width="322" height="26" rx="5" fill="#E5F3F0" stroke="none" stroke-width="1.4"/>
+<text x="1053.0" y="1049" font-size="14" fill="#087E83" font-weight="700" text-anchor="middle">사설 진입 → 내부 ALB / Front-end EP</text>
+<polyline points="1744,840 1806,840 1806,486 1854,486" fill="none" stroke="#087E83" stroke-width="2.6" stroke-linejoin="round" marker-end="url(#087E83)"/>
+<rect x="1758" y="614" width="94" height="26" rx="5" fill="#E5F3F0" stroke="none" stroke-width="1.4"/>
+<text x="1805.0" y="632" font-size="14" fill="#087E83" font-weight="700" text-anchor="middle">사설 진입</text>
+<polyline points="1854,987 1804,987 1804,1050 1495,1050 1495,1121" fill="none" stroke="#B7791F" stroke-width="2.6" stroke-linejoin="round" stroke-dasharray="6 5" marker-end="url(#B7791F)"/>
+<rect x="1498" y="1037" width="238" height="26" rx="5" fill="#FFF4DC" stroke="none" stroke-width="1.4"/>
+<text x="1617.0" y="1055" font-size="14" fill="#B7791F" font-weight="700" text-anchor="middle">PrivateLink · 연동 검증 대기</text>
+<polyline points="1256,1184 1228,1184 1228,1236 817,1236 817,1220" fill="none" stroke="#B7791F" stroke-width="2.2" stroke-linejoin="round" stroke-dasharray="6 5" marker-end="url(#B7791F)"/>
+<rect x="40" y="1301" width="2320" height="66" rx="9" fill="#EDF6F4" stroke="none" stroke-width="1.4"/>
+<rect x="58" y="1321" width="119" height="26" rx="5" fill="#D9EEEA" stroke="none" stroke-width="1.4"/>
+<text x="117.5" y="1339" font-size="14" fill="#087E83" font-weight="700" text-anchor="middle">사용자 진입</text>
+<text x="196" y="1328" font-size="21" fill="#087E83" font-weight="700" text-anchor="start">VDI → DX · TGW → 내부 ALB → AX App Market → 앱으로 이동</text>
+<text x="196" y="1353" font-size="17" fill="#64748B" font-weight="400" text-anchor="start">이동 후 앱 트래픽은 사용자 ↔ 런타임 직통 · Databricks 앱 진입은 Front-end PrivateLink 경유</text>
+<text x="1904" y="1341" font-size="20" fill="#087E83" font-weight="700" text-anchor="start">목표: 인터넷 사용자 진입 없음</text>
+<rect x="40" y="1380" width="2320" height="66" rx="9" fill="#FFF6E9" stroke="none" stroke-width="1.4"/>
+<rect x="58" y="1400" width="119" height="26" rx="5" fill="#F8E8C8" stroke="none" stroke-width="1.4"/>
+<text x="117.5" y="1418" font-size="14" fill="#B7791F" font-weight="700" text-anchor="middle">사내 연동</text>
+<text x="196" y="1407" font-size="21" fill="#B7791F" font-weight="700" text-anchor="start">Databricks App → NCC → PrivateLink → Endpoint Service · 내부 NLB → TGW · DX → 사내 시스템</text>
+<text x="196" y="1432" font-size="17" fill="#64748B" font-weight="400" text-anchor="start">연결 검증·노출 보안 승인 필요  /  VKS 앱은 사내 시스템 직접 연계</text>
+<text x="40" y="1480" font-size="16" fill="#64748B" font-weight="400" text-anchor="start">파랑: 개발·배포   ·   초록: 사설 진입   ·   주황 점선: 연동 검증 대기   ·   자원 아이콘 수는 실제 수량과 무관</text>
+<text x="1530" y="1480" font-size="16" fill="#64748B" font-weight="400" text-anchor="start">미결: 데이터 등급 · WIF · 정책 강제 · CIDR · 컴퓨트 선택</text>
+</g></svg>

@@ -1,0 +1,699 @@
+<?xml version='1.0' encoding='utf-8'?>
+<mxfile host="app.diagrams.net">
+  <diagram id="ax-component-architecture" name="AX 앱 운영 체계 · 구성요소 뷰">
+    <mxGraphModel dx="1920" dy="1280" grid="1" gridSize="10" page="1" pageScale="1" pageWidth="1920" pageHeight="1280">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="2" value="" style="rounded=0;arcSize=8;fillColor=#FFFFFF;strokeColor=none;strokeWidth=1.4;dashed=0;" vertex="1" parent="1">
+          <mxGeometry x="0" y="0" width="1920" height="1280" as="geometry" />
+        </mxCell>
+        <mxCell id="3" value="" style="rounded=1;arcSize=8;fillColor=#DA623C;strokeColor=none;strokeWidth=1.4;dashed=0;" vertex="1" parent="1">
+          <mxGeometry x="40" y="40" width="7" height="69" as="geometry" />
+        </mxCell>
+        <mxCell id="4" value="AX 앱 운영 체계" style="text;html=0;fillColor=none;strokeColor=none;align=left;verticalAlign=middle;spacing=0;fontFamily=Apple SD Gothic Neo;fontSize=43;fontColor=#182C46;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="64" y="36" width="850" height="51" as="geometry" />
+        </mxCell>
+        <mxCell id="5" value="표준 개발환경에서 만든 업무·AI 앱을 검증·승인하고, 전사에 제공하며 지속적으로 관리" style="text;html=0;fillColor=none;strokeColor=none;align=left;verticalAlign=middle;spacing=0;fontFamily=Apple SD Gothic Neo;fontSize=23;fontColor=#64748B;fontStyle=0;" vertex="1" parent="1">
+          <mxGeometry x="65" y="91" width="1450" height="31" as="geometry" />
+        </mxCell>
+        <mxCell id="6" value="" style="rounded=1;arcSize=8;fillColor=#EDF1F6;strokeColor=none;strokeWidth=1.4;dashed=0;" vertex="1" parent="1">
+          <mxGeometry x="1630" y="51" width="250" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="7" value="목표 아키텍처 · 설계 단계" style="text;html=0;fillColor=none;strokeColor=none;align=center;verticalAlign=middle;spacing=0;fontFamily=Apple SD Gothic Neo;fontSize=14;fontColor=#182C46;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="1630.0" y="55" width="250" height="22" as="geometry" />
+        </mxCell>
+        <mxCell id="8" value="COMPONENT ARCHITECTURE  /  2026.09.12" style="text;html=0;fillColor=none;strokeColor=none;align=center;verticalAlign=middle;spacing=0;fontFamily=Apple SD Gothic Neo;fontSize=14;fontColor=#64748B;fontStyle=0;" vertex="1" parent="1">
+          <mxGeometry x="1460.0" y="95" width="420" height="22" as="geometry" />
+        </mxCell>
+        <mxCell id="9" value="" style="rounded=1;arcSize=8;fillColor=#F5F7FA;strokeColor=none;strokeWidth=1.4;dashed=0;" vertex="1" parent="1">
+          <mxGeometry x="40" y="156" width="440" height="68" as="geometry" />
+        </mxCell>
+        <mxCell id="10" value="" style="shape=image;imageAspect=0;aspect=fixed;image=data:image/svg+xml,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI2NCIgaGVpZ2h0PSI2NCIgdmlld0JveD0iMCAwIDY0IDY0Ij48ZyBmaWxsPSJub25lIiBzdHJva2U9IiMyNTYzQjkiIHN0cm9rZS13aWR0aD0iMi43IiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiPjxjaXJjbGUgY3g9IjMyIiBjeT0iMTgiIHI9IjEwIi8+PHBhdGggZD0iTTEyIDU2VjQ2YzAtMTggNDAtMTggNDAgMHYxMFoiLz48L2c+PC9zdmc+;" vertex="1" parent="1">
+          <mxGeometry x="58" y="169" width="39" height="39" as="geometry" />
+        </mxCell>
+        <mxCell id="11" value="현업 · 개발자" style="text;html=0;fillColor=none;strokeColor=none;align=left;verticalAlign=middle;spacing=0;fontFamily=Apple SD Gothic Neo;fontSize=22;fontColor=#2563B9;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="112" y="163" width="350" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="12" value="업무 아이디어를 앱으로 구현" style="text;html=0;fillColor=none;strokeColor=none;align=left;verticalAlign=middle;spacing=0;fontFamily=Apple SD Gothic Neo;fontSize=17;fontColor=#64748B;fontStyle=0;" vertex="1" parent="1">
+          <mxGeometry x="112" y="192" width="350" height="25" as="geometry" />
+        </mxCell>
+        <mxCell id="13" value="" style="rounded=1;arcSize=8;fillColor=#F5F7FA;strokeColor=none;strokeWidth=1.4;dashed=0;" vertex="1" parent="1">
+          <mxGeometry x="520" y="156" width="510" height="68" as="geometry" />
+        </mxCell>
+        <mxCell id="14" value="" style="shape=image;imageAspect=0;aspect=fixed;image=data:image/svg+xml,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI2NCIgaGVpZ2h0PSI2NCIgdmlld0JveD0iMCAwIDY0IDY0Ij48ZyBmaWxsPSJub25lIiBzdHJva2U9IiMwODdFODMiIHN0cm9rZS13aWR0aD0iMi43IiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiPjxjaXJjbGUgY3g9IjMyIiBjeT0iMTgiIHI9IjEwIi8+PHBhdGggZD0iTTEyIDU2VjQ2YzAtMTggNDAtMTggNDAgMHYxMFoiLz48L2c+PC9zdmc+;" vertex="1" parent="1">
+          <mxGeometry x="538" y="169" width="39" height="39" as="geometry" />
+        </mxCell>
+        <mxCell id="15" value="임직원" style="text;html=0;fillColor=none;strokeColor=none;align=left;verticalAlign=middle;spacing=0;fontFamily=Apple SD Gothic Neo;fontSize=22;fontColor=#087E83;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="592" y="163" width="420" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="16" value="승인된 앱 검색 · 권한 신청 · 활용" style="text;html=0;fillColor=none;strokeColor=none;align=left;verticalAlign=middle;spacing=0;fontFamily=Apple SD Gothic Neo;fontSize=17;fontColor=#64748B;fontStyle=0;" vertex="1" parent="1">
+          <mxGeometry x="592" y="192" width="420" height="25" as="geometry" />
+        </mxCell>
+        <mxCell id="17" value="" style="rounded=1;arcSize=8;fillColor=#F5F7FA;strokeColor=none;strokeWidth=1.4;dashed=0;" vertex="1" parent="1">
+          <mxGeometry x="1070" y="156" width="810" height="68" as="geometry" />
+        </mxCell>
+        <mxCell id="18" value="" style="shape=image;imageAspect=0;aspect=fixed;image=data:image/svg+xml,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI2NCIgaGVpZ2h0PSI2NCIgdmlld0JveD0iMCAwIDY0IDY0Ij48ZyBmaWxsPSJub25lIiBzdHJva2U9IiMxODJDNDYiIHN0cm9rZS13aWR0aD0iMi43IiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiPjxjaXJjbGUgY3g9IjMyIiBjeT0iMTgiIHI9IjEwIi8+PHBhdGggZD0iTTEyIDU2VjQ2YzAtMTggNDAtMTggNDAgMHYxMFoiLz48L2c+PC9zdmc+;" vertex="1" parent="1">
+          <mxGeometry x="1088" y="169" width="39" height="39" as="geometry" />
+        </mxCell>
+        <mxCell id="19" value="앱 소유자 · 승인자 · 플랫폼팀" style="text;html=0;fillColor=none;strokeColor=none;align=left;verticalAlign=middle;spacing=0;fontFamily=Apple SD Gothic Neo;fontSize=22;fontColor=#182C46;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="1142" y="163" width="720" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="20" value="등록 · 승인 · 운영 현황 · 비용 관리" style="text;html=0;fillColor=none;strokeColor=none;align=left;verticalAlign=middle;spacing=0;fontFamily=Apple SD Gothic Neo;fontSize=17;fontColor=#64748B;fontStyle=0;" vertex="1" parent="1">
+          <mxGeometry x="1142" y="192" width="720" height="25" as="geometry" />
+        </mxCell>
+        <mxCell id="21" edge="1" parent="1" style="endArrow=block;strokeColor=#2563B9;strokeWidth=2;dashed=0;rounded=0;">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="260" y="224" as="sourcePoint" />
+            <mxPoint x="260" y="250" as="targetPoint" />
+            <Array as="points" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="22" edge="1" parent="1" style="endArrow=block;strokeColor=#087E83;strokeWidth=2;dashed=0;rounded=0;">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="775" y="224" as="sourcePoint" />
+            <mxPoint x="775" y="250" as="targetPoint" />
+            <Array as="points" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="23" value="" style="rounded=1;arcSize=8;fillColor=#F4F7FC;strokeColor=#CBD5E1;strokeWidth=1.7;dashed=0;" vertex="1" parent="1">
+          <mxGeometry x="40" y="250" width="440" height="715" as="geometry" />
+        </mxCell>
+        <mxCell id="24" value="" style="rounded=1;arcSize=8;fillColor=#2563B9;strokeColor=none;strokeWidth=1.4;dashed=0;" vertex="1" parent="1">
+          <mxGeometry x="40" y="250" width="440" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="25" value="" style="rounded=1;arcSize=8;fillColor=white;strokeColor=none;strokeWidth=1.4;dashed=0;" vertex="1" parent="1">
+          <mxGeometry x="58" y="267" width="36" height="36" as="geometry" />
+        </mxCell>
+        <mxCell id="26" value="1" style="text;html=0;fillColor=none;strokeColor=none;align=center;verticalAlign=middle;spacing=0;fontFamily=Apple SD Gothic Neo;fontSize=24;fontColor=#2563B9;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="58.0" y="269" width="36" height="32" as="geometry" />
+        </mxCell>
+        <mxCell id="27" value="개발·검증 영역" style="text;html=0;fillColor=none;strokeColor=none;align=left;verticalAlign=middle;spacing=0;fontFamily=Apple SD Gothic Neo;fontSize=25;fontColor=white;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="109" y="259" width="355" height="33" as="geometry" />
+        </mxCell>
+        <mxCell id="28" value="DEVELOPMENT &amp; DELIVERY" style="text;html=0;fillColor=none;strokeColor=none;align=left;verticalAlign=middle;spacing=0;fontFamily=Apple SD Gothic Neo;fontSize=12;fontColor=#E4EBF5;fontStyle=0;" vertex="1" parent="1">
+          <mxGeometry x="109" y="294" width="355" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="29" value="" style="rounded=1;arcSize=8;fillColor=#F1F8F7;strokeColor=#CBD5E1;strokeWidth=1.7;dashed=0;" vertex="1" parent="1">
+          <mxGeometry x="520" y="250" width="510" height="715" as="geometry" />
+        </mxCell>
+        <mxCell id="30" value="" style="rounded=1;arcSize=8;fillColor=#087E83;strokeColor=none;strokeWidth=1.4;dashed=0;" vertex="1" parent="1">
+          <mxGeometry x="520" y="250" width="510" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="31" value="" style="rounded=1;arcSize=8;fillColor=white;strokeColor=none;strokeWidth=1.4;dashed=0;" vertex="1" parent="1">
+          <mxGeometry x="538" y="267" width="36" height="36" as="geometry" />
+        </mxCell>
+        <mxCell id="32" value="2" style="text;html=0;fillColor=none;strokeColor=none;align=center;verticalAlign=middle;spacing=0;fontFamily=Apple SD Gothic Neo;fontSize=24;fontColor=#087E83;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="538.0" y="269" width="36" height="32" as="geometry" />
+        </mxCell>
+        <mxCell id="33" value="통합 관리 영역" style="text;html=0;fillColor=none;strokeColor=none;align=left;verticalAlign=middle;spacing=0;fontFamily=Apple SD Gothic Neo;fontSize=25;fontColor=white;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="589" y="259" width="425" height="33" as="geometry" />
+        </mxCell>
+        <mxCell id="34" value="MARKET &amp; GOVERNANCE" style="text;html=0;fillColor=none;strokeColor=none;align=left;verticalAlign=middle;spacing=0;fontFamily=Apple SD Gothic Neo;fontSize=12;fontColor=#E4EBF5;fontStyle=0;" vertex="1" parent="1">
+          <mxGeometry x="589" y="294" width="425" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="35" value="" style="rounded=1;arcSize=8;fillColor=#F5F7FA;strokeColor=#CBD5E1;strokeWidth=1.7;dashed=0;" vertex="1" parent="1">
+          <mxGeometry x="1070" y="250" width="810" height="715" as="geometry" />
+        </mxCell>
+        <mxCell id="36" value="" style="rounded=1;arcSize=8;fillColor=#182C46;strokeColor=none;strokeWidth=1.4;dashed=0;" vertex="1" parent="1">
+          <mxGeometry x="1070" y="250" width="810" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="37" value="" style="rounded=1;arcSize=8;fillColor=white;strokeColor=none;strokeWidth=1.4;dashed=0;" vertex="1" parent="1">
+          <mxGeometry x="1088" y="267" width="36" height="36" as="geometry" />
+        </mxCell>
+        <mxCell id="38" value="3" style="text;html=0;fillColor=none;strokeColor=none;align=center;verticalAlign=middle;spacing=0;fontFamily=Apple SD Gothic Neo;fontSize=24;fontColor=#182C46;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="1088.0" y="269" width="36" height="32" as="geometry" />
+        </mxCell>
+        <mxCell id="39" value="앱 실행 영역" style="text;html=0;fillColor=none;strokeColor=none;align=left;verticalAlign=middle;spacing=0;fontFamily=Apple SD Gothic Neo;fontSize=25;fontColor=white;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="1139" y="259" width="725" height="33" as="geometry" />
+        </mxCell>
+        <mxCell id="40" value="APPLICATION WORKLOADS" style="text;html=0;fillColor=none;strokeColor=none;align=left;verticalAlign=middle;spacing=0;fontFamily=Apple SD Gothic Neo;fontSize=12;fontColor=#E4EBF5;fontStyle=0;" vertex="1" parent="1">
+          <mxGeometry x="1139" y="294" width="725" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="41" value="" style="rounded=1;arcSize=8;fillColor=white;strokeColor=#CBD5E1;strokeWidth=1.4;dashed=0;" vertex="1" parent="1">
+          <mxGeometry x="60" y="350" width="400" height="206" as="geometry" />
+        </mxCell>
+        <mxCell id="42" value="" style="shape=image;imageAspect=0;aspect=fixed;image=data:image/svg+xml,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI2NCIgaGVpZ2h0PSI2NCIgdmlld0JveD0iMCAwIDY0IDY0Ij48ZyBmaWxsPSJub25lIiBzdHJva2U9IiMyNTYzQjkiIHN0cm9rZS13aWR0aD0iMi43IiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiPjxyZWN0IHg9IjciIHk9IjkiIHdpZHRoPSI1MCIgaGVpZ2h0PSI0NCIgcng9IjYiLz48cGF0aCBkPSJNNyAyMWg1ME0xNCAxNWgxbTUgMGgxTTI1IDMwbC04IDcgOCA3bTE0LTE0IDggNy04IDdtLTQtMTgtNiAyNiIvPjwvZz48L3N2Zz4=;" vertex="1" parent="1">
+          <mxGeometry x="78" y="366" width="32" height="32" as="geometry" />
+        </mxCell>
+        <mxCell id="43" value="AX Playground" style="text;html=0;fillColor=none;strokeColor=none;align=left;verticalAlign=middle;spacing=0;fontFamily=Apple SD Gothic Neo;fontSize=23;fontColor=#2563B9;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="121" y="369" width="320" height="31" as="geometry" />
+        </mxCell>
+        <mxCell id="44" value="" style="rounded=1;arcSize=8;fillColor=#EBF2FD;strokeColor=none;strokeWidth=1.4;dashed=0;" vertex="1" parent="1">
+          <mxGeometry x="329" y="364" width="111" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="45" value="PoC 가동 중" style="text;html=0;fillColor=none;strokeColor=none;align=center;verticalAlign=middle;spacing=0;fontFamily=Apple SD Gothic Neo;fontSize=14;fontColor=#2563B9;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="329.0" y="368" width="111" height="22" as="geometry" />
+        </mxCell>
+        <mxCell id="46" value="" style="shape=image;imageAspect=0;aspect=fixed;image=data:image/svg+xml,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI2NCIgaGVpZ2h0PSI2NCIgdmlld0JveD0iMCAwIDY0IDY0Ij48ZyBmaWxsPSJub25lIiBzdHJva2U9IiMyNTYzQjkiIHN0cm9rZS13aWR0aD0iMi43IiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiPjxyZWN0IHg9IjciIHk9IjkiIHdpZHRoPSI1MCIgaGVpZ2h0PSI0NCIgcng9IjYiLz48cGF0aCBkPSJNNyAyMWg1ME0xNCAxNWgxbTUgMGgxTTI1IDMwbC04IDcgOCA3bTE0LTE0IDggNy04IDdtLTQtMTgtNiAyNiIvPjwvZz48L3N2Zz4=;" vertex="1" parent="1">
+          <mxGeometry x="109.5" y="411" width="47" height="47" as="geometry" />
+        </mxCell>
+        <mxCell id="47" value="Coder" style="text;html=0;fillColor=none;strokeColor=none;align=center;verticalAlign=middle;spacing=0;fontFamily=Apple SD Gothic Neo;fontSize=18;fontColor=#23364D;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="73.0" y="466" width="120" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="48" value="워크스페이스" style="text;html=0;fillColor=none;strokeColor=none;align=center;verticalAlign=middle;spacing=0;fontFamily=Apple SD Gothic Neo;fontSize=15;fontColor=#64748B;fontStyle=0;" vertex="1" parent="1">
+          <mxGeometry x="73.0" y="492" width="120" height="23" as="geometry" />
+        </mxCell>
+        <mxCell id="49" value="" style="shape=image;imageAspect=0;aspect=fixed;image=data:image/svg+xml,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI2NCIgaGVpZ2h0PSI2NCIgdmlld0JveD0iMCAwIDY0IDY0Ij48ZyBmaWxsPSJub25lIiBzdHJva2U9IiNEQTYyM0MiIHN0cm9rZS13aWR0aD0iMi43IiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiPjxwYXRoIGQ9Im0zMiA1IDcgMTkgMjAgOC0yMCA4LTcgMTktNy0xOS0yMC04IDIwLThaTTUyIDN2MTJtLTYtNmgxMiIvPjwvZz48L3N2Zz4=;" vertex="1" parent="1">
+          <mxGeometry x="236.5" y="411" width="47" height="47" as="geometry" />
+        </mxCell>
+        <mxCell id="50" value="AI 코딩" style="text;html=0;fillColor=none;strokeColor=none;align=center;verticalAlign=middle;spacing=0;fontFamily=Apple SD Gothic Neo;fontSize=18;fontColor=#23364D;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="200.0" y="466" width="120" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="51" value="Claude Code" style="text;html=0;fillColor=none;strokeColor=none;align=center;verticalAlign=middle;spacing=0;fontFamily=Apple SD Gothic Neo;fontSize=15;fontColor=#64748B;fontStyle=0;" vertex="1" parent="1">
+          <mxGeometry x="200.0" y="492" width="120" height="23" as="geometry" />
+        </mxCell>
+        <mxCell id="52" value="" style="shape=image;imageAspect=0;aspect=fixed;image=data:image/svg+xml,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI2NCIgaGVpZ2h0PSI2NCIgdmlld0JveD0iMCAwIDY0IDY0Ij48ZyBmaWxsPSJub25lIiBzdHJva2U9IiMyNTYzQjkiIHN0cm9rZS13aWR0aD0iMi43IiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiPjxwYXRoIGQ9Im03IDE4IDI1LTEyIDI1IDEydjI5TDMyIDU5IDcgNDdaTTcgMThsMjUgMTIgMjUtMTJNMzIgMzB2MjlNMjAgMTJsMjUgMTJ2MTMiLz48L2c+PC9zdmc+;" vertex="1" parent="1">
+          <mxGeometry x="363.5" y="411" width="47" height="47" as="geometry" />
+        </mxCell>
+        <mxCell id="53" value="표준 템플릿" style="text;html=0;fillColor=none;strokeColor=none;align=center;verticalAlign=middle;spacing=0;fontFamily=Apple SD Gothic Neo;fontSize=18;fontColor=#23364D;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="327.0" y="466" width="120" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="54" value="Dev Container" style="text;html=0;fillColor=none;strokeColor=none;align=center;verticalAlign=middle;spacing=0;fontFamily=Apple SD Gothic Neo;fontSize=15;fontColor=#64748B;fontStyle=0;" vertex="1" parent="1">
+          <mxGeometry x="327.0" y="492" width="120" height="23" as="geometry" />
+        </mxCell>
+        <mxCell id="55" value="개발 AI 연계: Amazon Bedrock" style="text;html=0;fillColor=none;strokeColor=none;align=left;verticalAlign=middle;spacing=0;fontFamily=Apple SD Gothic Neo;fontSize=16;fontColor=#64748B;fontStyle=0;" vertex="1" parent="1">
+          <mxGeometry x="80" y="521" width="350" height="24" as="geometry" />
+        </mxCell>
+        <mxCell id="56" edge="1" parent="1" style="endArrow=block;strokeColor=#2563B9;strokeWidth=2;dashed=0;rounded=0;">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="260" y="556" as="sourcePoint" />
+            <mxPoint x="260" y="590" as="targetPoint" />
+            <Array as="points" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="57" value="" style="rounded=1;arcSize=8;fillColor=#EBF2FD;strokeColor=none;strokeWidth=1.4;dashed=0;" vertex="1" parent="1">
+          <mxGeometry x="278" y="559" width="120" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="58" value="Git 기반 제출" style="text;html=0;fillColor=none;strokeColor=none;align=center;verticalAlign=middle;spacing=0;fontFamily=Apple SD Gothic Neo;fontSize=14;fontColor=#2563B9;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="278.0" y="563" width="120" height="22" as="geometry" />
+        </mxCell>
+        <mxCell id="59" value="" style="rounded=1;arcSize=8;fillColor=white;strokeColor=#CBD5E1;strokeWidth=1.4;dashed=0;" vertex="1" parent="1">
+          <mxGeometry x="60" y="590" width="400" height="191" as="geometry" />
+        </mxCell>
+        <mxCell id="60" value="" style="shape=image;imageAspect=0;aspect=fixed;image=data:image/svg+xml,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI2NCIgaGVpZ2h0PSI2NCIgdmlld0JveD0iMCAwIDY0IDY0Ij48ZyBmaWxsPSJub25lIiBzdHJva2U9IiMyNTYzQjkiIHN0cm9rZS13aWR0aD0iMi43IiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiPjxwYXRoIGQ9Ik0zMiA1NSA3IDM1IDEyIDkgMjMgMjhoMThMNTIgOWw1IDI2WiIgZmlsbD0iIzI1NjNCOSIgc3Ryb2tlPSJub25lIi8+PHBhdGggZD0iTTcgMzVoNTBMMzIgNTUgMjMgMjhtOSAyNyA5LTI3IiBzdHJva2U9IndoaXRlIiBzdHJva2Utd2lkdGg9IjEuNyIvPjwvZz48L3N2Zz4=;" vertex="1" parent="1">
+          <mxGeometry x="78" y="606" width="32" height="32" as="geometry" />
+        </mxCell>
+        <mxCell id="61" value="검증 파이프라인" style="text;html=0;fillColor=none;strokeColor=none;align=left;verticalAlign=middle;spacing=0;fontFamily=Apple SD Gothic Neo;fontSize=23;fontColor=#2563B9;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="121" y="609" width="320" height="31" as="geometry" />
+        </mxCell>
+        <mxCell id="62" value="" style="rounded=1;arcSize=8;fillColor=#EBF2FD;strokeColor=none;strokeWidth=1.4;dashed=0;" vertex="1" parent="1">
+          <mxGeometry x="345" y="604" width="95" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="63" value="구축 예정" style="text;html=0;fillColor=none;strokeColor=none;align=center;verticalAlign=middle;spacing=0;fontFamily=Apple SD Gothic Neo;fontSize=14;fontColor=#2563B9;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="345.0" y="608" width="95" height="22" as="geometry" />
+        </mxCell>
+        <mxCell id="64" value="GitLab CI" style="text;html=0;fillColor=none;strokeColor=none;align=left;verticalAlign=middle;spacing=0;fontFamily=Apple SD Gothic Neo;fontSize=22;fontColor=#23364D;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="80" y="645" width="210" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="65" value="코드·의존성·시크릿 검사 / SBOM" style="text;html=0;fillColor=none;strokeColor=none;align=left;verticalAlign=middle;spacing=0;fontFamily=Apple SD Gothic Neo;fontSize=18;fontColor=#23364D;fontStyle=0;" vertex="1" parent="1">
+          <mxGeometry x="80" y="679" width="350" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="66" value="AI 앱 추가 검증: 툴 권한 · 품질 평가" style="text;html=0;fillColor=none;strokeColor=none;align=left;verticalAlign=middle;spacing=0;fontFamily=Apple SD Gothic Neo;fontSize=18;fontColor=#23364D;fontStyle=0;" vertex="1" parent="1">
+          <mxGeometry x="80" y="708" width="350" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="67" value="정책 강제 방식: GitLab 등급 확인 필요" style="text;html=0;fillColor=none;strokeColor=none;align=left;verticalAlign=middle;spacing=0;fontFamily=Apple SD Gothic Neo;fontSize=15;fontColor=#B7791F;fontStyle=0;" vertex="1" parent="1">
+          <mxGeometry x="80" y="742" width="360" height="23" as="geometry" />
+        </mxCell>
+        <mxCell id="68" edge="1" parent="1" style="endArrow=block;strokeColor=#2563B9;strokeWidth=2;dashed=0;rounded=0;">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="260" y="781" as="sourcePoint" />
+            <mxPoint x="260" y="813" as="targetPoint" />
+            <Array as="points" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="69" value="" style="rounded=1;arcSize=8;fillColor=white;strokeColor=#CBD5E1;strokeWidth=1.4;dashed=0;" vertex="1" parent="1">
+          <mxGeometry x="60" y="813" width="400" height="127" as="geometry" />
+        </mxCell>
+        <mxCell id="70" value="" style="shape=image;imageAspect=0;aspect=fixed;image=data:image/svg+xml,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI2NCIgaGVpZ2h0PSI2NCIgdmlld0JveD0iMCAwIDY0IDY0Ij48ZyBmaWxsPSJub25lIiBzdHJva2U9IiMyNTYzQjkiIHN0cm9rZS13aWR0aD0iMi43IiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiPjxwYXRoIGQ9Im0zMiA1IDIzIDl2MThjMCAxMi0xMiAyMi0yMyAyN0MyMSA1NCA5IDQ0IDkgMzJWMTRaIi8+PHBhdGggZD0ibTIxIDMxIDggOCAxNi0xOCIvPjwvZz48L3N2Zz4=;" vertex="1" parent="1">
+          <mxGeometry x="78" y="829" width="32" height="32" as="geometry" />
+        </mxCell>
+        <mxCell id="71" value="운영 승인 · 배포" style="text;html=0;fillColor=none;strokeColor=none;align=left;verticalAlign=middle;spacing=0;fontFamily=Apple SD Gothic Neo;fontSize=23;fontColor=#2563B9;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="121" y="832" width="320" height="31" as="geometry" />
+        </mxCell>
+        <mxCell id="72" value="보호된 환경 승인 → 두 런타임에 배포" style="text;html=0;fillColor=none;strokeColor=none;align=left;verticalAlign=middle;spacing=0;fontFamily=Apple SD Gothic Neo;fontSize=18;fontColor=#23364D;fontStyle=0;" vertex="1" parent="1">
+          <mxGeometry x="80" y="871" width="360" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="73" value="배포 인증 검증 필요 · 개발/운영 권한 분리" style="text;html=0;fillColor=none;strokeColor=none;align=left;verticalAlign=middle;spacing=0;fontFamily=Apple SD Gothic Neo;fontSize=15;fontColor=#64748B;fontStyle=0;" vertex="1" parent="1">
+          <mxGeometry x="80" y="904" width="360" height="23" as="geometry" />
+        </mxCell>
+        <mxCell id="74" value="" style="rounded=1;arcSize=8;fillColor=white;strokeColor=#CBD5E1;strokeWidth=1.4;dashed=0;" vertex="1" parent="1">
+          <mxGeometry x="540" y="350" width="470" height="225" as="geometry" />
+        </mxCell>
+        <mxCell id="75" value="" style="shape=image;imageAspect=0;aspect=fixed;image=data:image/svg+xml,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI2NCIgaGVpZ2h0PSI2NCIgdmlld0JveD0iMCAwIDY0IDY0Ij48ZyBmaWxsPSJub25lIiBzdHJva2U9IiMwODdFODMiIHN0cm9rZS13aWR0aD0iMi43IiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiPjxwYXRoIGQ9Ik05IDI2djMwaDQ2VjI2TTYgMjVsNi0xN2g0MGw2IDE3TTYgMjVjMCAxMCAxMyAxMCAxMyAwIDAgMTAgMTMgMTAgMTMgMCAwIDEwIDEzIDEwIDEzIDAgMCAxMCAxMyAxMCAxMyAwIi8+PHBhdGggZD0iTTI2IDU2VjQwaDE0djE2Ii8+PC9nPjwvc3ZnPg==;" vertex="1" parent="1">
+          <mxGeometry x="558" y="366" width="32" height="32" as="geometry" />
+        </mxCell>
+        <mxCell id="76" value="AX App Market" style="text;html=0;fillColor=none;strokeColor=none;align=left;verticalAlign=middle;spacing=0;fontFamily=Apple SD Gothic Neo;fontSize=23;fontColor=#087E83;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="601" y="369" width="390" height="31" as="geometry" />
+        </mxCell>
+        <mxCell id="77" value="" style="rounded=1;arcSize=8;fillColor=#E5F3F0;strokeColor=none;strokeWidth=1.4;dashed=0;" vertex="1" parent="1">
+          <mxGeometry x="902" y="364" width="88" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="78" value="신규 구축" style="text;html=0;fillColor=none;strokeColor=none;align=center;verticalAlign=middle;spacing=0;fontFamily=Apple SD Gothic Neo;fontSize=14;fontColor=#087E83;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="902.0" y="368" width="88" height="22" as="geometry" />
+        </mxCell>
+        <mxCell id="79" value="" style="shape=image;imageAspect=0;aspect=fixed;image=data:image/svg+xml,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI2NCIgaGVpZ2h0PSI2NCIgdmlld0JveD0iMCAwIDY0IDY0Ij48ZyBmaWxsPSJub25lIiBzdHJva2U9IiMwODdFODMiIHN0cm9rZS13aWR0aD0iMi43IiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiPjxyZWN0IHg9IjUiIHk9IjciIHdpZHRoPSI0NCIgaGVpZ2h0PSIzOCIgcng9IjUiIG9wYWNpdHk9Ii4zNSIvPjxyZWN0IHg9IjExIiB5PSIxMyIgd2lkdGg9IjQ0IiBoZWlnaHQ9IjM4IiByeD0iNSIgZmlsbD0id2hpdGUiLz48cmVjdCB4PSIxNyIgeT0iMTkiIHdpZHRoPSI0MiIgaGVpZ2h0PSIzOCIgcng9IjUiIGZpbGw9IndoaXRlIi8+PHBhdGggZD0iTTE3IDMwaDQyTTI0IDI1aDFtNSAwaDEiLz48cmVjdCB4PSIyNSIgeT0iMzciIHdpZHRoPSIxMCIgaGVpZ2h0PSIxMCIgcng9IjEiLz48cGF0aCBkPSJNNDEgMzhoMTBtLTEwIDdoMTAiLz48L2c+PC9zdmc+;" vertex="1" parent="1">
+          <mxGeometry x="601.0" y="412" width="46" height="46" as="geometry" />
+        </mxCell>
+        <mxCell id="80" value="앱 카탈로그" style="text;html=0;fillColor=none;strokeColor=none;align=center;verticalAlign=middle;spacing=0;fontFamily=Apple SD Gothic Neo;fontSize=18;fontColor=#23364D;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="556.5" y="466" width="135" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="81" value="검색 · 상세" style="text;html=0;fillColor=none;strokeColor=none;align=center;verticalAlign=middle;spacing=0;fontFamily=Apple SD Gothic Neo;fontSize=15;fontColor=#64748B;fontStyle=0;" vertex="1" parent="1">
+          <mxGeometry x="556.5" y="492" width="135" height="23" as="geometry" />
+        </mxCell>
+        <mxCell id="82" value="" style="shape=image;imageAspect=0;aspect=fixed;image=data:image/svg+xml,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI2NCIgaGVpZ2h0PSI2NCIgdmlld0JveD0iMCAwIDY0IDY0Ij48ZyBmaWxsPSJub25lIiBzdHJva2U9IiMwODdFODMiIHN0cm9rZS13aWR0aD0iMi43IiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiPjxjaXJjbGUgY3g9IjIyIiBjeT0iMjMiIHI9IjE0Ii8+PHBhdGggZD0ibTMyIDM0IDIyIDIybS05LTkgOC04bS0xNiAwIDgtOCIvPjwvZz48L3N2Zz4=;" vertex="1" parent="1">
+          <mxGeometry x="752.0" y="412" width="46" height="46" as="geometry" />
+        </mxCell>
+        <mxCell id="83" value="권한·실행" style="text;html=0;fillColor=none;strokeColor=none;align=center;verticalAlign=middle;spacing=0;fontFamily=Apple SD Gothic Neo;fontSize=18;fontColor=#23364D;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="707.5" y="466" width="135" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="84" value="신청 · 앱 이동" style="text;html=0;fillColor=none;strokeColor=none;align=center;verticalAlign=middle;spacing=0;fontFamily=Apple SD Gothic Neo;fontSize=15;fontColor=#64748B;fontStyle=0;" vertex="1" parent="1">
+          <mxGeometry x="707.5" y="492" width="135" height="23" as="geometry" />
+        </mxCell>
+        <mxCell id="85" value="" style="shape=image;imageAspect=0;aspect=fixed;image=data:image/svg+xml,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI2NCIgaGVpZ2h0PSI2NCIgdmlld0JveD0iMCAwIDY0IDY0Ij48ZyBmaWxsPSJub25lIiBzdHJva2U9IiMwODdFODMiIHN0cm9rZS13aWR0aD0iMi43IiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiPjxwYXRoIGQ9Ik04IDl2NDdoNDlNMTggNDNWMzJtMTIgMTFWMjJtMTIgMjFWMTIiLz48cGF0aCBkPSJtMTQgMjYgMTQtMTMgMTMgNEw1NSA1Ii8+PC9nPjwvc3ZnPg==;" vertex="1" parent="1">
+          <mxGeometry x="903.0" y="412" width="46" height="46" as="geometry" />
+        </mxCell>
+        <mxCell id="86" value="운영 콘솔" style="text;html=0;fillColor=none;strokeColor=none;align=center;verticalAlign=middle;spacing=0;fontFamily=Apple SD Gothic Neo;fontSize=18;fontColor=#23364D;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="858.5" y="466" width="135" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="87" value="현황 · 증적" style="text;html=0;fillColor=none;strokeColor=none;align=center;verticalAlign=middle;spacing=0;fontFamily=Apple SD Gothic Neo;fontSize=15;fontColor=#64748B;fontStyle=0;" vertex="1" parent="1">
+          <mxGeometry x="858.5" y="492" width="135" height="23" as="geometry" />
+        </mxCell>
+        <mxCell id="88" value="" style="rounded=1;arcSize=8;fillColor=#E9F4F2;strokeColor=none;strokeWidth=1.4;dashed=0;" vertex="1" parent="1">
+          <mxGeometry x="558" y="526" width="434" height="32" as="geometry" />
+        </mxCell>
+        <mxCell id="89" value="실행 이후: 사용자 ↔ 앱 직접 통신" style="text;html=0;fillColor=none;strokeColor=none;align=center;verticalAlign=middle;spacing=0;fontFamily=Apple SD Gothic Neo;fontSize=17;fontColor=#087E83;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="558.0" y="531" width="434" height="25" as="geometry" />
+        </mxCell>
+        <mxCell id="90" value="" style="rounded=1;arcSize=8;fillColor=white;strokeColor=#CBD5E1;strokeWidth=1.4;dashed=0;" vertex="1" parent="1">
+          <mxGeometry x="540" y="610" width="470" height="128" as="geometry" />
+        </mxCell>
+        <mxCell id="91" value="" style="shape=image;imageAspect=0;aspect=fixed;image=data:image/svg+xml,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI2NCIgaGVpZ2h0PSI2NCIgdmlld0JveD0iMCAwIDY0IDY0Ij48ZyBmaWxsPSJub25lIiBzdHJva2U9IiMwODdFODMiIHN0cm9rZS13aWR0aD0iMi43IiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiPjxjaXJjbGUgY3g9IjIyIiBjeT0iMjMiIHI9IjE0Ii8+PHBhdGggZD0ibTMyIDM0IDIyIDIybS05LTkgOC04bS0xNiAwIDgtOCIvPjwvZz48L3N2Zz4=;" vertex="1" parent="1">
+          <mxGeometry x="558" y="626" width="32" height="32" as="geometry" />
+        </mxCell>
+        <mxCell id="92" value="통합 인증 · 권한" style="text;html=0;fillColor=none;strokeColor=none;align=left;verticalAlign=middle;spacing=0;fontFamily=Apple SD Gothic Neo;fontSize=23;fontColor=#087E83;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="601" y="629" width="390" height="31" as="geometry" />
+        </mxCell>
+        <mxCell id="93" value="" style="rounded=1;arcSize=8;fillColor=#E5F3F0;strokeColor=none;strokeWidth=1.4;dashed=0;" vertex="1" parent="1">
+          <mxGeometry x="902" y="624" width="88" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="94" value="설계안" style="text;html=0;fillColor=none;strokeColor=none;align=center;verticalAlign=middle;spacing=0;fontFamily=Apple SD Gothic Neo;fontSize=14;fontColor=#087E83;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="902.0" y="628" width="88" height="22" as="geometry" />
+        </mxCell>
+        <mxCell id="95" value="사내 AD  →  Keycloak / Databricks SSO" style="text;html=0;fillColor=none;strokeColor=none;align=left;verticalAlign=middle;spacing=0;fontFamily=Apple SD Gothic Neo;fontSize=19;fontColor=#23364D;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="560" y="670" width="430" height="27" as="geometry" />
+        </mxCell>
+        <mxCell id="96" value="공통 신원 연계 · 실행·데이터 권한은 각 플랫폼에서 집행" style="text;html=0;fillColor=none;strokeColor=none;align=left;verticalAlign=middle;spacing=0;fontFamily=Apple SD Gothic Neo;fontSize=15;fontColor=#64748B;fontStyle=0;" vertex="1" parent="1">
+          <mxGeometry x="560" y="704" width="435" height="23" as="geometry" />
+        </mxCell>
+        <mxCell id="97" edge="1" parent="1" style="endArrow=block;strokeColor=#087E83;strokeWidth=2;dashed=0;rounded=0;">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="775" y="610" as="sourcePoint" />
+            <mxPoint x="775" y="575" as="targetPoint" />
+            <Array as="points" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="98" value="" style="rounded=1;arcSize=8;fillColor=white;strokeColor=#CBD5E1;strokeWidth=1.4;dashed=0;" vertex="1" parent="1">
+          <mxGeometry x="540" y="770" width="470" height="170" as="geometry" />
+        </mxCell>
+        <mxCell id="99" value="" style="shape=image;imageAspect=0;aspect=fixed;image=data:image/svg+xml,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI2NCIgaGVpZ2h0PSI2NCIgdmlld0JveD0iMCAwIDY0IDY0Ij48ZyBmaWxsPSJub25lIiBzdHJva2U9IiMwODdFODMiIHN0cm9rZS13aWR0aD0iMi43IiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiPjxwYXRoIGQ9Ik04IDl2NDdoNDlNMTggNDNWMzJtMTIgMTFWMjJtMTIgMjFWMTIiLz48cGF0aCBkPSJtMTQgMjYgMTQtMTMgMTMgNEw1NSA1Ii8+PC9nPjwvc3ZnPg==;" vertex="1" parent="1">
+          <mxGeometry x="558" y="786" width="32" height="32" as="geometry" />
+        </mxCell>
+        <mxCell id="100" value="운영 정보 · 감사 · 비용" style="text;html=0;fillColor=none;strokeColor=none;align=left;verticalAlign=middle;spacing=0;fontFamily=Apple SD Gothic Neo;fontSize=23;fontColor=#087E83;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="601" y="789" width="390" height="31" as="geometry" />
+        </mxCell>
+        <mxCell id="101" value="" style="rounded=1;arcSize=8;fillColor=#E5F3F0;strokeColor=none;strokeWidth=1.4;dashed=0;" vertex="1" parent="1">
+          <mxGeometry x="902" y="784" width="88" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="102" value="설계안" style="text;html=0;fillColor=none;strokeColor=none;align=center;verticalAlign=middle;spacing=0;fontFamily=Apple SD Gothic Neo;fontSize=14;fontColor=#087E83;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="902.0" y="788" width="88" height="22" as="geometry" />
+        </mxCell>
+        <mxCell id="103" value="앱·소유자·상태 통합 관리 / 증적 보존" style="text;html=0;fillColor=none;strokeColor=none;align=left;verticalAlign=middle;spacing=0;fontFamily=Apple SD Gothic Neo;fontSize=18;fontColor=#23364D;fontStyle=0;" vertex="1" parent="1">
+          <mxGeometry x="560" y="825" width="430" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="104" value="Prometheus · Grafana · Loki / Databricks 지표" style="text;html=0;fillColor=none;strokeColor=none;align=left;verticalAlign=middle;spacing=0;fontFamily=Apple SD Gothic Neo;fontSize=16;fontColor=#23364D;fontStyle=0;" vertex="1" parent="1">
+          <mxGeometry x="560" y="859" width="435" height="24" as="geometry" />
+        </mxCell>
+        <mxCell id="105" value="유휴 정지 · 공용 SQL Warehouse · 앱별 비용 가시화" style="text;html=0;fillColor=none;strokeColor=none;align=left;verticalAlign=middle;spacing=0;fontFamily=Apple SD Gothic Neo;fontSize=16;fontColor=#23364D;fontStyle=0;" vertex="1" parent="1">
+          <mxGeometry x="560" y="892" width="435" height="24" as="geometry" />
+        </mxCell>
+        <mxCell id="106" value="통합 레지스트리·상태 조회 방식: 제안 단계" style="text;html=0;fillColor=none;strokeColor=none;align=left;verticalAlign=middle;spacing=0;fontFamily=Apple SD Gothic Neo;fontSize=14;fontColor=#64748B;fontStyle=0;" vertex="1" parent="1">
+          <mxGeometry x="560" y="916" width="435" height="22" as="geometry" />
+        </mxCell>
+        <mxCell id="107" value="" style="rounded=1;arcSize=8;fillColor=white;strokeColor=#CBD5E1;strokeWidth=1.4;dashed=0;" vertex="1" parent="1">
+          <mxGeometry x="1090" y="350" width="370" height="424" as="geometry" />
+        </mxCell>
+        <mxCell id="108" value="" style="shape=image;imageAspect=0;aspect=fixed;image=data:image/svg+xml,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI2NCIgaGVpZ2h0PSI2NCIgdmlld0JveD0iMCAwIDY0IDY0Ij48ZyBmaWxsPSJub25lIiBzdHJva2U9IiNEQTYyM0MiIHN0cm9rZS13aWR0aD0iMi43IiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiPjxwYXRoIGQ9Im03IDE4IDI1LTEyIDI1IDEyLTI1IDEyWk03IDI5bDI1IDEyIDI1LTEyTTcgNDBsMjUgMTIgMjUtMTIiLz48L2c+PC9zdmc+;" vertex="1" parent="1">
+          <mxGeometry x="1108" y="366" width="32" height="32" as="geometry" />
+        </mxCell>
+        <mxCell id="109" value="Databricks Apps" style="text;html=0;fillColor=none;strokeColor=none;align=left;verticalAlign=middle;spacing=0;fontFamily=Apple SD Gothic Neo;fontSize=23;fontColor=#DA623C;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="1151" y="369" width="290" height="31" as="geometry" />
+        </mxCell>
+        <mxCell id="110" value="" style="rounded=1;arcSize=8;fillColor=#FFF0E9;strokeColor=none;strokeWidth=1.4;dashed=0;" vertex="1" parent="1">
+          <mxGeometry x="1352" y="364" width="88" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="111" value="우선 적용" style="text;html=0;fillColor=none;strokeColor=none;align=center;verticalAlign=middle;spacing=0;fontFamily=Apple SD Gothic Neo;fontSize=14;fontColor=#DA623C;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="1352.0" y="368" width="88" height="22" as="geometry" />
+        </mxCell>
+        <mxCell id="112" value="데이터·AI 연계 업무 앱" style="text;html=0;fillColor=none;strokeColor=none;align=left;verticalAlign=middle;spacing=0;fontFamily=Apple SD Gothic Neo;fontSize=19;fontColor=#23364D;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="1110" y="401" width="330" height="27" as="geometry" />
+        </mxCell>
+        <mxCell id="113" value="" style="shape=image;imageAspect=0;aspect=fixed;image=data:image/svg+xml,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI2NCIgaGVpZ2h0PSI2NCIgdmlld0JveD0iMCAwIDY0IDY0Ij48ZyBmaWxsPSJub25lIiBzdHJva2U9IiNEQTYyM0MiIHN0cm9rZS13aWR0aD0iMi43IiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiPjxyZWN0IHg9IjUiIHk9IjciIHdpZHRoPSI0NCIgaGVpZ2h0PSIzOCIgcng9IjUiIG9wYWNpdHk9Ii4zNSIvPjxyZWN0IHg9IjExIiB5PSIxMyIgd2lkdGg9IjQ0IiBoZWlnaHQ9IjM4IiByeD0iNSIgZmlsbD0id2hpdGUiLz48cmVjdCB4PSIxNyIgeT0iMTkiIHdpZHRoPSI0MiIgaGVpZ2h0PSIzOCIgcng9IjUiIGZpbGw9IndoaXRlIi8+PHBhdGggZD0iTTE3IDMwaDQyTTI0IDI1aDFtNSAwaDEiLz48cmVjdCB4PSIyNSIgeT0iMzciIHdpZHRoPSIxMCIgaGVpZ2h0PSIxMCIgcng9IjEiLz48cGF0aCBkPSJNNDEgMzhoMTBtLTEwIDdoMTAiLz48L2c+PC9zdmc+;" vertex="1" parent="1">
+          <mxGeometry x="1160.5" y="441" width="49" height="49" as="geometry" />
+        </mxCell>
+        <mxCell id="114" value="업무 Web App" style="text;html=0;fillColor=none;strokeColor=none;align=center;verticalAlign=middle;spacing=0;fontFamily=Apple SD Gothic Neo;fontSize=18;fontColor=#23364D;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="1102.5" y="498" width="165" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="115" value="사용자 권한 기반" style="text;html=0;fillColor=none;strokeColor=none;align=center;verticalAlign=middle;spacing=0;fontFamily=Apple SD Gothic Neo;fontSize=15;fontColor=#64748B;fontStyle=0;" vertex="1" parent="1">
+          <mxGeometry x="1102.5" y="524" width="165" height="23" as="geometry" />
+        </mxCell>
+        <mxCell id="116" value="" style="shape=image;imageAspect=0;aspect=fixed;image=data:image/svg+xml,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI2NCIgaGVpZ2h0PSI2NCIgdmlld0JveD0iMCAwIDY0IDY0Ij48ZyBmaWxsPSJub25lIiBzdHJva2U9IiNEQTYyM0MiIHN0cm9rZS13aWR0aD0iMi43IiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiPjxyZWN0IHg9IjkiIHk9IjE5IiB3aWR0aD0iNDYiIGhlaWdodD0iMzQiIHJ4PSI5Ii8+PHBhdGggZD0iTTMyIDE5VjltLTUgMGgxME0zIDMwdjEybTU4LTEydjEyTTIzIDQ0aDE4Ii8+PGNpcmNsZSBjeD0iMjMiIGN5PSIzMiIgcj0iMyIvPjxjaXJjbGUgY3g9IjQxIiBjeT0iMzIiIHI9IjMiLz48L2c+PC9zdmc+;" vertex="1" parent="1">
+          <mxGeometry x="1340.5" y="441" width="49" height="49" as="geometry" />
+        </mxCell>
+        <mxCell id="117" value="Agent 활용 앱" style="text;html=0;fillColor=none;strokeColor=none;align=center;verticalAlign=middle;spacing=0;fontFamily=Apple SD Gothic Neo;fontSize=18;fontColor=#23364D;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="1282.5" y="498" width="165" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="118" value="대화 · 자동화" style="text;html=0;fillColor=none;strokeColor=none;align=center;verticalAlign=middle;spacing=0;fontFamily=Apple SD Gothic Neo;fontSize=15;fontColor=#64748B;fontStyle=0;" vertex="1" parent="1">
+          <mxGeometry x="1282.5" y="524" width="165" height="23" as="geometry" />
+        </mxCell>
+        <mxCell id="119" edge="1" parent="1" style="endArrow=none;strokeColor=#64748B;strokeWidth=1;dashed=0;rounded=0;">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="1110" y="559" as="sourcePoint" />
+            <mxPoint x="1440" y="559" as="targetPoint" />
+            <Array as="points" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="120" value="" style="shape=image;imageAspect=0;aspect=fixed;image=data:image/svg+xml,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI2NCIgaGVpZ2h0PSI2NCIgdmlld0JveD0iMCAwIDY0IDY0Ij48ZyBmaWxsPSJub25lIiBzdHJva2U9IiNEQTYyM0MiIHN0cm9rZS13aWR0aD0iMi43IiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiPjxwYXRoIGQ9Ik0xMCAxNnYzMmMwIDEyIDQ0IDEyIDQ0IDBWMTYiLz48ZWxsaXBzZSBjeD0iMzIiIGN5PSIxNiIgcng9IjIyIiByeT0iOSIvPjxwYXRoIGQ9Ik0xMCAzMWMwIDEyIDQ0IDEyIDQ0IDBNMTAgNDRjMCAxMiA0NCAxMiA0NCAwIi8+PC9nPjwvc3ZnPg==;" vertex="1" parent="1">
+          <mxGeometry x="1112" y="580" width="41" height="41" as="geometry" />
+        </mxCell>
+        <mxCell id="121" value="Unity Catalog" style="text;html=0;fillColor=none;strokeColor=none;align=left;verticalAlign=middle;spacing=0;fontFamily=Apple SD Gothic Neo;fontSize=21;fontColor=#23364D;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="1167" y="578" width="270" height="29" as="geometry" />
+        </mxCell>
+        <mxCell id="122" value="데이터 권한 · 행·열 통제" style="text;html=0;fillColor=none;strokeColor=none;align=left;verticalAlign=middle;spacing=0;fontFamily=Apple SD Gothic Neo;fontSize=17;fontColor=#64748B;fontStyle=0;" vertex="1" parent="1">
+          <mxGeometry x="1167" y="608" width="270" height="25" as="geometry" />
+        </mxCell>
+        <mxCell id="123" value="" style="shape=image;imageAspect=0;aspect=fixed;image=data:image/svg+xml,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI2NCIgaGVpZ2h0PSI2NCIgdmlld0JveD0iMCAwIDY0IDY0Ij48ZyBmaWxsPSJub25lIiBzdHJva2U9IiNEQTYyM0MiIHN0cm9rZS13aWR0aD0iMi43IiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiPjxwYXRoIGQ9Im0zMiA1IDcgMTkgMjAgOC0yMCA4LTcgMTktNy0xOS0yMC04IDIwLThaTTUyIDN2MTJtLTYtNmgxMiIvPjwvZz48L3N2Zz4=;" vertex="1" parent="1">
+          <mxGeometry x="1112" y="646" width="41" height="41" as="geometry" />
+        </mxCell>
+        <mxCell id="124" value="Agent · Genie · 모델서빙" style="text;html=0;fillColor=none;strokeColor=none;align=left;verticalAlign=middle;spacing=0;fontFamily=Apple SD Gothic Neo;fontSize=19;fontColor=#23364D;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="1167" y="646" width="270" height="27" as="geometry" />
+        </mxCell>
+        <mxCell id="125" value="공용 SQL Warehouse 연계" style="text;html=0;fillColor=none;strokeColor=none;align=left;verticalAlign=middle;spacing=0;fontFamily=Apple SD Gothic Neo;fontSize=17;fontColor=#64748B;fontStyle=0;" vertex="1" parent="1">
+          <mxGeometry x="1167" y="674" width="270" height="25" as="geometry" />
+        </mxCell>
+        <mxCell id="126" value="" style="rounded=1;arcSize=8;fillColor=#FFF1EB;strokeColor=none;strokeWidth=1.4;dashed=0;" vertex="1" parent="1">
+          <mxGeometry x="1106" y="714" width="338" height="44" as="geometry" />
+        </mxCell>
+        <mxCell id="127" value="배포: Databricks Bundles" style="text;html=0;fillColor=none;strokeColor=none;align=left;verticalAlign=middle;spacing=0;fontFamily=Apple SD Gothic Neo;fontSize=16;fontColor=#DA623C;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="1120" y="717" width="310" height="24" as="geometry" />
+        </mxCell>
+        <mxCell id="128" value="유휴 정지 · 공용 자원 사용 전제" style="text;html=0;fillColor=none;strokeColor=none;align=left;verticalAlign=middle;spacing=0;fontFamily=Apple SD Gothic Neo;fontSize=14;fontColor=#DA623C;fontStyle=0;" vertex="1" parent="1">
+          <mxGeometry x="1120" y="737" width="310" height="22" as="geometry" />
+        </mxCell>
+        <mxCell id="129" value="" style="rounded=1;arcSize=8;fillColor=white;strokeColor=#CBD5E1;strokeWidth=1.4;dashed=0;" vertex="1" parent="1">
+          <mxGeometry x="1488" y="350" width="372" height="424" as="geometry" />
+        </mxCell>
+        <mxCell id="130" value="" style="shape=image;imageAspect=0;aspect=fixed;image=data:image/svg+xml,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI2NCIgaGVpZ2h0PSI2NCIgdmlld0JveD0iMCAwIDY0IDY0Ij48ZyBmaWxsPSJub25lIiBzdHJva2U9IiMyNTYzQjkiIHN0cm9rZS13aWR0aD0iMi43IiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiPjxwYXRoIGQ9Im0zMiAzIDIzIDEyIDYgMjYtMTcgMjBIMjBMMyA0MWw2LTI2WiIgZmlsbD0iIzI1NjNCOSIgc3Ryb2tlPSJub25lIi8+PGNpcmNsZSBjeD0iMzIiIGN5PSIzMiIgcj0iMTQiIHN0cm9rZT0id2hpdGUiLz48Y2lyY2xlIGN4PSIzMiIgY3k9IjMyIiByPSI0IiBzdHJva2U9IndoaXRlIi8+PHBhdGggZD0iTTMyLjAwIDM3LjAwTDMyLjAwIDUzLjAwIiBzdHJva2U9IndoaXRlIi8+PHBhdGggZD0iTTM1LjkxIDM1LjEyTDQ4LjQyIDQ1LjA5IiBzdHJva2U9IndoaXRlIi8+PHBhdGggZD0iTTM2Ljg3IDMwLjg5TDUyLjQ3IDI3LjMzIiBzdHJva2U9IndoaXRlIi8+PHBhdGggZD0iTTM0LjE3IDI3LjUwTDQxLjExIDEzLjA4IiBzdHJva2U9IndoaXRlIi8+PHBhdGggZD0iTTI5LjgzIDI3LjUwTDIyLjg5IDEzLjA4IiBzdHJva2U9IndoaXRlIi8+PHBhdGggZD0iTTI3LjEzIDMwLjg5TDExLjUzIDI3LjMzIiBzdHJva2U9IndoaXRlIi8+PHBhdGggZD0iTTI4LjA5IDM1LjEyTDE1LjU4IDQ1LjA5IiBzdHJva2U9IndoaXRlIi8+PC9nPjwvc3ZnPg==;" vertex="1" parent="1">
+          <mxGeometry x="1506" y="366" width="32" height="32" as="geometry" />
+        </mxCell>
+        <mxCell id="131" value="Private Cloud" style="text;html=0;fillColor=none;strokeColor=none;align=left;verticalAlign=middle;spacing=0;fontFamily=Apple SD Gothic Neo;fontSize=23;fontColor=#2563B9;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="1549" y="369" width="292" height="31" as="geometry" />
+        </mxCell>
+        <mxCell id="132" value="" style="rounded=1;arcSize=8;fillColor=#EBF2FD;strokeColor=none;strokeWidth=1.4;dashed=0;" vertex="1" parent="1">
+          <mxGeometry x="1752" y="364" width="88" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="133" value="VKS 기반" style="text;html=0;fillColor=none;strokeColor=none;align=center;verticalAlign=middle;spacing=0;fontFamily=Apple SD Gothic Neo;fontSize=14;fontColor=#2563B9;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="1752.0" y="368" width="88" height="22" as="geometry" />
+        </mxCell>
+        <mxCell id="134" value="특수 실행환경 · 개별 운영요건" style="text;html=0;fillColor=none;strokeColor=none;align=left;verticalAlign=middle;spacing=0;fontFamily=Apple SD Gothic Neo;fontSize=19;fontColor=#23364D;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="1508" y="401" width="332" height="27" as="geometry" />
+        </mxCell>
+        <mxCell id="135" value="" style="shape=image;imageAspect=0;aspect=fixed;image=data:image/svg+xml,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI2NCIgaGVpZ2h0PSI2NCIgdmlld0JveD0iMCAwIDY0IDY0Ij48ZyBmaWxsPSJub25lIiBzdHJva2U9IiMyNTYzQjkiIHN0cm9rZS13aWR0aD0iMi43IiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiPjxyZWN0IHg9IjUiIHk9IjciIHdpZHRoPSI0NCIgaGVpZ2h0PSIzOCIgcng9IjUiIG9wYWNpdHk9Ii4zNSIvPjxyZWN0IHg9IjExIiB5PSIxMyIgd2lkdGg9IjQ0IiBoZWlnaHQ9IjM4IiByeD0iNSIgZmlsbD0id2hpdGUiLz48cmVjdCB4PSIxNyIgeT0iMTkiIHdpZHRoPSI0MiIgaGVpZ2h0PSIzOCIgcng9IjUiIGZpbGw9IndoaXRlIi8+PHBhdGggZD0iTTE3IDMwaDQyTTI0IDI1aDFtNSAwaDEiLz48cmVjdCB4PSIyNSIgeT0iMzciIHdpZHRoPSIxMCIgaGVpZ2h0PSIxMCIgcng9IjEiLz48cGF0aCBkPSJNNDEgMzhoMTBtLTEwIDdoMTAiLz48L2c+PC9zdmc+;" vertex="1" parent="1">
+          <mxGeometry x="1558.5" y="441" width="49" height="49" as="geometry" />
+        </mxCell>
+        <mxCell id="136" value="업무 Web App" style="text;html=0;fillColor=none;strokeColor=none;align=center;verticalAlign=middle;spacing=0;fontFamily=Apple SD Gothic Neo;fontSize=18;fontColor=#23364D;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="1500.5" y="498" width="165" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="137" value="사내 시스템 연계" style="text;html=0;fillColor=none;strokeColor=none;align=center;verticalAlign=middle;spacing=0;fontFamily=Apple SD Gothic Neo;fontSize=15;fontColor=#64748B;fontStyle=0;" vertex="1" parent="1">
+          <mxGeometry x="1500.5" y="524" width="165" height="23" as="geometry" />
+        </mxCell>
+        <mxCell id="138" value="" style="shape=image;imageAspect=0;aspect=fixed;image=data:image/svg+xml,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI2NCIgaGVpZ2h0PSI2NCIgdmlld0JveD0iMCAwIDY0IDY0Ij48ZyBmaWxsPSJub25lIiBzdHJva2U9IiMyNTYzQjkiIHN0cm9rZS13aWR0aD0iMi43IiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiPjxwYXRoIGQ9Im03IDE4IDI1LTEyIDI1IDEydjI5TDMyIDU5IDcgNDdaTTcgMThsMjUgMTIgMjUtMTJNMzIgMzB2MjlNMjAgMTJsMjUgMTJ2MTMiLz48L2c+PC9zdmc+;" vertex="1" parent="1">
+          <mxGeometry x="1738.5" y="441" width="49" height="49" as="geometry" />
+        </mxCell>
+        <mxCell id="139" value="컨테이너 앱" style="text;html=0;fillColor=none;strokeColor=none;align=center;verticalAlign=middle;spacing=0;fontFamily=Apple SD Gothic Neo;fontSize=18;fontColor=#23364D;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="1680.5" y="498" width="165" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="140" value="커스텀 런타임" style="text;html=0;fillColor=none;strokeColor=none;align=center;verticalAlign=middle;spacing=0;fontFamily=Apple SD Gothic Neo;fontSize=15;fontColor=#64748B;fontStyle=0;" vertex="1" parent="1">
+          <mxGeometry x="1680.5" y="524" width="165" height="23" as="geometry" />
+        </mxCell>
+        <mxCell id="141" edge="1" parent="1" style="endArrow=none;strokeColor=#64748B;strokeWidth=1;dashed=0;rounded=0;">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="1508" y="559" as="sourcePoint" />
+            <mxPoint x="1840" y="559" as="targetPoint" />
+            <Array as="points" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="142" value="" style="shape=image;imageAspect=0;aspect=fixed;image=data:image/svg+xml,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI2NCIgaGVpZ2h0PSI2NCIgdmlld0JveD0iMCAwIDY0IDY0Ij48ZyBmaWxsPSJub25lIiBzdHJva2U9IiMyNTYzQjkiIHN0cm9rZS13aWR0aD0iMi43IiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiPjxwYXRoIGQ9Im03IDE4IDI1LTEyIDI1IDEydjI5TDMyIDU5IDcgNDdaTTcgMThsMjUgMTIgMjUtMTJNMzIgMzB2MjlNMjAgMTJsMjUgMTJ2MTMiLz48L2c+PC9zdmc+;" vertex="1" parent="1">
+          <mxGeometry x="1510" y="580" width="41" height="41" as="geometry" />
+        </mxCell>
+        <mxCell id="143" value="Harbor · Cosign" style="text;html=0;fillColor=none;strokeColor=none;align=left;verticalAlign=middle;spacing=0;fontFamily=Apple SD Gothic Neo;fontSize=21;fontColor=#23364D;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="1565" y="578" width="270" height="29" as="geometry" />
+        </mxCell>
+        <mxCell id="144" value="이미지 저장 · 서명" style="text;html=0;fillColor=none;strokeColor=none;align=left;verticalAlign=middle;spacing=0;fontFamily=Apple SD Gothic Neo;fontSize=17;fontColor=#64748B;fontStyle=0;" vertex="1" parent="1">
+          <mxGeometry x="1565" y="608" width="270" height="25" as="geometry" />
+        </mxCell>
+        <mxCell id="145" value="" style="shape=image;imageAspect=0;aspect=fixed;image=data:image/svg+xml,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI2NCIgaGVpZ2h0PSI2NCIgdmlld0JveD0iMCAwIDY0IDY0Ij48ZyBmaWxsPSJub25lIiBzdHJva2U9IiMyNTYzQjkiIHN0cm9rZS13aWR0aD0iMi43IiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiPjxwYXRoIGQ9Ik0xMCAyNmEyMyAyMyAwIDAgMSA0Mi0xMGw1IDhNNTcgN3YxN0g0ME01NCAzOGEyMyAyMyAwIDAgMS00MiAxMGwtNS04TTcgNTdWNDBoMTciLz48L2c+PC9zdmc+;" vertex="1" parent="1">
+          <mxGeometry x="1510" y="646" width="41" height="41" as="geometry" />
+        </mxCell>
+        <mxCell id="146" value="Flux · agentk · Kyverno" style="text;html=0;fillColor=none;strokeColor=none;align=left;verticalAlign=middle;spacing=0;fontFamily=Apple SD Gothic Neo;fontSize=19;fontColor=#23364D;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="1565" y="646" width="270" height="27" as="geometry" />
+        </mxCell>
+        <mxCell id="147" value="배포 자동화 · 실행 전 검증" style="text;html=0;fillColor=none;strokeColor=none;align=left;verticalAlign=middle;spacing=0;fontFamily=Apple SD Gothic Neo;fontSize=17;fontColor=#64748B;fontStyle=0;" vertex="1" parent="1">
+          <mxGeometry x="1565" y="674" width="270" height="25" as="geometry" />
+        </mxCell>
+        <mxCell id="148" value="" style="rounded=1;arcSize=8;fillColor=#EDF3FC;strokeColor=none;strokeWidth=1.4;dashed=0;" vertex="1" parent="1">
+          <mxGeometry x="1504" y="714" width="340" height="44" as="geometry" />
+        </mxCell>
+        <mxCell id="149" value="배포: Pull 기반 GitOps" style="text;html=0;fillColor=none;strokeColor=none;align=left;verticalAlign=middle;spacing=0;fontFamily=Apple SD Gothic Neo;fontSize=16;fontColor=#2563B9;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="1518" y="717" width="310" height="24" as="geometry" />
+        </mxCell>
+        <mxCell id="150" value="인증 연계: Ingress forward-auth (제안)" style="text;html=0;fillColor=none;strokeColor=none;align=left;verticalAlign=middle;spacing=0;fontFamily=Apple SD Gothic Neo;fontSize=14;fontColor=#2563B9;fontStyle=0;" vertex="1" parent="1">
+          <mxGeometry x="1518" y="737" width="314" height="22" as="geometry" />
+        </mxCell>
+        <mxCell id="151" value="" style="rounded=1;arcSize=8;fillColor=white;strokeColor=#CBD5E1;strokeWidth=1.4;dashed=0;" vertex="1" parent="1">
+          <mxGeometry x="1090" y="828" width="770" height="112" as="geometry" />
+        </mxCell>
+        <mxCell id="152" value="" style="shape=image;imageAspect=0;aspect=fixed;image=data:image/svg+xml,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI2NCIgaGVpZ2h0PSI2NCIgdmlld0JveD0iMCAwIDY0IDY0Ij48ZyBmaWxsPSJub25lIiBzdHJva2U9IiMyMzM2NEQiIHN0cm9rZS13aWR0aD0iMi43IiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiPjxyZWN0IHg9IjIxIiB5PSI1IiB3aWR0aD0iMjIiIGhlaWdodD0iMTUiIHJ4PSIzIi8+PHJlY3QgeD0iNCIgeT0iNDMiIHdpZHRoPSIyMiIgaGVpZ2h0PSIxNSIgcng9IjMiLz48cmVjdCB4PSIzOCIgeT0iNDMiIHdpZHRoPSIyMiIgaGVpZ2h0PSIxNSIgcng9IjMiLz48cGF0aCBkPSJNMzIgMjB2MTJIMTV2MTFtMTctMTFoMTd2MTEiLz48L2c+PC9zdmc+;" vertex="1" parent="1">
+          <mxGeometry x="1108" y="844" width="32" height="32" as="geometry" />
+        </mxCell>
+        <mxCell id="153" value="사내 업무 시스템" style="text;html=0;fillColor=none;strokeColor=none;align=left;verticalAlign=middle;spacing=0;fontFamily=Apple SD Gothic Neo;fontSize=23;fontColor=#23364D;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="1151" y="847" width="690" height="31" as="geometry" />
+        </mxCell>
+        <mxCell id="154" value="" style="shape=image;imageAspect=0;aspect=fixed;image=data:image/svg+xml,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI2NCIgaGVpZ2h0PSI2NCIgdmlld0JveD0iMCAwIDY0IDY0Ij48ZyBmaWxsPSJub25lIiBzdHJva2U9IiMyNTYzQjkiIHN0cm9rZS13aWR0aD0iMi43IiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiPjxyZWN0IHg9IjUiIHk9IjciIHdpZHRoPSI0NCIgaGVpZ2h0PSIzOCIgcng9IjUiIG9wYWNpdHk9Ii4zNSIvPjxyZWN0IHg9IjExIiB5PSIxMyIgd2lkdGg9IjQ0IiBoZWlnaHQ9IjM4IiByeD0iNSIgZmlsbD0id2hpdGUiLz48cmVjdCB4PSIxNyIgeT0iMTkiIHdpZHRoPSI0MiIgaGVpZ2h0PSIzOCIgcng9IjUiIGZpbGw9IndoaXRlIi8+PHBhdGggZD0iTTE3IDMwaDQyTTI0IDI1aDFtNSAwaDEiLz48cmVjdCB4PSIyNSIgeT0iMzciIHdpZHRoPSIxMCIgaGVpZ2h0PSIxMCIgcng9IjEiLz48cGF0aCBkPSJNNDEgMzhoMTBtLTEwIDdoMTAiLz48L2c+PC9zdmc+;" vertex="1" parent="1">
+          <mxGeometry x="1110" y="877" width="35" height="35" as="geometry" />
+        </mxCell>
+        <mxCell id="155" value="MES" style="text;html=0;fillColor=none;strokeColor=none;align=left;verticalAlign=middle;spacing=0;fontFamily=Apple SD Gothic Neo;fontSize=18;fontColor=#23364D;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="1155" y="876" width="102" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="156" value="생산" style="text;html=0;fillColor=none;strokeColor=none;align=left;verticalAlign=middle;spacing=0;fontFamily=Apple SD Gothic Neo;fontSize=15;fontColor=#64748B;fontStyle=0;" vertex="1" parent="1">
+          <mxGeometry x="1155" y="902" width="102" height="23" as="geometry" />
+        </mxCell>
+        <mxCell id="157" value="" style="shape=image;imageAspect=0;aspect=fixed;image=data:image/svg+xml,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI2NCIgaGVpZ2h0PSI2NCIgdmlld0JveD0iMCAwIDY0IDY0Ij48ZyBmaWxsPSJub25lIiBzdHJva2U9IiMwODdFODMiIHN0cm9rZS13aWR0aD0iMi43IiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiPjxyZWN0IHg9IjUiIHk9IjciIHdpZHRoPSI0NCIgaGVpZ2h0PSIzOCIgcng9IjUiIG9wYWNpdHk9Ii4zNSIvPjxyZWN0IHg9IjExIiB5PSIxMyIgd2lkdGg9IjQ0IiBoZWlnaHQ9IjM4IiByeD0iNSIgZmlsbD0id2hpdGUiLz48cmVjdCB4PSIxNyIgeT0iMTkiIHdpZHRoPSI0MiIgaGVpZ2h0PSIzOCIgcng9IjUiIGZpbGw9IndoaXRlIi8+PHBhdGggZD0iTTE3IDMwaDQyTTI0IDI1aDFtNSAwaDEiLz48cmVjdCB4PSIyNSIgeT0iMzciIHdpZHRoPSIxMCIgaGVpZ2h0PSIxMCIgcng9IjEiLz48cGF0aCBkPSJNNDEgMzhoMTBtLTEwIDdoMTAiLz48L2c+PC9zdmc+;" vertex="1" parent="1">
+          <mxGeometry x="1271" y="877" width="35" height="35" as="geometry" />
+        </mxCell>
+        <mxCell id="158" value="SRM" style="text;html=0;fillColor=none;strokeColor=none;align=left;verticalAlign=middle;spacing=0;fontFamily=Apple SD Gothic Neo;fontSize=18;fontColor=#23364D;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="1316" y="876" width="102" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="159" value="공급망" style="text;html=0;fillColor=none;strokeColor=none;align=left;verticalAlign=middle;spacing=0;fontFamily=Apple SD Gothic Neo;fontSize=15;fontColor=#64748B;fontStyle=0;" vertex="1" parent="1">
+          <mxGeometry x="1316" y="902" width="102" height="23" as="geometry" />
+        </mxCell>
+        <mxCell id="160" value="" style="shape=image;imageAspect=0;aspect=fixed;image=data:image/svg+xml,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI2NCIgaGVpZ2h0PSI2NCIgdmlld0JveD0iMCAwIDY0IDY0Ij48ZyBmaWxsPSJub25lIiBzdHJva2U9IiNEQTYyM0MiIHN0cm9rZS13aWR0aD0iMi43IiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiPjxyZWN0IHg9IjUiIHk9IjciIHdpZHRoPSI0NCIgaGVpZ2h0PSIzOCIgcng9IjUiIG9wYWNpdHk9Ii4zNSIvPjxyZWN0IHg9IjExIiB5PSIxMyIgd2lkdGg9IjQ0IiBoZWlnaHQ9IjM4IiByeD0iNSIgZmlsbD0id2hpdGUiLz48cmVjdCB4PSIxNyIgeT0iMTkiIHdpZHRoPSI0MiIgaGVpZ2h0PSIzOCIgcng9IjUiIGZpbGw9IndoaXRlIi8+PHBhdGggZD0iTTE3IDMwaDQyTTI0IDI1aDFtNSAwaDEiLz48cmVjdCB4PSIyNSIgeT0iMzciIHdpZHRoPSIxMCIgaGVpZ2h0PSIxMCIgcng9IjEiLz48cGF0aCBkPSJNNDEgMzhoMTBtLTEwIDdoMTAiLz48L2c+PC9zdmc+;" vertex="1" parent="1">
+          <mxGeometry x="1432" y="877" width="35" height="35" as="geometry" />
+        </mxCell>
+        <mxCell id="161" value="ERP" style="text;html=0;fillColor=none;strokeColor=none;align=left;verticalAlign=middle;spacing=0;fontFamily=Apple SD Gothic Neo;fontSize=18;fontColor=#23364D;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="1477" y="876" width="102" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="162" value="전사자원" style="text;html=0;fillColor=none;strokeColor=none;align=left;verticalAlign=middle;spacing=0;fontFamily=Apple SD Gothic Neo;fontSize=15;fontColor=#64748B;fontStyle=0;" vertex="1" parent="1">
+          <mxGeometry x="1477" y="902" width="102" height="23" as="geometry" />
+        </mxCell>
+        <mxCell id="163" value="" style="shape=image;imageAspect=0;aspect=fixed;image=data:image/svg+xml,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI2NCIgaGVpZ2h0PSI2NCIgdmlld0JveD0iMCAwIDY0IDY0Ij48ZyBmaWxsPSJub25lIiBzdHJva2U9IiMyNTYzQjkiIHN0cm9rZS13aWR0aD0iMi43IiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiPjxyZWN0IHg9IjUiIHk9IjciIHdpZHRoPSI0NCIgaGVpZ2h0PSIzOCIgcng9IjUiIG9wYWNpdHk9Ii4zNSIvPjxyZWN0IHg9IjExIiB5PSIxMyIgd2lkdGg9IjQ0IiBoZWlnaHQ9IjM4IiByeD0iNSIgZmlsbD0id2hpdGUiLz48cmVjdCB4PSIxNyIgeT0iMTkiIHdpZHRoPSI0MiIgaGVpZ2h0PSIzOCIgcng9IjUiIGZpbGw9IndoaXRlIi8+PHBhdGggZD0iTTE3IDMwaDQyTTI0IDI1aDFtNSAwaDEiLz48cmVjdCB4PSIyNSIgeT0iMzciIHdpZHRoPSIxMCIgaGVpZ2h0PSIxMCIgcng9IjEiLz48cGF0aCBkPSJNNDEgMzhoMTBtLTEwIDdoMTAiLz48L2c+PC9zdmc+;" vertex="1" parent="1">
+          <mxGeometry x="1593" y="877" width="35" height="35" as="geometry" />
+        </mxCell>
+        <mxCell id="164" value="Wehub" style="text;html=0;fillColor=none;strokeColor=none;align=left;verticalAlign=middle;spacing=0;fontFamily=Apple SD Gothic Neo;fontSize=18;fontColor=#23364D;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="1638" y="876" width="102" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="165" value="협업" style="text;html=0;fillColor=none;strokeColor=none;align=left;verticalAlign=middle;spacing=0;fontFamily=Apple SD Gothic Neo;fontSize=15;fontColor=#64748B;fontStyle=0;" vertex="1" parent="1">
+          <mxGeometry x="1638" y="902" width="102" height="23" as="geometry" />
+        </mxCell>
+        <mxCell id="166" value="" style="shape=image;imageAspect=0;aspect=fixed;image=data:image/svg+xml,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI2NCIgaGVpZ2h0PSI2NCIgdmlld0JveD0iMCAwIDY0IDY0Ij48ZyBmaWxsPSJub25lIiBzdHJva2U9IiMwODdFODMiIHN0cm9rZS13aWR0aD0iMi43IiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiPjxyZWN0IHg9IjUiIHk9IjciIHdpZHRoPSI0NCIgaGVpZ2h0PSIzOCIgcng9IjUiIG9wYWNpdHk9Ii4zNSIvPjxyZWN0IHg9IjExIiB5PSIxMyIgd2lkdGg9IjQ0IiBoZWlnaHQ9IjM4IiByeD0iNSIgZmlsbD0id2hpdGUiLz48cmVjdCB4PSIxNyIgeT0iMTkiIHdpZHRoPSI0MiIgaGVpZ2h0PSIzOCIgcng9IjUiIGZpbGw9IndoaXRlIi8+PHBhdGggZD0iTTE3IDMwaDQyTTI0IDI1aDFtNSAwaDEiLz48cmVjdCB4PSIyNSIgeT0iMzciIHdpZHRoPSIxMCIgaGVpZ2h0PSIxMCIgcng9IjEiLz48cGF0aCBkPSJNNDEgMzhoMTBtLTEwIDdoMTAiLz48L2c+PC9zdmc+;" vertex="1" parent="1">
+          <mxGeometry x="1754" y="877" width="35" height="35" as="geometry" />
+        </mxCell>
+        <mxCell id="167" value="CRM" style="text;html=0;fillColor=none;strokeColor=none;align=left;verticalAlign=middle;spacing=0;fontFamily=Apple SD Gothic Neo;fontSize=18;fontColor=#23364D;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="1799" y="876" width="102" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="168" value="고객" style="text;html=0;fillColor=none;strokeColor=none;align=left;verticalAlign=middle;spacing=0;fontFamily=Apple SD Gothic Neo;fontSize=15;fontColor=#64748B;fontStyle=0;" vertex="1" parent="1">
+          <mxGeometry x="1799" y="902" width="102" height="23" as="geometry" />
+        </mxCell>
+        <mxCell id="169" edge="1" parent="1" style="endArrow=block;strokeColor=#2563B9;strokeWidth=2.4;dashed=0;rounded=0;">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="460" y="881" as="sourcePoint" />
+            <mxPoint x="1675" y="350" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="500" y="881" />
+              <mxPoint x="500" y="980" />
+              <mxPoint x="1050" y="980" />
+              <mxPoint x="1050" y="333" />
+              <mxPoint x="1675" y="333" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="170" edge="1" parent="1" style="endArrow=block;strokeColor=#2563B9;strokeWidth=2.4;dashed=0;rounded=0;">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="1275" y="333" as="sourcePoint" />
+            <mxPoint x="1275" y="350" as="targetPoint" />
+            <Array as="points" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="171" value="" style="rounded=1;arcSize=8;fillColor=#EBF2FD;strokeColor=none;strokeWidth=1.4;dashed=0;" vertex="1" parent="1">
+          <mxGeometry x="641" y="966" width="270" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="172" value="승인된 앱 배포 · 런타임별 분기" style="text;html=0;fillColor=none;strokeColor=none;align=center;verticalAlign=middle;spacing=0;fontFamily=Apple SD Gothic Neo;fontSize=14;fontColor=#2563B9;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="641.0" y="970" width="270" height="22" as="geometry" />
+        </mxCell>
+        <mxCell id="173" edge="1" parent="1" style="endArrow=block;strokeColor=#087E83;strokeWidth=2.8;dashed=0;rounded=0;">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="1010" y="504" as="sourcePoint" />
+            <mxPoint x="1070" y="504" as="targetPoint" />
+            <Array as="points" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="174" value="실행" style="text;html=0;fillColor=none;strokeColor=none;align=left;verticalAlign=middle;spacing=0;fontFamily=Apple SD Gothic Neo;fontSize=13;fontColor=#087E83;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="1020" y="475" width="45" height="21" as="geometry" />
+        </mxCell>
+        <mxCell id="175" edge="1" parent="1" style="endArrow=block;strokeColor=#087E83;strokeWidth=2;dashed=1;rounded=0;">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="1010" y="855" as="sourcePoint" />
+            <mxPoint x="1070" y="741" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="1060" y="855" />
+              <mxPoint x="1060" y="741" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="176" value="조회" style="text;html=0;fillColor=none;strokeColor=none;align=left;verticalAlign=middle;spacing=0;fontFamily=Apple SD Gothic Neo;fontSize=13;fontColor=#087E83;fontStyle=0;" vertex="1" parent="1">
+          <mxGeometry x="1020" y="826" width="45" height="21" as="geometry" />
+        </mxCell>
+        <mxCell id="177" edge="1" parent="1" style="endArrow=block;strokeColor=#B7791F;strokeWidth=2.4;dashed=1;rounded=0;">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="1275" y="774" as="sourcePoint" />
+            <mxPoint x="1275" y="828" as="targetPoint" />
+            <Array as="points" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="178" value="" style="rounded=1;arcSize=8;fillColor=#FFF5DF;strokeColor=none;strokeWidth=1.4;dashed=0;" vertex="1" parent="1">
+          <mxGeometry x="1110" y="790" width="330" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="179" value="Databricks 연동: 연결 검증·보안 승인 필요" style="text;html=0;fillColor=none;strokeColor=none;align=center;verticalAlign=middle;spacing=0;fontFamily=Apple SD Gothic Neo;fontSize=14;fontColor=#B7791F;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="1110.0" y="794" width="330" height="22" as="geometry" />
+        </mxCell>
+        <mxCell id="180" edge="1" parent="1" style="endArrow=block;strokeColor=#64748B;strokeWidth=2.4;dashed=0;rounded=0;">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="1675" y="774" as="sourcePoint" />
+            <mxPoint x="1675" y="828" as="targetPoint" />
+            <Array as="points" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="181" value="" style="rounded=1;arcSize=8;fillColor=#EDF1F6;strokeColor=none;strokeWidth=1.4;dashed=0;" vertex="1" parent="1">
+          <mxGeometry x="1609" y="790" width="132" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="182" value="사내 직접 연계" style="text;html=0;fillColor=none;strokeColor=none;align=center;verticalAlign=middle;spacing=0;fontFamily=Apple SD Gothic Neo;fontSize=14;fontColor=#64748B;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="1609.0" y="794" width="132" height="22" as="geometry" />
+        </mxCell>
+        <mxCell id="183" value="" style="rounded=1;arcSize=8;fillColor=#F5F7FA;strokeColor=#CBD5E1;strokeWidth=1.7;dashed=0;" vertex="1" parent="1">
+          <mxGeometry x="40" y="1006" width="1840" height="186" as="geometry" />
+        </mxCell>
+        <mxCell id="184" value="" style="rounded=1;arcSize=8;fillColor=#182C46;strokeColor=none;strokeWidth=1.4;dashed=0;" vertex="1" parent="1">
+          <mxGeometry x="40" y="1006" width="220" height="186" as="geometry" />
+        </mxCell>
+        <mxCell id="185" value="" style="shape=image;imageAspect=0;aspect=fixed;image=data:image/svg+xml,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI2NCIgaGVpZ2h0PSI2NCIgdmlld0JveD0iMCAwIDY0IDY0Ij48ZyBmaWxsPSJub25lIiBzdHJva2U9IiNGRkZGRkYiIHN0cm9rZS13aWR0aD0iMi43IiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiPjxwYXRoIGQ9Im03IDIwIDctMTJoMzZsNyAxMnYzNUg3WiIvPjxwYXRoIGQ9Ik03IDIwaDUwTTcgMzhoNTBNMTYgMjhoMjBtLTIwIDE4aDIwIi8+PGNpcmNsZSBjeD0iNDgiIGN5PSIyOSIgcj0iMS41Ii8+PGNpcmNsZSBjeD0iNDgiIGN5PSI0NyIgcj0iMS41Ii8+PC9nPjwvc3ZnPg==;" vertex="1" parent="1">
+          <mxGeometry x="116" y="1028" width="64" height="64" as="geometry" />
+        </mxCell>
+        <mxCell id="186" value="인프라 기반" style="text;html=0;fillColor=none;strokeColor=none;align=center;verticalAlign=middle;spacing=0;fontFamily=Apple SD Gothic Neo;fontSize=24;fontColor=#FFFFFF;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="47.5" y="1102" width="205" height="32" as="geometry" />
+        </mxCell>
+        <mxCell id="187" value="INFRASTRUCTURE" style="text;html=0;fillColor=none;strokeColor=none;align=center;verticalAlign=middle;spacing=0;fontFamily=Apple SD Gothic Neo;fontSize=12;fontColor=#DAE4F0;fontStyle=0;" vertex="1" parent="1">
+          <mxGeometry x="47.5" y="1141" width="205" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="188" value="" style="rounded=1;arcSize=8;fillColor=white;strokeColor=#CBD5E1;strokeWidth=1.4;dashed=0;" vertex="1" parent="1">
+          <mxGeometry x="282" y="1024" width="480" height="103" as="geometry" />
+        </mxCell>
+        <mxCell id="189" value="" style="shape=image;imageAspect=0;aspect=fixed;image=data:image/svg+xml,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI2NCIgaGVpZ2h0PSI2NCIgdmlld0JveD0iMCAwIDY0IDY0Ij48ZyBmaWxsPSJub25lIiBzdHJva2U9IiMyNTYzQjkiIHN0cm9rZS13aWR0aD0iMi43IiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiPjxwYXRoIGQ9Im03IDIwIDctMTJoMzZsNyAxMnYzNUg3WiIvPjxwYXRoIGQ9Ik03IDIwaDUwTTcgMzhoNTBNMTYgMjhoMjBtLTIwIDE4aDIwIi8+PGNpcmNsZSBjeD0iNDgiIGN5PSIyOSIgcj0iMS41Ii8+PGNpcmNsZSBjeD0iNDgiIGN5PSI0NyIgcj0iMS41Ii8+PC9nPjwvc3ZnPg==;" vertex="1" parent="1">
+          <mxGeometry x="296" y="1040" width="52" height="52" as="geometry" />
+        </mxCell>
+        <mxCell id="190" value="온프렘 · Private Cloud" style="text;html=0;fillColor=none;strokeColor=none;align=left;verticalAlign=middle;spacing=0;fontFamily=Apple SD Gothic Neo;fontSize=21;fontColor=#23364D;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="361" y="1032" width="390" height="29" as="geometry" />
+        </mxCell>
+        <mxCell id="191" value="GitLab · VKS · 사내 업무 시스템" style="text;html=0;fillColor=none;strokeColor=none;align=left;verticalAlign=middle;spacing=0;fontFamily=Apple SD Gothic Neo;fontSize=17;fontColor=#23364D;fontStyle=0;" vertex="1" parent="1">
+          <mxGeometry x="361" y="1066" width="390" height="25" as="geometry" />
+        </mxCell>
+        <mxCell id="192" value="사내 AD / Keycloak 연계" style="text;html=0;fillColor=none;strokeColor=none;align=left;verticalAlign=middle;spacing=0;fontFamily=Apple SD Gothic Neo;fontSize=15;fontColor=#64748B;fontStyle=0;" vertex="1" parent="1">
+          <mxGeometry x="361" y="1093" width="390" height="23" as="geometry" />
+        </mxCell>
+        <mxCell id="193" value="" style="rounded=1;arcSize=8;fillColor=white;strokeColor=#CBD5E1;strokeWidth=1.4;dashed=0;" vertex="1" parent="1">
+          <mxGeometry x="782" y="1024" width="590" height="103" as="geometry" />
+        </mxCell>
+        <mxCell id="194" value="" style="shape=image;imageAspect=0;aspect=fixed;image=data:image/svg+xml,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI2NCIgaGVpZ2h0PSI2NCIgdmlld0JveD0iMCAwIDY0IDY0Ij48ZyBmaWxsPSJub25lIiBzdHJva2U9IiMwODdFODMiIHN0cm9rZS13aWR0aD0iMi43IiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiPjxwYXRoIGQ9Ik0xNyA0OWgzMmMxNiAwIDE2LTI0IDEtMjVDNDUgNCAyMCA2IDE3IDI0IDAgMjUgMSA0OSAxNyA0OVoiLz48cGF0aCBkPSJNMjMgMzVoMThtLTktOHYxNiIvPjwvZz48L3N2Zz4=;" vertex="1" parent="1">
+          <mxGeometry x="796" y="1040" width="52" height="52" as="geometry" />
+        </mxCell>
+        <mxCell id="195" value="AWS · 서울 / 우리 계정" style="text;html=0;fillColor=none;strokeColor=none;align=left;verticalAlign=middle;spacing=0;fontFamily=Apple SD Gothic Neo;fontSize=21;fontColor=#23364D;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="861" y="1032" width="500" height="29" as="geometry" />
+        </mxCell>
+        <mxCell id="196" value="Playground · 앱마켓 · Databricks 전용 계정" style="text;html=0;fillColor=none;strokeColor=none;align=left;verticalAlign=middle;spacing=0;fontFamily=Apple SD Gothic Neo;fontSize=17;fontColor=#23364D;fontStyle=0;" vertex="1" parent="1">
+          <mxGeometry x="861" y="1066" width="500" height="25" as="geometry" />
+        </mxCell>
+        <mxCell id="197" value="계정 분리 · 앱마켓 Multi-AZ 목표" style="text;html=0;fillColor=none;strokeColor=none;align=left;verticalAlign=middle;spacing=0;fontFamily=Apple SD Gothic Neo;fontSize=15;fontColor=#64748B;fontStyle=0;" vertex="1" parent="1">
+          <mxGeometry x="861" y="1093" width="500" height="23" as="geometry" />
+        </mxCell>
+        <mxCell id="198" value="" style="rounded=1;arcSize=8;fillColor=white;strokeColor=#CBD5E1;strokeWidth=1.4;dashed=0;" vertex="1" parent="1">
+          <mxGeometry x="1392" y="1024" width="468" height="103" as="geometry" />
+        </mxCell>
+        <mxCell id="199" value="" style="shape=image;imageAspect=0;aspect=fixed;image=data:image/svg+xml,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI2NCIgaGVpZ2h0PSI2NCIgdmlld0JveD0iMCAwIDY0IDY0Ij48ZyBmaWxsPSJub25lIiBzdHJva2U9IiNEQTYyM0MiIHN0cm9rZS13aWR0aD0iMi43IiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiPjxwYXRoIGQ9Im03IDE4IDI1LTEyIDI1IDEyLTI1IDEyWk03IDI5bDI1IDEyIDI1LTEyTTcgNDBsMjUgMTIgMjUtMTIiLz48L2c+PC9zdmc+;" vertex="1" parent="1">
+          <mxGeometry x="1406" y="1040" width="52" height="52" as="geometry" />
+        </mxCell>
+        <mxCell id="200" value="Databricks 관리 영역" style="text;html=0;fillColor=none;strokeColor=none;align=left;verticalAlign=middle;spacing=0;fontFamily=Apple SD Gothic Neo;fontSize=21;fontColor=#23364D;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="1471" y="1032" width="378" height="29" as="geometry" />
+        </mxCell>
+        <mxCell id="201" value="Apps · Agent 서버리스 실행" style="text;html=0;fillColor=none;strokeColor=none;align=left;verticalAlign=middle;spacing=0;fontFamily=Apple SD Gothic Neo;fontSize=17;fontColor=#23364D;fontStyle=0;" vertex="1" parent="1">
+          <mxGeometry x="1471" y="1066" width="378" height="25" as="geometry" />
+        </mxCell>
+        <mxCell id="202" value="Databricks 소유 계정에서 운영" style="text;html=0;fillColor=none;strokeColor=none;align=left;verticalAlign=middle;spacing=0;fontFamily=Apple SD Gothic Neo;fontSize=15;fontColor=#64748B;fontStyle=0;" vertex="1" parent="1">
+          <mxGeometry x="1471" y="1093" width="378" height="23" as="geometry" />
+        </mxCell>
+        <mxCell id="203" value="" style="rounded=1;arcSize=8;fillColor=#E5EBF3;strokeColor=none;strokeWidth=1.4;dashed=0;" vertex="1" parent="1">
+          <mxGeometry x="282" y="1140" width="1578" height="34" as="geometry" />
+        </mxCell>
+        <mxCell id="204" value="" style="shape=image;imageAspect=0;aspect=fixed;image=data:image/svg+xml,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI2NCIgaGVpZ2h0PSI2NCIgdmlld0JveD0iMCAwIDY0IDY0Ij48ZyBmaWxsPSJub25lIiBzdHJva2U9IiM2NDc0OEIiIHN0cm9rZS13aWR0aD0iMi43IiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiPjxyZWN0IHg9IjIxIiB5PSI1IiB3aWR0aD0iMjIiIGhlaWdodD0iMTUiIHJ4PSIzIi8+PHJlY3QgeD0iNCIgeT0iNDMiIHdpZHRoPSIyMiIgaGVpZ2h0PSIxNSIgcng9IjMiLz48cmVjdCB4PSIzOCIgeT0iNDMiIHdpZHRoPSIyMiIgaGVpZ2h0PSIxNSIgcng9IjMiLz48cGF0aCBkPSJNMzIgMjB2MTJIMTV2MTFtMTctMTFoMTd2MTEiLz48L2c+PC9zdmc+;" vertex="1" parent="1">
+          <mxGeometry x="297" y="1144" width="25" height="25" as="geometry" />
+        </mxCell>
+        <mxCell id="205" value="사설 연결 기반: Direct Connect · VPN · Transit Gateway   |   Databricks PrivateLink 연계 설계   |   사용자 인터넷 진입 없음" style="text;html=0;fillColor=none;strokeColor=none;align=left;verticalAlign=middle;spacing=0;fontFamily=Apple SD Gothic Neo;fontSize=17;fontColor=#23364D;fontStyle=0;" vertex="1" parent="1">
+          <mxGeometry x="336" y="1147" width="1500" height="25" as="geometry" />
+        </mxCell>
+        <mxCell id="206" value="추진 조건" style="text;html=0;fillColor=none;strokeColor=none;align=left;verticalAlign=middle;spacing=0;fontFamily=Apple SD Gothic Neo;fontSize=17;fontColor=#182C46;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="40" y="1215" width="110" height="25" as="geometry" />
+        </mxCell>
+        <mxCell id="207" value="데이터 등급·사내 연동 승인  /  배포 인증·정책 강제 검증  /  운영 규모·예산 확정" style="text;html=0;fillColor=none;strokeColor=none;align=left;verticalAlign=middle;spacing=0;fontFamily=Apple SD Gothic Neo;fontSize=17;fontColor=#64748B;fontStyle=0;" vertex="1" parent="1">
+          <mxGeometry x="154" y="1215" width="1180" height="25" as="geometry" />
+        </mxCell>
+        <mxCell id="208" value="파랑 실선: 배포   ·   초록 실선: 실행 연결   ·   초록 점선: 상태 조회(제안)   ·   주황 점선: 검증·승인 대기" style="text;html=0;fillColor=none;strokeColor=none;align=left;verticalAlign=middle;spacing=0;fontFamily=Apple SD Gothic Neo;fontSize=14;fontColor=#64748B;fontStyle=0;" vertex="1" parent="1">
+          <mxGeometry x="40" y="1247" width="1400" height="22" as="geometry" />
+        </mxCell>
+        <mxCell id="209" value="설계 기준: 03 · 05 · 06 · 07 / AXM ADR" style="text;html=0;fillColor=none;strokeColor=none;align=left;verticalAlign=middle;spacing=0;fontFamily=Apple SD Gothic Neo;fontSize=14;fontColor=#64748B;fontStyle=0;" vertex="1" parent="1">
+          <mxGeometry x="1510" y="1218" width="370" height="22" as="geometry" />
+        </mxCell>
+        <mxCell id="210" value="목표 구성 — 구축·운영 완료를 의미하지 않음" style="text;html=0;fillColor=none;strokeColor=none;align=left;verticalAlign=middle;spacing=0;fontFamily=Apple SD Gothic Neo;fontSize=14;fontColor=#64748B;fontStyle=0;" vertex="1" parent="1">
+          <mxGeometry x="1510" y="1247" width="370" height="22" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

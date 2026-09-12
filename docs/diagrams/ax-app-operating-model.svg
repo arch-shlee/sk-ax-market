@@ -1,0 +1,76 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900" role="img" aria-labelledby="title desc">
+<title id="title">AX 앱 운영 체계</title><desc id="desc">현업의 앱 개발과 검증·승인·배포 흐름, 임직원의 마켓 이용 흐름이 Databricks Apps와 Private Cloud 운영 환경에서 만나는 목표 구성도.</desc>
+<defs>
+<marker id="64748B" markerWidth="9" markerHeight="9" refX="8" refY="4" orient="auto" markerUnits="userSpaceOnUse"><path d="M0,0 L8,4 L0,8 Z" fill="#64748B"/></marker>
+<marker id="2864DC" markerWidth="9" markerHeight="9" refX="8" refY="4" orient="auto" markerUnits="userSpaceOnUse"><path d="M0,0 L8,4 L0,8 Z" fill="#2864DC"/></marker>
+<marker id="087F8C" markerWidth="9" markerHeight="9" refX="8" refY="4" orient="auto" markerUnits="userSpaceOnUse"><path d="M0,0 L8,4 L0,8 Z" fill="#087F8C"/></marker>
+<marker id="BA7815" markerWidth="9" markerHeight="9" refX="8" refY="4" orient="auto" markerUnits="userSpaceOnUse"><path d="M0,0 L8,4 L0,8 Z" fill="#BA7815"/></marker>
+</defs><g font-family="Apple SD Gothic Neo, Noto Sans CJK KR, sans-serif">
+<rect x="0" y="0" width="1600" height="900" rx="0" fill="#F7F9FC" stroke="none"/>
+<text x="55" y="65" font-size="38" fill="#172B4D" font-weight="700" text-anchor="start">AX 앱 운영 체계</text>
+<text x="55" y="104" font-size="22" fill="#52627A" font-weight="400" text-anchor="start">현업이 만든 업무 앱과 AI 활용 앱을 검증·승인하고, 전사에 제공하며 지속적으로 관리</text>
+<rect x="1320" y="35" width="225" height="38" rx="8" fill="#E7EDF5" stroke="none"/>
+<text x="1432" y="61" font-size="17" fill="#52627A" font-weight="600" text-anchor="middle">목표 구성 · 설계 단계</text>
+<text x="55" y="170" font-size="18" fill="#2864DC" font-weight="700" text-anchor="start">01  앱 개발·공급</text>
+<text x="1200" y="170" font-size="18" fill="#087F8C" font-weight="700" text-anchor="start">02  앱 검색·활용</text>
+<rect x="810" y="190" width="360" height="355" rx="16" fill="#EDF2FB" stroke="#CED9EE"/>
+<text x="835" y="224" font-size="22" fill="#172B4D" font-weight="700" text-anchor="start">업무 앱 운영 환경</text>
+<text x="835" y="250" font-size="17" fill="#52627A" font-weight="400" text-anchor="start">앱 특성·보안·비용에 따라 배치</text>
+<rect x="55" y="295" width="160" height="140" rx="16" fill="#FFFFFF" stroke="#A9B8CD"/>
+<text x="77" y="333" font-size="25" fill="#172B4D" font-weight="700" text-anchor="start">현업·개발자</text>
+<text x="77" y="368" font-size="19" fill="#172B4D" font-weight="400" text-anchor="start">업무 아이디어</text>
+<text x="77" y="395" font-size="19" fill="#172B4D" font-weight="400" text-anchor="start">앱 개발</text>
+<rect x="250" y="270" width="230" height="190" rx="16" fill="#EAF1FF" stroke="#2864DC"/>
+<text x="272" y="308" font-size="25" fill="#172B4D" font-weight="700" text-anchor="start">AX Playground</text>
+<text x="272" y="343" font-size="19" fill="#172B4D" font-weight="400" text-anchor="start">표준 개발환경</text>
+<text x="272" y="370" font-size="19" fill="#172B4D" font-weight="400" text-anchor="start">AI 개발 지원</text>
+<text x="272" y="441" font-size="15" fill="#2864DC" font-weight="600" text-anchor="start">Coder 기반 · PoC 가동 중</text>
+<rect x="525" y="270" width="240" height="190" rx="16" fill="#EAF1FF" stroke="#2864DC"/>
+<text x="547" y="308" font-size="25" fill="#172B4D" font-weight="700" text-anchor="start">검증·승인</text>
+<text x="547" y="343" font-size="19" fill="#172B4D" font-weight="400" text-anchor="start">코드 보안 · AI 품질</text>
+<text x="547" y="370" font-size="19" fill="#172B4D" font-weight="400" text-anchor="start">운영 배포 승인</text>
+<text x="547" y="441" font-size="15" fill="#2864DC" font-weight="600" text-anchor="start">GitLab 기반 · 구축 예정</text>
+<rect x="835" y="275" width="310" height="115" rx="16" fill="#FFFFFF" stroke="#2864DC"/>
+<text x="857" y="313" font-size="25" fill="#172B4D" font-weight="700" text-anchor="start">Databricks Apps</text>
+<text x="857" y="348" font-size="19" fill="#172B4D" font-weight="400" text-anchor="start">데이터·AI 연계 / 권한 기반 접근</text>
+<text x="857" y="371" font-size="15" fill="#2864DC" font-weight="600" text-anchor="start">우선 적용 · 비용 통제 전제</text>
+<rect x="835" y="410" width="310" height="110" rx="16" fill="#FFFFFF" stroke="#64748B"/>
+<text x="857" y="448" font-size="25" fill="#172B4D" font-weight="700" text-anchor="start">Private Cloud · VKS</text>
+<text x="857" y="483" font-size="19" fill="#172B4D" font-weight="400" text-anchor="start">특수 실행환경 / 개별 운영요건</text>
+<text x="857" y="501" font-size="15" fill="#64748B" font-weight="600" text-anchor="start">기존 인프라 활용 · 배포 체계 구축</text>
+<rect x="1220" y="200" width="300" height="85" rx="16" fill="#FFFFFF" stroke="#087F8C"/>
+<text x="1242" y="238" font-size="25" fill="#172B4D" font-weight="700" text-anchor="start">임직원</text>
+<rect x="1220" y="340" width="300" height="180" rx="16" fill="#E8F6F4" stroke="#087F8C"/>
+<text x="1242" y="378" font-size="25" fill="#172B4D" font-weight="700" text-anchor="start">AX App Market</text>
+<text x="1242" y="413" font-size="19" fill="#172B4D" font-weight="400" text-anchor="start">앱 검색 · 권한 신청 · 실행</text>
+<text x="1242" y="440" font-size="19" fill="#172B4D" font-weight="400" text-anchor="start">권한·상태 확인 후 앱으로 이동</text>
+<text x="1242" y="501" font-size="15" fill="#087F8C" font-weight="600" text-anchor="start">AWS 전용 계정 · 신규 구축 예정</text>
+<polyline points="215,365 250,365" fill="none" stroke="#2864DC" stroke-width="3" stroke-linejoin="round"  marker-end="url(#2864DC)"/>
+<polyline points="480,365 525,365" fill="none" stroke="#2864DC" stroke-width="3" stroke-linejoin="round"  marker-end="url(#2864DC)"/>
+<polyline points="765,365 790,365 790,333 835,333" fill="none" stroke="#2864DC" stroke-width="3" stroke-linejoin="round"  marker-end="url(#2864DC)"/>
+<polyline points="790,365 790,465 835,465" fill="none" stroke="#2864DC" stroke-width="3" stroke-linejoin="round"  marker-end="url(#2864DC)"/>
+<text x="687" y="248" font-size="16" fill="#2864DC" font-weight="600" text-anchor="start">승인 후 배포</text>
+<polyline points="1370,285 1370,340" fill="none" stroke="#087F8C" stroke-width="3" stroke-linejoin="round"  marker-end="url(#087F8C)"/>
+<polyline points="1220,395 1195,395 1195,333 1145,333" fill="none" stroke="#087F8C" stroke-width="3" stroke-linejoin="round"  marker-end="url(#087F8C)"/>
+<polyline points="1195,395 1195,465 1145,465" fill="none" stroke="#087F8C" stroke-width="3" stroke-linejoin="round"  marker-end="url(#087F8C)"/>
+<text x="1220" y="550" font-size="17" fill="#087F8C" font-weight="600" text-anchor="start">앱 이용은 사용자 ↔ 운영 환경 직통</text>
+<rect x="55" y="565" width="430" height="82" rx="16" fill="#FFFFFF" stroke="#B7C5D8"/>
+<text x="77" y="603" font-size="25" fill="#172B4D" font-weight="700" text-anchor="start">기업 데이터 · AI 서비스</text>
+<text x="77" y="626" font-size="18" fill="#52627A" font-weight="400" text-anchor="start">Unity Catalog · Agent · Genie</text>
+<rect x="525" y="565" width="620" height="82" rx="16" fill="#FFFFFF" stroke="#B7C5D8"/>
+<text x="547" y="603" font-size="25" fill="#172B4D" font-weight="700" text-anchor="start">사내 업무 시스템</text>
+<text x="547" y="626" font-size="18" fill="#52627A" font-weight="400" text-anchor="start">MES · ERP · SRM 등</text>
+<polyline points="865,390 865,400 825,400 825,550 270,550 270,565" fill="none" stroke="#64748B" stroke-width="3" stroke-linejoin="round"  marker-end="url(#64748B)"/>
+<polyline points="965,520 965,565" fill="none" stroke="#64748B" stroke-width="3" stroke-linejoin="round"  marker-end="url(#64748B)"/>
+<polyline points="1110,390 1158,390 1158,605 1145,605" fill="none" stroke="#BA7815" stroke-width="3" stroke-linejoin="round" stroke-dasharray="7 5" marker-end="url(#BA7815)"/>
+<text x="1210" y="605" font-size="16" fill="#BA7815" font-weight="600" text-anchor="start">Databricks → 사내 시스템</text>
+<text x="1210" y="630" font-size="16" fill="#BA7815" font-weight="400" text-anchor="start">연결 검증·보안 승인 필요</text>
+<rect x="55" y="680" width="1490" height="93" rx="16" fill="#172B4D" stroke="none"/>
+<text x="80" y="713" font-size="22" fill="#FFFFFF" font-weight="700" text-anchor="start">공통 관리·통제</text>
+<text x="345" y="715" font-size="22" fill="#FFFFFF" font-weight="500" text-anchor="start">사내 인증·권한     |     보안·승인 증적     |     운영 현황     |     비용 관리</text>
+<text x="345" y="750" font-size="17" fill="#C4D3EA" font-weight="400" text-anchor="start">목표 기능 · 세부 구현 일부 제안 단계     /     사용자 진입은 사내망·전용 연결 경로</text>
+<text x="55" y="812" font-size="18" fill="#172B4D" font-weight="700" text-anchor="start">추진 조건</text>
+<text x="210" y="812" font-size="19" fill="#52627A" font-weight="400" text-anchor="start">데이터 등급·사내 연동 승인   ·   배포 인증·정책 강제 검증   ·   운영 규모·예산 확정</text>
+<text x="55" y="863" font-size="15" fill="#52627A" font-weight="400" text-anchor="start">파랑: 개발·배포   초록: 이용   회색: 업무 연계   주황 점선: 검증·승인 대기</text>
+<text x="1190" y="863" font-size="15" fill="#52627A" font-weight="400" text-anchor="start">내부 설계·ADR 기준  |  2026.09.12</text>
+</g></svg>

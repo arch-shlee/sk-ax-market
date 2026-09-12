@@ -75,6 +75,10 @@
 
 | 도면 | 위치 |
 |---|---|
+| **AX 앱 운영 체계 — 배치·DevSecOps 통합 뷰 (현재)** | [SVG](diagrams/ax-app-operating-devsecops.svg) · [PNG](diagrams/ax-app-operating-devsecops.png) · [PDF](diagrams/ax-app-operating-devsecops.pdf) · [편집용 draw.io](diagrams/ax-app-operating-devsecops.drawio.xml). 참고 이미지의 도메인·인프라 계층 표현을 반영. 검증·승인·배포 지시는 온프렘 GitLab에, 개발은 AWS Playground에, 실행 통제는 VKS·Databricks에 배치. VKS GitOps와 Databricks Bundle 배포 경로를 구분 |
+| **AX 앱 운영 체계 — 논리·인프라 통합 뷰** | [SVG](diagrams/ax-app-operating-hybrid.svg) · [PNG](diagrams/ax-app-operating-hybrid.png) · [PDF](diagrams/ax-app-operating-hybrid.pdf) · [편집용 draw.io](diagrams/ax-app-operating-hybrid.drawio.xml). 온프렘·AWS 계정·Databricks 운영 경계 안에 논리 기능, 앱마켓 Multi-AZ, 저장소, 사설 진입·사내 연동 경로를 함께 표현. 자원 아이콘 수는 실제 수량과 무관 |
+| **AX 앱 운영 체계 — 도메인·구성요소 뷰** | [SVG](diagrams/ax-app-operating-architecture.svg) · [PNG](diagrams/ax-app-operating-architecture.png) · [PDF](diagrams/ax-app-operating-architecture.pdf) · [편집용 draw.io](diagrams/ax-app-operating-architecture.drawio.xml). 참고 이미지의 도메인 경계·아이콘·인프라 계층 표현을 반영한 주요 구성도 |
+| **AX 앱 운영 체계 — 경영진용 목표 구성도** | [SVG](diagrams/ax-app-operating-model.svg) · [편집용 draw.io](diagrams/ax-app-operating-model.drawio.xml). 개발·공급과 임직원 활용 흐름, 공통 관리·통제, 추진 조건을 한 장으로 요약 |
 | 런타임 판정 트리 | `design/03` §2 (mermaid) |
 | To-Be 전체 논리 구성 | `design/03` §4 (mermaid) |
 | 앱 실행 경로 | `design/03` §4-1 (mermaid) |
@@ -82,10 +86,15 @@
 | 조정 루프 | `design/06` §4 (mermaid) |
 | 앱 수명주기 상태 머신 | `design/06` §6 (mermaid) |
 | DevSecOps 통제 지도 | `design/07` §1 (mermaid) |
-| **목표 인프라 · 경로 · 보안** | [`diagrams/ax-market_target 아키텍처.drawio.xml`](diagrams/) (3페이지) |
+| **목표 인프라 · 경로 · 보안** | [`diagrams/ax-market_target 아키텍처.drawio.xml`](diagrams/) (8페이지 — 인프라 / 경로 / 보안 / 인프라 v0.2~**v0.6**) |
+| **목표 인프라 뷰 v0.6 — AWS 공식 아이콘 (현행)** | [SVG](diagrams/ax-market_target-infra-aws-v6.svg) · [PNG](diagrams/ax-market_target-infra-aws-v6.png) · [PDF](diagrams/ax-market_target-infra-aws-v6.pdf). 위 파일 **8페이지**. 구성요소·선 라벨을 굵게 하고, 사내 업무 시스템을 **MES · ERP · SRM · CRM · Wehub** 개별 시스템으로 펼치고 여섯 번째 칸을 `그 외`로 열어 둔 판. 재생성은 [`tools/build_target_aws_v6.py`](diagrams/tools/build_target_aws_v6.py) |
+| 목표 인프라 뷰 v0.2 ~ v0.5 | 각각 위 파일 4~7페이지. [v0.5](diagrams/ax-market_target-infra-aws-v5.svg) 글자·강조 체계 도입, [v0.4](diagrams/ax-market_target-infra-aws-v4.svg) 현 배치의 원본, [v0.3](diagrams/ax-market_target-infra-aws-v3.svg) AWS 그룹 스텐실·7색, [v0.2](diagrams/ax-market_target-infra-aws-v2.svg) 근거·미결 주석 포함 |
+| 목표 인프라 뷰 v0.2 — AWS 공식 아이콘 | [SVG](diagrams/ax-market_target-infra-aws-v2.svg) · [PNG](diagrams/ax-market_target-infra-aws-v2.png) · [PDF](diagrams/ax-market_target-infra-aws-v2.pdf). 위 파일 4페이지. v0.3과 같은 배치에 근거·미결 주석을 함께 실은 판. 재생성은 [`tools/build_target_aws_view.py`](diagrams/tools/build_target_aws_view.py) |
 | Playground PoC | [`diagrams/axplayground_PoC 아키텍처.drawio.xml`](diagrams/) (2페이지) |
 
 > 논리·흐름 도면은 **mermaid로 문서 안에** 둔다(diff가 읽히고 수정이 빠름). 물리 배치는 **draw.io**로 둔다.
+
+현재 배치·DevSecOps 구성도의 제품 아이콘은 [공식 출처와 재생성 방법](diagrams/assets/icons/README.md)을 함께 관리한다. SVG·draw.io 파일에 아이콘을 내장해 외부 이미지 링크 없이 열 수 있다.
 
 ## 규칙
 

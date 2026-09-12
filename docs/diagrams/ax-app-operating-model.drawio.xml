@@ -1,0 +1,266 @@
+<?xml version='1.0' encoding='utf-8'?>
+<mxfile host="app.diagrams.net">
+  <diagram name="AX 앱 운영 체계" id="ax-operating-model">
+    <mxGraphModel dx="1600" dy="900" grid="1" gridSize="10" page="1" pageScale="1" pageWidth="1600" pageHeight="900">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="2" value="" style="rounded=1;arcSize=10;fillColor=#F7F9FC;strokeColor=none;" vertex="1" parent="1">
+          <mxGeometry x="0" y="0" width="1600" height="900" as="geometry" />
+        </mxCell>
+        <mxCell id="3" value="AX 앱 운영 체계" style="text;html=0;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontFamily=Apple SD Gothic Neo;fontSize=38;fontColor=#172B4D;fontStyle=1;spacing=0;" vertex="1" parent="1">
+          <mxGeometry x="55" y="27" width="600" height="47" as="geometry" />
+        </mxCell>
+        <mxCell id="4" value="현업이 만든 업무 앱과 AI 활용 앱을 검증·승인하고, 전사에 제공하며 지속적으로 관리" style="text;html=0;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontFamily=Apple SD Gothic Neo;fontSize=22;fontColor=#52627A;fontStyle=0;spacing=0;" vertex="1" parent="1">
+          <mxGeometry x="55" y="82" width="600" height="31" as="geometry" />
+        </mxCell>
+        <mxCell id="5" value="" style="rounded=1;arcSize=10;fillColor=#E7EDF5;strokeColor=none;" vertex="1" parent="1">
+          <mxGeometry x="1320" y="35" width="225" height="38" as="geometry" />
+        </mxCell>
+        <mxCell id="6" value="목표 구성 · 설계 단계" style="text;html=0;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;fontFamily=Apple SD Gothic Neo;fontSize=17;fontColor=#52627A;fontStyle=1;spacing=0;" vertex="1" parent="1">
+          <mxGeometry x="1322.0" y="44" width="220" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="7" value="01  앱 개발·공급" style="text;html=0;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontFamily=Apple SD Gothic Neo;fontSize=18;fontColor=#2864DC;fontStyle=1;spacing=0;" vertex="1" parent="1">
+          <mxGeometry x="55" y="152" width="600" height="27" as="geometry" />
+        </mxCell>
+        <mxCell id="8" value="02  앱 검색·활용" style="text;html=0;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontFamily=Apple SD Gothic Neo;fontSize=18;fontColor=#087F8C;fontStyle=1;spacing=0;" vertex="1" parent="1">
+          <mxGeometry x="1200" y="152" width="600" height="27" as="geometry" />
+        </mxCell>
+        <mxCell id="9" value="" style="rounded=1;arcSize=10;fillColor=#EDF2FB;strokeColor=#CED9EE;" vertex="1" parent="1">
+          <mxGeometry x="810" y="190" width="360" height="355" as="geometry" />
+        </mxCell>
+        <mxCell id="10" value="업무 앱 운영 환경" style="text;html=0;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontFamily=Apple SD Gothic Neo;fontSize=22;fontColor=#172B4D;fontStyle=1;spacing=0;" vertex="1" parent="1">
+          <mxGeometry x="835" y="202" width="600" height="31" as="geometry" />
+        </mxCell>
+        <mxCell id="11" value="앱 특성·보안·비용에 따라 배치" style="text;html=0;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontFamily=Apple SD Gothic Neo;fontSize=17;fontColor=#52627A;fontStyle=0;spacing=0;" vertex="1" parent="1">
+          <mxGeometry x="835" y="233" width="600" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="12" value="" style="rounded=1;arcSize=10;fillColor=#FFFFFF;strokeColor=#A9B8CD;" vertex="1" parent="1">
+          <mxGeometry x="55" y="295" width="160" height="140" as="geometry" />
+        </mxCell>
+        <mxCell id="13" value="현업·개발자" style="text;html=0;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontFamily=Apple SD Gothic Neo;fontSize=25;fontColor=#172B4D;fontStyle=1;spacing=0;" vertex="1" parent="1">
+          <mxGeometry x="77" y="308" width="120" height="34" as="geometry" />
+        </mxCell>
+        <mxCell id="14" value="업무 아이디어" style="text;html=0;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontFamily=Apple SD Gothic Neo;fontSize=19;fontColor=#172B4D;fontStyle=0;spacing=0;" vertex="1" parent="1">
+          <mxGeometry x="77" y="349" width="120" height="28" as="geometry" />
+        </mxCell>
+        <mxCell id="15" value="앱 개발" style="text;html=0;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontFamily=Apple SD Gothic Neo;fontSize=19;fontColor=#172B4D;fontStyle=0;spacing=0;" vertex="1" parent="1">
+          <mxGeometry x="77" y="376" width="120" height="28" as="geometry" />
+        </mxCell>
+        <mxCell id="16" value="" style="rounded=1;arcSize=10;fillColor=#EAF1FF;strokeColor=#2864DC;" vertex="1" parent="1">
+          <mxGeometry x="250" y="270" width="230" height="190" as="geometry" />
+        </mxCell>
+        <mxCell id="17" value="AX Playground" style="text;html=0;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontFamily=Apple SD Gothic Neo;fontSize=25;fontColor=#172B4D;fontStyle=1;spacing=0;" vertex="1" parent="1">
+          <mxGeometry x="272" y="283" width="190" height="34" as="geometry" />
+        </mxCell>
+        <mxCell id="18" value="표준 개발환경" style="text;html=0;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontFamily=Apple SD Gothic Neo;fontSize=19;fontColor=#172B4D;fontStyle=0;spacing=0;" vertex="1" parent="1">
+          <mxGeometry x="272" y="324" width="190" height="28" as="geometry" />
+        </mxCell>
+        <mxCell id="19" value="AI 개발 지원" style="text;html=0;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontFamily=Apple SD Gothic Neo;fontSize=19;fontColor=#172B4D;fontStyle=0;spacing=0;" vertex="1" parent="1">
+          <mxGeometry x="272" y="351" width="190" height="28" as="geometry" />
+        </mxCell>
+        <mxCell id="20" value="Coder 기반 · PoC 가동 중" style="text;html=0;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontFamily=Apple SD Gothic Neo;fontSize=15;fontColor=#2864DC;fontStyle=1;spacing=0;" vertex="1" parent="1">
+          <mxGeometry x="272" y="426" width="190" height="24" as="geometry" />
+        </mxCell>
+        <mxCell id="21" value="" style="rounded=1;arcSize=10;fillColor=#EAF1FF;strokeColor=#2864DC;" vertex="1" parent="1">
+          <mxGeometry x="525" y="270" width="240" height="190" as="geometry" />
+        </mxCell>
+        <mxCell id="22" value="검증·승인" style="text;html=0;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontFamily=Apple SD Gothic Neo;fontSize=25;fontColor=#172B4D;fontStyle=1;spacing=0;" vertex="1" parent="1">
+          <mxGeometry x="547" y="283" width="200" height="34" as="geometry" />
+        </mxCell>
+        <mxCell id="23" value="코드 보안 · AI 품질" style="text;html=0;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontFamily=Apple SD Gothic Neo;fontSize=19;fontColor=#172B4D;fontStyle=0;spacing=0;" vertex="1" parent="1">
+          <mxGeometry x="547" y="324" width="200" height="28" as="geometry" />
+        </mxCell>
+        <mxCell id="24" value="운영 배포 승인" style="text;html=0;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontFamily=Apple SD Gothic Neo;fontSize=19;fontColor=#172B4D;fontStyle=0;spacing=0;" vertex="1" parent="1">
+          <mxGeometry x="547" y="351" width="200" height="28" as="geometry" />
+        </mxCell>
+        <mxCell id="25" value="GitLab 기반 · 구축 예정" style="text;html=0;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontFamily=Apple SD Gothic Neo;fontSize=15;fontColor=#2864DC;fontStyle=1;spacing=0;" vertex="1" parent="1">
+          <mxGeometry x="547" y="426" width="200" height="24" as="geometry" />
+        </mxCell>
+        <mxCell id="26" value="" style="rounded=1;arcSize=10;fillColor=#FFFFFF;strokeColor=#2864DC;" vertex="1" parent="1">
+          <mxGeometry x="835" y="275" width="310" height="115" as="geometry" />
+        </mxCell>
+        <mxCell id="27" value="Databricks Apps" style="text;html=0;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontFamily=Apple SD Gothic Neo;fontSize=25;fontColor=#172B4D;fontStyle=1;spacing=0;" vertex="1" parent="1">
+          <mxGeometry x="857" y="288" width="270" height="34" as="geometry" />
+        </mxCell>
+        <mxCell id="28" value="데이터·AI 연계 / 권한 기반 접근" style="text;html=0;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontFamily=Apple SD Gothic Neo;fontSize=19;fontColor=#172B4D;fontStyle=0;spacing=0;" vertex="1" parent="1">
+          <mxGeometry x="857" y="329" width="270" height="28" as="geometry" />
+        </mxCell>
+        <mxCell id="29" value="우선 적용 · 비용 통제 전제" style="text;html=0;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontFamily=Apple SD Gothic Neo;fontSize=15;fontColor=#2864DC;fontStyle=1;spacing=0;" vertex="1" parent="1">
+          <mxGeometry x="857" y="356" width="270" height="24" as="geometry" />
+        </mxCell>
+        <mxCell id="30" value="" style="rounded=1;arcSize=10;fillColor=#FFFFFF;strokeColor=#64748B;" vertex="1" parent="1">
+          <mxGeometry x="835" y="410" width="310" height="110" as="geometry" />
+        </mxCell>
+        <mxCell id="31" value="Private Cloud · VKS" style="text;html=0;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontFamily=Apple SD Gothic Neo;fontSize=25;fontColor=#172B4D;fontStyle=1;spacing=0;" vertex="1" parent="1">
+          <mxGeometry x="857" y="423" width="270" height="34" as="geometry" />
+        </mxCell>
+        <mxCell id="32" value="특수 실행환경 / 개별 운영요건" style="text;html=0;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontFamily=Apple SD Gothic Neo;fontSize=19;fontColor=#172B4D;fontStyle=0;spacing=0;" vertex="1" parent="1">
+          <mxGeometry x="857" y="464" width="270" height="28" as="geometry" />
+        </mxCell>
+        <mxCell id="33" value="기존 인프라 활용 · 배포 체계 구축" style="text;html=0;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontFamily=Apple SD Gothic Neo;fontSize=15;fontColor=#64748B;fontStyle=1;spacing=0;" vertex="1" parent="1">
+          <mxGeometry x="857" y="486" width="270" height="24" as="geometry" />
+        </mxCell>
+        <mxCell id="34" value="" style="rounded=1;arcSize=10;fillColor=#FFFFFF;strokeColor=#087F8C;" vertex="1" parent="1">
+          <mxGeometry x="1220" y="200" width="300" height="85" as="geometry" />
+        </mxCell>
+        <mxCell id="35" value="임직원" style="text;html=0;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontFamily=Apple SD Gothic Neo;fontSize=25;fontColor=#172B4D;fontStyle=1;spacing=0;" vertex="1" parent="1">
+          <mxGeometry x="1242" y="213" width="260" height="34" as="geometry" />
+        </mxCell>
+        <mxCell id="36" value="" style="rounded=1;arcSize=10;fillColor=#E8F6F4;strokeColor=#087F8C;" vertex="1" parent="1">
+          <mxGeometry x="1220" y="340" width="300" height="180" as="geometry" />
+        </mxCell>
+        <mxCell id="37" value="AX App Market" style="text;html=0;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontFamily=Apple SD Gothic Neo;fontSize=25;fontColor=#172B4D;fontStyle=1;spacing=0;" vertex="1" parent="1">
+          <mxGeometry x="1242" y="353" width="260" height="34" as="geometry" />
+        </mxCell>
+        <mxCell id="38" value="앱 검색 · 권한 신청 · 실행" style="text;html=0;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontFamily=Apple SD Gothic Neo;fontSize=19;fontColor=#172B4D;fontStyle=0;spacing=0;" vertex="1" parent="1">
+          <mxGeometry x="1242" y="394" width="260" height="28" as="geometry" />
+        </mxCell>
+        <mxCell id="39" value="권한·상태 확인 후 앱으로 이동" style="text;html=0;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontFamily=Apple SD Gothic Neo;fontSize=19;fontColor=#172B4D;fontStyle=0;spacing=0;" vertex="1" parent="1">
+          <mxGeometry x="1242" y="421" width="260" height="28" as="geometry" />
+        </mxCell>
+        <mxCell id="40" value="AWS 전용 계정 · 신규 구축 예정" style="text;html=0;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontFamily=Apple SD Gothic Neo;fontSize=15;fontColor=#087F8C;fontStyle=1;spacing=0;" vertex="1" parent="1">
+          <mxGeometry x="1242" y="486" width="260" height="24" as="geometry" />
+        </mxCell>
+        <mxCell id="41" edge="1" parent="1" style="endArrow=block;strokeColor=#2864DC;strokeWidth=3;dashed=0;rounded=0;">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="215" y="365" as="sourcePoint" />
+            <mxPoint x="250" y="365" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="42" edge="1" parent="1" style="endArrow=block;strokeColor=#2864DC;strokeWidth=3;dashed=0;rounded=0;">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="480" y="365" as="sourcePoint" />
+            <mxPoint x="525" y="365" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="43" edge="1" parent="1" style="endArrow=block;strokeColor=#2864DC;strokeWidth=3;dashed=0;rounded=0;">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="765" y="365" as="sourcePoint" />
+            <mxPoint x="835" y="333" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="790" y="365" />
+              <mxPoint x="790" y="333" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="44" edge="1" parent="1" style="endArrow=block;strokeColor=#2864DC;strokeWidth=3;dashed=0;rounded=0;">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="790" y="365" as="sourcePoint" />
+            <mxPoint x="835" y="465" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="790" y="465" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="45" value="승인 후 배포" style="text;html=0;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontFamily=Apple SD Gothic Neo;fontSize=16;fontColor=#2864DC;fontStyle=1;spacing=0;" vertex="1" parent="1">
+          <mxGeometry x="687" y="232" width="140" height="25" as="geometry" />
+        </mxCell>
+        <mxCell id="46" edge="1" parent="1" style="endArrow=block;strokeColor=#087F8C;strokeWidth=3;dashed=0;rounded=0;">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="1370" y="285" as="sourcePoint" />
+            <mxPoint x="1370" y="340" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="47" edge="1" parent="1" style="endArrow=block;strokeColor=#087F8C;strokeWidth=3;dashed=0;rounded=0;">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="1220" y="395" as="sourcePoint" />
+            <mxPoint x="1145" y="333" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="1195" y="395" />
+              <mxPoint x="1195" y="333" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="48" edge="1" parent="1" style="endArrow=block;strokeColor=#087F8C;strokeWidth=3;dashed=0;rounded=0;">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="1195" y="395" as="sourcePoint" />
+            <mxPoint x="1145" y="465" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="1195" y="465" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="49" value="앱 이용은 사용자 ↔ 운영 환경 직통" style="text;html=0;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontFamily=Apple SD Gothic Neo;fontSize=17;fontColor=#087F8C;fontStyle=1;spacing=0;" vertex="1" parent="1">
+          <mxGeometry x="1220" y="533" width="330" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="50" value="" style="rounded=1;arcSize=10;fillColor=#FFFFFF;strokeColor=#B7C5D8;" vertex="1" parent="1">
+          <mxGeometry x="55" y="565" width="430" height="82" as="geometry" />
+        </mxCell>
+        <mxCell id="51" value="기업 데이터 · AI 서비스" style="text;html=0;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontFamily=Apple SD Gothic Neo;fontSize=25;fontColor=#172B4D;fontStyle=1;spacing=0;" vertex="1" parent="1">
+          <mxGeometry x="77" y="578" width="390" height="34" as="geometry" />
+        </mxCell>
+        <mxCell id="52" value="Unity Catalog · Agent · Genie" style="text;html=0;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontFamily=Apple SD Gothic Neo;fontSize=18;fontColor=#52627A;fontStyle=0;spacing=0;" vertex="1" parent="1">
+          <mxGeometry x="77" y="608" width="390" height="27" as="geometry" />
+        </mxCell>
+        <mxCell id="53" value="" style="rounded=1;arcSize=10;fillColor=#FFFFFF;strokeColor=#B7C5D8;" vertex="1" parent="1">
+          <mxGeometry x="525" y="565" width="620" height="82" as="geometry" />
+        </mxCell>
+        <mxCell id="54" value="사내 업무 시스템" style="text;html=0;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontFamily=Apple SD Gothic Neo;fontSize=25;fontColor=#172B4D;fontStyle=1;spacing=0;" vertex="1" parent="1">
+          <mxGeometry x="547" y="578" width="580" height="34" as="geometry" />
+        </mxCell>
+        <mxCell id="55" value="MES · ERP · SRM 등" style="text;html=0;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontFamily=Apple SD Gothic Neo;fontSize=18;fontColor=#52627A;fontStyle=0;spacing=0;" vertex="1" parent="1">
+          <mxGeometry x="547" y="608" width="570" height="27" as="geometry" />
+        </mxCell>
+        <mxCell id="56" edge="1" parent="1" style="endArrow=block;strokeColor=#64748B;strokeWidth=3;dashed=0;rounded=0;">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="865" y="390" as="sourcePoint" />
+            <mxPoint x="270" y="565" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="865" y="400" />
+              <mxPoint x="825" y="400" />
+              <mxPoint x="825" y="550" />
+              <mxPoint x="270" y="550" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="57" edge="1" parent="1" style="endArrow=block;strokeColor=#64748B;strokeWidth=3;dashed=0;rounded=0;">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="965" y="520" as="sourcePoint" />
+            <mxPoint x="965" y="565" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="58" edge="1" parent="1" style="endArrow=block;strokeColor=#BA7815;strokeWidth=3;dashed=1;rounded=0;">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="1110" y="390" as="sourcePoint" />
+            <mxPoint x="1145" y="605" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="1158" y="390" />
+              <mxPoint x="1158" y="605" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="59" value="Databricks → 사내 시스템" style="text;html=0;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontFamily=Apple SD Gothic Neo;fontSize=16;fontColor=#BA7815;fontStyle=1;spacing=0;" vertex="1" parent="1">
+          <mxGeometry x="1210" y="589" width="340" height="25" as="geometry" />
+        </mxCell>
+        <mxCell id="60" value="연결 검증·보안 승인 필요" style="text;html=0;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontFamily=Apple SD Gothic Neo;fontSize=16;fontColor=#BA7815;fontStyle=0;spacing=0;" vertex="1" parent="1">
+          <mxGeometry x="1210" y="614" width="340" height="25" as="geometry" />
+        </mxCell>
+        <mxCell id="61" value="" style="rounded=1;arcSize=10;fillColor=#172B4D;strokeColor=none;" vertex="1" parent="1">
+          <mxGeometry x="55" y="680" width="1490" height="93" as="geometry" />
+        </mxCell>
+        <mxCell id="62" value="공통 관리·통제" style="text;html=0;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontFamily=Apple SD Gothic Neo;fontSize=22;fontColor=#FFFFFF;fontStyle=1;spacing=0;" vertex="1" parent="1">
+          <mxGeometry x="80" y="691" width="250" height="31" as="geometry" />
+        </mxCell>
+        <mxCell id="63" value="사내 인증·권한     |     보안·승인 증적     |     운영 현황     |     비용 관리" style="text;html=0;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontFamily=Apple SD Gothic Neo;fontSize=22;fontColor=#FFFFFF;fontStyle=0;spacing=0;" vertex="1" parent="1">
+          <mxGeometry x="345" y="693" width="1170" height="31" as="geometry" />
+        </mxCell>
+        <mxCell id="64" value="목표 기능 · 세부 구현 일부 제안 단계     /     사용자 진입은 사내망·전용 연결 경로" style="text;html=0;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontFamily=Apple SD Gothic Neo;fontSize=17;fontColor=#C4D3EA;fontStyle=0;spacing=0;" vertex="1" parent="1">
+          <mxGeometry x="345" y="733" width="1170" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="65" value="추진 조건" style="text;html=0;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontFamily=Apple SD Gothic Neo;fontSize=18;fontColor=#172B4D;fontStyle=1;spacing=0;" vertex="1" parent="1">
+          <mxGeometry x="55" y="794" width="150" height="27" as="geometry" />
+        </mxCell>
+        <mxCell id="66" value="데이터 등급·사내 연동 승인   ·   배포 인증·정책 강제 검증   ·   운영 규모·예산 확정" style="text;html=0;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontFamily=Apple SD Gothic Neo;fontSize=19;fontColor=#52627A;fontStyle=0;spacing=0;" vertex="1" parent="1">
+          <mxGeometry x="210" y="793" width="1320" height="28" as="geometry" />
+        </mxCell>
+        <mxCell id="67" value="파랑: 개발·배포   초록: 이용   회색: 업무 연계   주황 점선: 검증·승인 대기" style="text;html=0;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontFamily=Apple SD Gothic Neo;fontSize=15;fontColor=#52627A;fontStyle=0;spacing=0;" vertex="1" parent="1">
+          <mxGeometry x="55" y="848" width="1060" height="24" as="geometry" />
+        </mxCell>
+        <mxCell id="68" value="내부 설계·ADR 기준  |  2026.09.12" style="text;html=0;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontFamily=Apple SD Gothic Neo;fontSize=15;fontColor=#52627A;fontStyle=0;spacing=0;" vertex="1" parent="1">
+          <mxGeometry x="1190" y="848" width="355" height="24" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

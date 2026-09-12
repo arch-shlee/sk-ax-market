@@ -1,0 +1,198 @@
+[
+  {
+    "file": "aws-alb.svg",
+    "source_url": "https://d1.awsstatic.com/onedam/marketing-channels/website/public/shared/architecture-icon-release/Icon-package_07312026.5846e92413caa21490223536cc97f1269e44fa92.zip",
+    "retrieved_on": "2026-09-12",
+    "sha256": "27bea44fffd83cc42ce68411e659761a114d41d6b89efc556afef969f96414aa",
+    "archive_path": "Resource-Icons_07312026/Res_Networking-Content-Delivery/Res_Elastic-Load-Balancing_Application-Load-Balancer_48.svg"
+  },
+  {
+    "file": "aws-bedrock.svg",
+    "source_url": "https://d1.awsstatic.com/onedam/marketing-channels/website/public/shared/architecture-icon-release/Icon-package_07312026.5846e92413caa21490223536cc97f1269e44fa92.zip",
+    "retrieved_on": "2026-09-12",
+    "sha256": "01c39972d595d848ffc91d31aa6087b033c65279f8416c7c9a6659bc54406182",
+    "archive_path": "Architecture-Service-Icons_07312026/Arch_Artificial-Intelligence/48/Arch_Amazon-Bedrock_48.svg"
+  },
+  {
+    "file": "aws-dx.svg",
+    "source_url": "https://d1.awsstatic.com/onedam/marketing-channels/website/public/shared/architecture-icon-release/Icon-package_07312026.5846e92413caa21490223536cc97f1269e44fa92.zip",
+    "retrieved_on": "2026-09-12",
+    "sha256": "5994f6cef68bfd9e686abb571035d09a81e23a52a062ccb1ba10ee495b83d7cb",
+    "archive_path": "Architecture-Service-Icons_07312026/Arch_Networking-Content-Delivery/48/Arch_AWS-Direct-Connect_48.svg"
+  },
+  {
+    "file": "aws-ec2.svg",
+    "source_url": "https://d1.awsstatic.com/onedam/marketing-channels/website/public/shared/architecture-icon-release/Icon-package_07312026.5846e92413caa21490223536cc97f1269e44fa92.zip",
+    "retrieved_on": "2026-09-12",
+    "sha256": "099dff32b3f795f3fa8ed97f0466708502a7fd6500136679899a0cec5a5a2473",
+    "archive_path": "Architecture-Service-Icons_07312026/Arch_Compute/48/Arch_Amazon-EC2_48.svg"
+  },
+  {
+    "file": "aws-nlb.svg",
+    "source_url": "https://d1.awsstatic.com/onedam/marketing-channels/website/public/shared/architecture-icon-release/Icon-package_07312026.5846e92413caa21490223536cc97f1269e44fa92.zip",
+    "retrieved_on": "2026-09-12",
+    "sha256": "f7a5062131e9764ddc98c571cbffa5670c56d3020024408707614ce15f2cfcef",
+    "archive_path": "Resource-Icons_07312026/Res_Networking-Content-Delivery/Res_Elastic-Load-Balancing_Network-Load-Balancer_48.svg"
+  },
+  {
+    "file": "aws-privatelink.svg",
+    "source_url": "https://d1.awsstatic.com/onedam/marketing-channels/website/public/shared/architecture-icon-release/Icon-package_07312026.5846e92413caa21490223536cc97f1269e44fa92.zip",
+    "retrieved_on": "2026-09-12",
+    "sha256": "e7573e18201c71158c44dec11251f46894a3d26b895eb4c4e006aa630997db2d",
+    "archive_path": "Architecture-Service-Icons_07312026/Arch_Networking-Content-Delivery/48/Arch_AWS-PrivateLink_48.svg"
+  },
+  {
+    "file": "aws-resolver.svg",
+    "source_url": "https://d1.awsstatic.com/onedam/marketing-channels/website/public/shared/architecture-icon-release/Icon-package_07312026.5846e92413caa21490223536cc97f1269e44fa92.zip",
+    "retrieved_on": "2026-09-12",
+    "sha256": "20836b5ab91e9c684dbb9f956038a3bd6472e20388829150f8aff48d12bc3e40",
+    "archive_path": "Resource-Icons_07312026/Res_Networking-Content-Delivery/Res_Amazon-Route-53_Resolver_48.svg"
+  },
+  {
+    "file": "aws-s3.svg",
+    "source_url": "https://d1.awsstatic.com/onedam/marketing-channels/website/public/shared/architecture-icon-release/Icon-package_07312026.5846e92413caa21490223536cc97f1269e44fa92.zip",
+    "retrieved_on": "2026-09-12",
+    "sha256": "bb0df5b7ca52da7323888ed588baefa1c68a23b5776f325bc8ec29825c185a31",
+    "archive_path": "Architecture-Service-Icons_07312026/Arch_Storage/48/Arch_Amazon-Simple-Storage-Service_48.svg"
+  },
+  {
+    "file": "aws-tgw.svg",
+    "source_url": "https://d1.awsstatic.com/onedam/marketing-channels/website/public/shared/architecture-icon-release/Icon-package_07312026.5846e92413caa21490223536cc97f1269e44fa92.zip",
+    "retrieved_on": "2026-09-12",
+    "sha256": "07d3b531ad614a585d0f0bee06ddfc2780b25ecb289edcc3902f48a12c64d410",
+    "archive_path": "Architecture-Service-Icons_07312026/Arch_Networking-Content-Delivery/48/Arch_AWS-Transit-Gateway_48.svg"
+  },
+  {
+    "file": "aws-vpn.svg",
+    "source_url": "https://d1.awsstatic.com/onedam/marketing-channels/website/public/shared/architecture-icon-release/Icon-package_07312026.5846e92413caa21490223536cc97f1269e44fa92.zip",
+    "retrieved_on": "2026-09-12",
+    "sha256": "4c59c24698fc98875176cfaad9a3cb4372c9bf229daa96cbd4043d9efb9479a4",
+    "archive_path": "Architecture-Service-Icons_07312026/Arch_Networking-Content-Delivery/48/Arch_AWS-Site-to-Site-VPN_48.svg"
+  },
+  {
+    "file": "coder.svg",
+    "source_url": "https://coder.com/brand/downloads/logo/downloadFile.zip",
+    "retrieved_on": "2026-09-12",
+    "sha256": "d9e9f195dd4f9e5196be1737227571db8eedf67e7213cb793975036832ac4a88",
+    "archive_path": "01_Logo/01_Coder_Logo_RGB/01_SVG/03_Coder_Shorthand_Logo_RGB_Black.svg"
+  },
+  {
+    "file": "cosign.svg",
+    "source_url": "https://raw.githubusercontent.com/sigstore/community/main/artwork/cosign/horizontal/color/sigstore_cosign-horizontal-color.svg",
+    "retrieved_on": "2026-09-12",
+    "sha256": "a9fa679777e7f2cc1a2dfc19b2081901a7a303e2dffbc635d9f1aaf8cf717013"
+  },
+  {
+    "file": "databricks-sql.svg",
+    "source_url": "https://www.databricks.com/sites/default/files/2026-01/icon-databricks-sql.svg",
+    "retrieved_on": "2026-09-12",
+    "sha256": "822d1d6c794c65244aae6b04c0a2ce0e9363ee96d535bf280bff47a8e077fc00"
+  },
+  {
+    "file": "databricks.png",
+    "source_url": "https://cdn.bfldr.com/9AYANS2F/at/tcrz8bc986mhsq69gn9x2cvn/databricks-favicon-48x48-orange.png?format=png",
+    "retrieved_on": "2026-09-12",
+    "sha256": "3983414caf2537ac59d2ee2852f00389a4ed4c03619c78561ff40613a42da49d"
+  },
+  {
+    "file": "flux.svg",
+    "source_url": "https://raw.githubusercontent.com/cncf/artwork/master/projects/flux/icon/color/flux-icon-color.svg",
+    "retrieved_on": "2026-09-12",
+    "sha256": "510f51528a81ae0e317ce0634af369dad864667162707618712f2c1ad92d3165"
+  },
+  {
+    "file": "generic-app.svg",
+    "source_url": "https://d1.awsstatic.com/onedam/marketing-channels/website/public/shared/architecture-icon-release/Icon-package_07312026.5846e92413caa21490223536cc97f1269e44fa92.zip",
+    "retrieved_on": "2026-09-12",
+    "sha256": "adbea176db7aa41aeee5fc2faddb0adef71bd9be8b6dbeb7a199170051838da7",
+    "archive_path": "Resource-Icons_07312026/Res_General-Icons/Res_48_Light/Res_Generic-Application_48_Light.svg"
+  },
+  {
+    "file": "generic-database.svg",
+    "source_url": "https://d1.awsstatic.com/onedam/marketing-channels/website/public/shared/architecture-icon-release/Icon-package_07312026.5846e92413caa21490223536cc97f1269e44fa92.zip",
+    "retrieved_on": "2026-09-12",
+    "sha256": "c18bb92be55c5d8c6ce4630bdc70179fb438e078b215210e7b5fb523ed2303da",
+    "archive_path": "Resource-Icons_07312026/Res_General-Icons/Res_48_Light/Res_Database_48_Light.svg"
+  },
+  {
+    "file": "generic-git.svg",
+    "source_url": "https://d1.awsstatic.com/onedam/marketing-channels/website/public/shared/architecture-icon-release/Icon-package_07312026.5846e92413caa21490223536cc97f1269e44fa92.zip",
+    "retrieved_on": "2026-09-12",
+    "sha256": "3f139d4acfbf9e352ed87302c28f9d87fdd01b4370f359c90cb1746e30136dc0",
+    "archive_path": "Resource-Icons_07312026/Res_General-Icons/Res_48_Light/Res_Git-Repository_48_Light.svg"
+  },
+  {
+    "file": "generic-server.svg",
+    "source_url": "https://d1.awsstatic.com/onedam/marketing-channels/website/public/shared/architecture-icon-release/Icon-package_07312026.5846e92413caa21490223536cc97f1269e44fa92.zip",
+    "retrieved_on": "2026-09-12",
+    "sha256": "ae8d259b4fcb30a8f2e2e25ec1026ee27e87e2579b66f67f3b893898c2d8b4b0",
+    "archive_path": "Resource-Icons_07312026/Res_General-Icons/Res_48_Light/Res_Server_48_Light.svg"
+  },
+  {
+    "file": "generic-shield.svg",
+    "source_url": "https://d1.awsstatic.com/onedam/marketing-channels/website/public/shared/architecture-icon-release/Icon-package_07312026.5846e92413caa21490223536cc97f1269e44fa92.zip",
+    "retrieved_on": "2026-09-12",
+    "sha256": "fadb5337a76b09e6ae93609714e0d02323093b1e20a31c14f79e2cf6d993e89e",
+    "archive_path": "Resource-Icons_07312026/Res_General-Icons/Res_48_Light/Res_Shield_48_Light.svg"
+  },
+  {
+    "file": "genie.svg",
+    "source_url": "https://www.databricks.com/sites/default/files/2026-03/icon-genie.svg",
+    "retrieved_on": "2026-09-12",
+    "sha256": "dcc4419dd01a4b2ca64ac051cee734d73d3e1a560a2ddf6c542d33ada2cb0269"
+  },
+  {
+    "file": "gitlab.svg",
+    "source_url": "https://about.gitlab.com/images/press/gitlab-logo-500-rgb.svg",
+    "retrieved_on": "2026-09-12",
+    "sha256": "d8522f9bb83b35bcf0ab6e7fc25a312c26120028af308bec1dd9d20e15c1a615"
+  },
+  {
+    "file": "grafana.svg",
+    "source_url": "https://a-us.storyblok.com/f/1022730/39x43/06daa7cac6/oss-logo-grafana-spiral.svg",
+    "retrieved_on": "2026-09-12",
+    "sha256": "2d2a6844684b1c6dc187fbde36a962353afc2d4119dcc8663c2c39a2005cf079"
+  },
+  {
+    "file": "harbor.svg",
+    "source_url": "https://raw.githubusercontent.com/cncf/artwork/master/projects/harbor/icon/color/harbor-icon-color.svg",
+    "retrieved_on": "2026-09-12",
+    "sha256": "874d9348f306fddadc620f3029ab62545ac1054c53f7acf41e4b862a123d8391"
+  },
+  {
+    "file": "keycloak.svg",
+    "source_url": "https://raw.githubusercontent.com/cncf/artwork/master/projects/keycloak/icon/color/keycloak-icon-color.svg",
+    "retrieved_on": "2026-09-12",
+    "sha256": "488472bcd75c7cfe6442c8f2248cf0d7cb57d3faed00be9b59e1744a8cbd2ad2"
+  },
+  {
+    "file": "kubernetes.svg",
+    "source_url": "https://raw.githubusercontent.com/cncf/artwork/master/projects/kubernetes/icon/color/kubernetes-icon-color.svg",
+    "retrieved_on": "2026-09-12",
+    "sha256": "ff5427cfeeff39e82834ab1b4fe3ed61fc08596225a17eed56adc04f7cc1f712"
+  },
+  {
+    "file": "kyverno.svg",
+    "source_url": "https://raw.githubusercontent.com/cncf/artwork/master/projects/kyverno/icon/color/kyverno-icon-color.svg",
+    "retrieved_on": "2026-09-12",
+    "sha256": "41b8a114fe1856b62caeb600c665724d3caeade4ecd9350fb07c0d1e42ba2f92"
+  },
+  {
+    "file": "loki.svg",
+    "source_url": "https://a-us.storyblok.com/f/1022730/24x24/e041973a44/icon-nav-loki.svg",
+    "retrieved_on": "2026-09-12",
+    "sha256": "43c151e87b815ecaa77ed4f324e39c4a885f21be976f9ebdec2a3f22e2db3202"
+  },
+  {
+    "file": "prometheus.svg",
+    "source_url": "https://raw.githubusercontent.com/cncf/artwork/master/projects/prometheus/icon/color/prometheus-icon-color.svg",
+    "retrieved_on": "2026-09-12",
+    "sha256": "a96d48cc7f1c91de940dacbf30581850fd2c0ed4afaf1b0b94fb86eb1d0aef6e"
+  },
+  {
+    "file": "unity-catalog.svg",
+    "source_url": "https://www.databricks.com/sites/default/files/2026-01/icon-unity-catalog.svg",
+    "retrieved_on": "2026-09-12",
+    "sha256": "73ddeca1fe34a22aff33dad0fa3da8c35f17841715db4fe9e9f218e29fad7f0b"
+  }
+]
