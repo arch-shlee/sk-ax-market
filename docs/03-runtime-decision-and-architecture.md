@@ -4,16 +4,25 @@
 > **작성일**: 2026-09-10
 > **선행 문서**: `databricks-apps-reference.md`, `cicd-devsecops-research.md`, `01`, `02`
 
-### 전제 가정
+### 확정된 전제 (2026-09-12)
 
-미확정 항목이 있어 다음을 가정하고 작성한다. 확정 시 해당 절만 수정하면 되도록 국소화했다.
+| # | 사실 | 영향 |
+|---|---|---|
+| **F1** | **클라우드 = AWS, 리전 = ap-northeast-2 (서울)** | A2 해소 — Entra ID 고정 리스크 없음. 개인정보 국외이전 이슈 해소 |
+| **F2** | **Databricks는 별도 전용 AWS 계정** | 앱마켓 계정과 분리. cross-account 구성 → `05` 문서 §1 |
+| **F3** | **Databricks 계약 = Enterprise tier** | **NCC 사설 엔드포인트와 네트워크 정책 사용 가능** → A1 뒤집힘. Q1 재정의(§3) |
+| **F4** | **온프렘 ↔ AWS = VPN + Direct Connect + TGW 기구축, 라우팅 구성 완료** | Databricks Apps → 온프렘 경로가 성립(§3 Q1). Playground → 온프렘 GitLab push 성립 |
+| **F5** | **사용자 진입 = Direct Connect 경유 (인터넷 노출 없음)** | 앱마켓은 내부 ALB, Databricks Apps는 front-end PrivateLink → `05` 문서 §2 |
+| **F6** | **앱마켓은 AWS 전용 계정에 별도 구현** | 런타임이 아닌 플랫폼 서비스로 분리 → `05` 문서 §5 |
+| **F7** | **AX Playground = Coder 기반 클라우드 개발환경** (Coder Server + 워크스페이스 EC2 + VS Code·Claude Code Dev Container + Bedrock) | 구성요소 표의 "재정의 필요" 해소. 스캐폴드 배포 수단이 Coder 템플릿으로 확정 |
+
+### 남은 가정
 
 | # | 가정 | 미확정 시 영향 | 확정처 |
 |---|---|---|---|
-| A1 | Databricks 서버리스에서 온프렘 시스템으로의 **직접 아웃바운드는 불가** | §2 판정 기준 1번 | `databricks-apps-reference.md` §11-3 |
-| A2 | Databricks 계정 SSO의 IdP를 **Keycloak(OIDC)로 연동 가능** | §5 인증 설계 | Azure Databricks면 Entra ID 고정 |
 | A3 | GitLab **Ultimate** tier | §4 검증 게이트 강제 | `02` 문서 §11-2 |
-| A4 | WIF 시나리오 A (성립) | §4 배포 인증 | `01` 문서 |
+| A4 | WIF 시나리오 A (성립) | §4 배포 인증 | `01` 문서. **F4로 해결되지 않음** — 컨트롤 플레인의 JWKS 조회는 DX를 타지 않는다 |
+| A5 | 망분리 대상 여부·취급 데이터 등급 **미정** | Q1 승인 가능성, Bedrock 엔드포인트 구성, 데이터 등급별 런타임 제약 | 보안·정보보호 협의 (`05` 문서 §8) |
 
 ---
 
@@ -40,7 +49,7 @@ flowchart TD
     START["AX App 등록 신청"]
 
     subgraph L1["1층 · 차단 조건 (하나라도 YES면 Private Cloud)"]
-        Q1{"사내 시스템 직접 연동 필요?<br/>MES · SRM · ERP · Wehub · CRM"}
+        Q1{"사내 시스템을 내부 NLB 뒤에<br/>노출 불가/승인 불가?<br/>MES · SRM · ERP · Wehub · CRM"}
         Q2{"커스텀 컨테이너 이미지<br/>또는 특수 런타임 필요?"}
         Q3{"Python 3.11 · Node 22<br/>외 언어/런타임 필요?"}
         Q4{"대상 워크스페이스<br/>앱 100개 한도 초과?"}
@@ -99,14 +108,28 @@ flowchart TD
 
 | # | 질문 | 근거 | 출처 |
 |---|---|---|---|
-| **Q1** | 사내 시스템 직접 연동 필요? | NCC/PrivateLink는 클라우드 사업자 인프라 기반이라 온프렘으로 확장되지 않는다. 서버리스에서 온프렘으로의 네트워크 레벨 직접 연동이 성립하지 않음 | ⚠️ A1 (커뮤니티 근거, 공식 확인 필요) |
+| **Q1** | **사내 시스템을 내부 NLB 뒤에 노출할 수 없는가?** (또는 보안 승인 불가) | Enterprise tier에서 **Apps egress → NCC 사설 엔드포인트 → 우리 VPC 내부 NLB** 경로가 공식 지원되고, NLB 이후 구간은 기구축 TGW·DX가 처리한다. 즉 물리적 불가가 아니라 **노출 승인 여부**의 문제 | ✅ F3·F4 / `05` 문서 §3 |
 | **Q2** | 커스텀 이미지·특수 런타임? | Databricks Apps의 배포 단위는 **소스 + 설정**이며, 커스텀 Docker 이미지를 레지스트리에서 가져와 실행하는 경로가 문서에 없음 | `databricks-apps-reference.md` §2 |
 | **Q3** | 지원 외 언어/런타임? | Ubuntu 22.04 / Python 3.11 / Node.js 22.16 고정 | 동 §2 |
 | **Q4** | 앱 100개 한도? | **워크스페이스당 100개, 조정 불가(fixed)** | 동 §3 |
 
-> **Q1이 판정의 무게중심이다.** 이것이 "1안으로 Databricks Apps를 우선 적용한다"는 방침의 배경과 명분을 지탱한다. 기획서에 "좀더 배경과 명분을 강화해야 할 필요는 있다"고 적어 둔 부분에 대한 답이 여기에 있다 — 취향이나 정책이 아니라 **물리적 제약에서 도출되는 경계**이기 때문에 논쟁의 여지가 없다.
+> **⚠️ Q1은 2026-09-12에 재정의되었다.** 종전에는 "사내 시스템 직접 연동 필요? → YES면 Private Cloud 확정"이었고, 근거는 "서버리스에서 온프렘으로의 직접 연동이 물리적으로 불가"(가정 A1)였다. **F3(Enterprise tier)·F4(DX 기구축)로 A1이 뒤집혔다.**
 >
-> ⚠️ 다만 A1이 아직 공식 확인 전이다. **확인이 뒤집히면 Q1은 "성능·지연 요구"로 완화**되고, 판정 트리의 무게중심이 2층으로 이동한다.
+> 성립하는 경로는 다음과 같다. → 상세는 `05` 문서 §3
+>
+> ```
+> Databricks App (서버리스)
+>    → NCC 사설 엔드포인트 (PrivateLink)
+>    → 우리 VPC의 내부 NLB
+>    → NLB 타깃 → TGW → Direct Connect
+>    → 온프렘 MES / SRM / ERP / Wehub / CRM
+> ```
+>
+> **판정 트리의 무게중심이 1층에서 2층으로 이동한다.** 그리고 이것이 "1안 = Databricks Apps 우선" 방침의 명분을 **약화시키지 않고 오히려 강화한다** — 물리적으로 막혀서 갈라지는 것이 아니라, **Q5의 통제 이점 때문에 선택하는 것**이 되기 때문이다. 기획서에 "배경과 명분을 강화해야 한다"고 적어 둔 부분에 대한 답은 이제 Q1이 아니라 **Q5(UC 행·열 보안 상속)** 가 지탱한다.
+>
+> **남은 조건 2가지** (`05` 문서 §3)
+> - 사내 시스템을 내부 NLB 뒤에 노출하는 것에 대한 **보안팀 승인** — 이것이 Q1의 실질 판정 기준이 된다
+> - **NLB 타깃을 온프렘 IP로 두는 구성의 검증** — Databricks 문서 범위 밖이며 네트워크 담당 확인 필요
 
 ### 2층 — 강한 선호
 
@@ -135,7 +158,8 @@ flowchart TD
 
 ```
 [1층 차단 조건]
-[ ] Q1. 사내 시스템(MES/SRM/ERP/Wehub/CRM) 직접 연동이 필요합니까?
+[ ] Q1. 사내 시스템(MES/SRM/ERP/Wehub/CRM) 연동이 필요하고,
+       그 시스템을 내부 NLB 뒤에 노출하는 것이 불가하거나 보안 승인을 받을 수 없습니까?
 [ ] Q2. 커스텀 컨테이너 이미지나 특수 런타임이 필요합니까?
 [ ] Q3. Python 3.11 / Node.js 22 외의 언어·런타임이 필요합니까?
 [ ] Q4. (플랫폼팀 확인) 대상 워크스페이스 앱 수가 한도에 근접했습니까?
@@ -230,7 +254,8 @@ flowchart TB
         NORM --> OPS
     end
 
-    subgraph LEGACY["사내 업무 시스템"]
+    subgraph LEGACY["온프렘 · 사내 업무 시스템"]
+        NLB["내부 NLB (우리 VPC)<br/>NCC 사설EP 종단"]
         SYS["MES · SRM · ERP<br/>Wehub · CRM"]
     end
 
@@ -243,7 +268,8 @@ flowchart TB
     HEALTH -.배포완료 등록.-> CAT
     KYV -.배포완료 등록.-> CAT
     PCAPP <-->|"직접 연동 가능"| SYS
-    DBXAPP -. "직접 연동 불가 (A1)" .-x SYS
+    DBXAPP -.->|"NCC 사설EP → 내부 NLB<br/>→ TGW → DX (F3·F4)"| NLB
+    NLB --> SYS
 
     EMP --> CAT
     CAT --> PERM
@@ -263,7 +289,7 @@ flowchart TB
 
 | 영역 | 구성요소 | 역할 | 상태 |
 |---|---|---|---|
-| MAKE | **AX Playground** | Golden Path 시작점. 파이프라인·보안정책·로깅이 결선된 실행 가능한 스캐폴드 제공 | 재정의 필요 |
+| MAKE | **AX Playground** | **Coder 기반 클라우드 개발환경** (Coder Server + 워크스페이스 EC2 + VS Code·Claude Code Dev Container + Bedrock). Golden Path 시작점이며, 스캐폴드는 **Coder 워크스페이스 템플릿 + Dev Container 이미지**로 배포된다 | PoC 가동 중 (F7) |
 | TRUST | **GitLab (온프렘)** | 중앙 형상관리 + CI/CD + 보안 스캔 + 정책 강제 | 기구축 |
 | TRUST | **Security Policy Project** | 스캔·승인 정책을 코드로 관리. `[skip ci]` 우회 차단 | 신규 |
 | ADOPT | **Private Cloud (VKS)** | 사내 시스템 연동 앱, 커스텀 런타임 앱 | 기구축 |
@@ -290,7 +316,7 @@ Active Directory (단일 소스)
     unified login)
 ```
 
-⚠️ **A2 가정에 의존한다.** Azure Databricks라면 Entra ID로 고정되므로 Keycloak 직접 연동이 불가할 수 있다. 이 경우 AD → Entra ID → Databricks 경로가 되고, Keycloak과는 AD를 공통 상위로 두는 형태가 된다. **어느 클라우드인지 확정이 선행되어야 한다.**
+✅ **F1로 해소되었다.** AWS Databricks이므로 Entra ID 고정 제약이 없고, 계정 레벨 SSO가 SAML 2.0 / OIDC를 지원하므로 **Keycloak을 OIDC IdP로 직접 연동하는 경로가 열려 있다.** 다만 레퍼런스 사례 확인은 남아 있다(`databricks-apps-reference.md` §11-7).
 
 ### 5-2. 앱 실행 권한의 투영
 
@@ -416,18 +442,32 @@ Active Directory (단일 소스)
 
 세 문서에 걸친 미결 항목을 우선순위로 통합한다.
 
+**해소된 항목 (2026-09-12)**
+
+| 종전 순위 | 항목 | 결과 |
+|---|---|---|
+| 1 | Databricks 클라우드 | ✅ **AWS · ap-northeast-2 · 별도 전용 계정** (F1·F2) |
+| 2 | 온프렘 아웃바운드 제약 (A1) | ✅ **경로 성립.** Q1 재정의 (§3, `05` §3) |
+| 5 | Databricks Enterprise tier | ✅ **Enterprise** (F3) |
+
+**남은 항목**
+
 | 순위 | 항목 | 막히는 것 | 확인처 |
 |---|---|---|---|
-| **1** | **Databricks 클라우드 (AWS/Azure/GCP)** | 인증 설계 전체 (§5) | 인프라 담당 |
-| **2** | **온프렘 아웃바운드 제약 (A1)** | 판정 기준 Q1 (§3) — 판정 트리의 무게중심 | Databricks 문의 |
-| **3** | **GitLab Ultimate 여부** | 검증 게이트 강제 — 로드맵 1단계 | GitLab 관리자 |
-| **4** | **WIF 성립 여부** | Databricks 트랙 배포 인증 | `01` 문서 절차 |
-| **5** | Databricks Enterprise tier | 네트워크 정책 | 계약 확인 |
-| **6** | Cosign 키 관리 방식 | Private Cloud 트랙 5단계 | 보안팀 |
-| **7** | Jenkins·ArgoCD·Harbor 역할 분담 | 도구 중복 정리 | 플랫폼팀 |
-| **8** | 비용 공통 환산 기준 + **Apps SKU 실효 단가** | 판정 Q8, 운영 대시보드, 3층 기본값의 유효성 | 재무·플랫폼 협의 / `04` 문서 §1-2 쿼리 |
+| **1** | **A5 — 망분리 대상 여부·취급 데이터 등급** | Q1 보안 승인, Bedrock 엔드포인트, 데이터 등급별 런타임 제약 | 보안·정보보호 협의. 등급 초안은 `05` §8-1 |
+| **2** | **NLB IP 타깃 → 온프렘 도달 검증** | Q1 성립의 마지막 조각 | 네트워크 담당 (`05` §3-3) |
+| **3** | **사내 시스템 노출 보안 승인** | Q1의 실질 판정 기준 | 보안팀 (`05` §3-4에 승인 패키지 초안) |
+| **4** | **GitLab Ultimate 여부** | 검증 게이트 강제 — 로드맵 1단계 | GitLab 관리자 |
+| **5** | **WIF 성립 여부** | Databricks 트랙 배포 인증. **DX가 있어도 해결되지 않음** | `01` 문서 절차 |
+| **6** | 앱마켓 운영 계정 CIDR 확보 | 물리 구성 착수 | IP 대역 관리 부서 — **리드타임 최장** (`05` §8-2) |
+| **7** | 내부 NLB 배치 계정 | §3 경로의 운영·감사 주체 | 플랫폼·네트워크팀 (`05` §1-2) |
+| **8** | Agent App 런타임의 LLM (Databricks 모델서빙 / Bedrock) | `02` §8 게이트, `04` §2-3 변동비 | 아키텍처 결정 |
+| **9** | Cosign 키 관리 방식 | Private Cloud 트랙 5단계 | 보안팀 |
+| **10** | Jenkins·ArgoCD·Harbor 역할 분담 | 도구 중복 정리 | 플랫폼팀 |
+| **11** | 비용 공통 환산 기준 + **Apps SKU 실효 단가** | 판정 Q8, 운영 대시보드, 3층 기본값의 유효성 | 재무·플랫폼 협의 / `04` §1-2 쿼리 |
+| **12** | **목표 수량 (앱 수·동시 사용자·SLA 등급 정의)** | 사이징 전반, 비용 규모, Q8′ 판정 | 기획·플랫폼 협의 |
 
-> **1~3번은 병렬로 즉시 착수 가능하다.** 4번은 3번과 무관하게 진행할 수 있다. 이 네 가지가 풀리면 설계 문서 전체의 가정이 사실로 대체된다.
+> **1~3번이 하나의 묶음이다.** 셋 다 Q1(사내 시스템 연동 앱을 Databricks에 둘 수 있는가)에 걸려 있고, 이것이 판정 트리의 남은 최대 변수다. 6번은 리드타임 때문에 지금 착수해야 한다. 12번은 `04` 문서 작성 중 드러난 공백으로, 물리 사이징의 입력값이다.
 
 ---
 
@@ -439,3 +479,5 @@ Active Directory (단일 소스)
 - `docs/01-gitlab-databricks-wif-verification.md` — WIF 검증 설계
 - `docs/02-cicd-pipeline-design.md` — CI/CD 파이프라인 상세 설계
 - `docs/04-cost-model.md` — 운영 비용 모델. §3 3층 판정과 §6 메타데이터의 비용 필드 근거
+- `docs/05-physical-architecture.md` — 물리 아키텍처. 계정 토폴로지·진입 경로·Q1 경로의 물리적 실체
+- `docs/axplayground_PoC 아키텍처.drawio.xml` — Playground PoC 아키텍처

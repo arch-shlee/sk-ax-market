@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mxfile host="app.diagrams.net" agent="Claude/PoC v0.1" pages="2">
+  <diagram name="논리 뷰" id="logical">
+    <mxGraphModel dx="1602" dy="1108" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1600" pageHeight="900" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="t1" parent="1" style="text;html=1;align=left;verticalAlign=top;fontSize=14;" value="&lt;b&gt;PoC 아키텍처 — 논리 뷰 v0.1&lt;/b&gt;&#xa;사용자가 보는 흐름. 박스 최소. 점선 = 나중에 교체될 자리." vertex="1">
+          <mxGeometry height="50" width="900" x="40" y="30" as="geometry" />
+        </mxCell>
+        <mxCell id="user" parent="1" style="sketch=0;outlineConnect=0;fontColor=#232F3E;gradientColor=none;fillColor=#232F3E;strokeColor=#232F3E;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=12;aspect=fixed;shape=mxgraph.aws4.user;" value="사용자&#xa;(VDI / Local PC)" vertex="1">
+          <mxGeometry height="74" width="60" x="80" y="400" as="geometry" />
+        </mxCell>
+        <mxCell id="aws" parent="1" style="points=[[0,0],[0.25,0],[0.5,0],[0.75,0],[1,0],[1,0.25],[1,0.5],[1,0.75],[1,1],[0.75,1],[0.5,1],[0.25,1],[0,1],[0,0.75],[0,0.5],[0,0.25]];outlineConnect=0;gradientColor=none;html=1;whiteSpace=wrap;fontSize=12;fontStyle=0;container=1;pointerEvents=0;collapsible=0;recursiveResize=0;shape=mxgraph.aws4.group;grIcon=mxgraph.aws4.group_aws_cloud_alt;strokeColor=#232F3E;fillColor=none;verticalAlign=top;align=left;spacingLeft=30;fontColor=#232F3E;dashed=0;" value="AWS Cloud · ap-northeast-2" vertex="1">
+          <mxGeometry height="530" width="1340" x="200" y="120" as="geometry" />
+        </mxCell>
+        <mxCell id="sg" parent="1" style="points=[[0,0],[0.25,0],[0.5,0],[0.75,0],[1,0],[1,0.25],[1,0.5],[1,0.75],[1,1],[0.75,1],[0.5,1],[0.25,1],[0,1],[0,0.75],[0,0.5],[0,0.25]];outlineConnect=0;gradientColor=none;html=1;whiteSpace=wrap;fontSize=12;container=1;pointerEvents=0;collapsible=0;recursiveResize=0;shape=mxgraph.aws4.group;grIcon=mxgraph.aws4.group_security_group;strokeColor=#DD3522;fillColor=none;verticalAlign=top;align=left;spacingLeft=30;fontColor=#DD3522;dashed=0;" value="Coder 컨트롤 플레인 (EC2 단일)&#xa;SG 443 = allowlist · EIP · 자체서명 TLS · 임시 외부 오픈" vertex="1">
+          <mxGeometry height="280" width="420" x="260" y="240" as="geometry" />
+        </mxCell>
+        <mxCell id="coder" parent="1" style="sketch=0;outlineConnect=0;fontColor=#232F3E;gradientColor=none;fillColor=#E7157B;strokeColor=#ffffff;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=12;aspect=fixed;shape=mxgraph.aws4.resourceIcon;resIcon=mxgraph.aws4.ec2;" value="Coder Server&#xa;+ built-in PostgreSQL" vertex="1">
+          <mxGeometry height="78" width="78" x="300" y="340" as="geometry" />
+        </mxCell>
+        <mxCell id="ebs" parent="1" style="sketch=0;outlineConnect=0;fontColor=#232F3E;gradientColor=none;fillColor=#7AA116;strokeColor=#ffffff;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=12;aspect=fixed;shape=mxgraph.aws4.resourceIcon;resIcon=mxgraph.aws4.elastic_block_store;" value="영속 EBS&#xa;(DB 데이터)" vertex="1">
+          <mxGeometry height="78" width="78" x="520" y="340" as="geometry" />
+        </mxCell>
+        <mxCell id="ws" parent="1" style="sketch=0;outlineConnect=0;fontColor=#232F3E;gradientColor=none;fillColor=#E7157B;strokeColor=#ffffff;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=12;aspect=fixed;shape=mxgraph.aws4.resourceIcon;resIcon=mxgraph.aws4.ec2;" value="워크스페이스 (EC2)&#xa;VS Code + Claude Code&#xa;Dev Container" vertex="1">
+          <mxGeometry height="78" width="78" x="800" y="340" as="geometry" />
+        </mxCell>
+        <mxCell id="seam" parent="1" style="rounded=1;whiteSpace=wrap;html=1;dashed=1;dashPattern=8 4;strokeColor=#999999;fillColor=none;fontColor=#666666;fontSize=11;verticalAlign=top;align=center;spacingTop=8;" value="얇은 LLM seam&lt;br&gt;토큰 사용량 로깅&lt;br&gt;정교화는 운영환경 구축 시점에" vertex="1">
+          <mxGeometry height="180" width="280" x="960" y="290" as="geometry" />
+        </mxCell>
+        <mxCell id="bed" parent="1" style="sketch=0;outlineConnect=0;fontColor=#232F3E;gradientColor=none;fillColor=#01A88D;strokeColor=#ffffff;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=12;aspect=fixed;shape=mxgraph.aws4.resourceIcon;resIcon=mxgraph.aws4.bedrock;" value="Amazon Bedrock&#xa;(Claude)" vertex="1">
+          <mxGeometry height="78" width="78" x="1370" y="340" as="geometry" />
+        </mxCell>
+        <mxCell id="e1" edge="1" parent="1" source="user" style="endArrow=classic;html=1;rounded=0;fontSize=11;" target="coder" value="HTTPS 443&#xa;자체서명 TLS">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e2" edge="1" parent="1" source="coder" style="endArrow=classic;html=1;rounded=0;fontSize=11;dashed=1;strokeColor=#666666;" target="ws" value="EC2 프로비저닝&#xa;(Coder/Terraform)">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e3" edge="1" parent="1" source="ws" style="endArrow=classic;html=1;rounded=0;fontSize=11;" target="bed" value="LLM 호출&#xa;(IAM Role)">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="fn" parent="1" style="text;html=1;align=left;verticalAlign=top;fontSize=11;fontStyle=2;fontColor=#666666;" value="원칙: 단일 replica · 도메인 X · built-in DB · 자체서명 TLS · 1인 운영 · 채택 검증 우선&lt;br&gt;네트워크는 수동 구성, CDK는 lookup만 (NetworkStack 없음)" vertex="1">
+          <mxGeometry height="50" width="1200" x="40" y="690" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram name="인프라 뷰" id="infra">
+    <mxGraphModel dx="1800" dy="1000" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1800" pageHeight="1000" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="t" value="&lt;b&gt;PoC 아키텍처 — 인프라 뷰 v0.1&lt;/b&gt;&#xa;실제 배치. PL이 직접 만든 네트워크 위에 CDK가 lookup으로 올림." style="text;html=1;align=left;verticalAlign=top;fontSize=14;" vertex="1" parent="1">
+          <mxGeometry x="40" y="20" width="1100" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="u" value="사용자" style="sketch=0;outlineConnect=0;fontColor=#232F3E;fillColor=#232F3E;strokeColor=#232F3E;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=12;aspect=fixed;shape=mxgraph.aws4.user;" vertex="1" parent="1">
+          <mxGeometry x="60" y="500" width="60" height="74" as="geometry" />
+        </mxCell>
+        <mxCell id="aws" value="AWS Cloud · 계정 259537089696 · ap-northeast-2" style="points=[[0,0],[0.25,0],[0.5,0],[0.75,0],[1,0],[1,0.25],[1,0.5],[1,0.75],[1,1],[0.75,1],[0.5,1],[0.25,1],[0,1],[0,0.75],[0,0.5],[0,0.25]];outlineConnect=0;gradientColor=none;html=1;whiteSpace=wrap;fontSize=12;container=1;pointerEvents=0;collapsible=0;recursiveResize=0;shape=mxgraph.aws4.group;grIcon=mxgraph.aws4.group_aws_cloud_alt;strokeColor=#232F3E;fillColor=none;verticalAlign=top;align=left;spacingLeft=30;fontColor=#232F3E;" vertex="1" parent="1">
+          <mxGeometry x="200" y="80" width="1540" height="820" as="geometry" />
+        </mxCell>
+        <mxCell id="vpc" value="VPC 10.239.160.0/22 (SKMR-DEV-Data-VPC) · PL 직접 구성, CDK는 lookup" style="points=[[0,0],[0.25,0],[0.5,0],[0.75,0],[1,0],[1,0.25],[1,0.5],[1,0.75],[1,1],[0.75,1],[0.5,1],[0.25,1],[0,1],[0,0.75],[0,0.5],[0,0.25]];outlineConnect=0;gradientColor=none;html=1;whiteSpace=wrap;fontSize=12;container=1;pointerEvents=0;collapsible=0;recursiveResize=0;shape=mxgraph.aws4.group;grIcon=mxgraph.aws4.group_vpc;strokeColor=#248814;fillColor=none;verticalAlign=top;align=left;spacingLeft=30;fontColor=#AAB7B8;" vertex="1" parent="1">
+          <mxGeometry x="240" y="140" width="1340" height="740" as="geometry" />
+        </mxCell>
+        <mxCell id="igw" value="IGW" style="sketch=0;outlineConnect=0;fontColor=#232F3E;fillColor=#8C4FFF;strokeColor=#ffffff;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=11;aspect=fixed;shape=mxgraph.aws4.resourceIcon;resIcon=mxgraph.aws4.internet_gateway;" vertex="1" parent="1">
+          <mxGeometry x="320" y="170" width="60" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="tgw" value="TGW → 사내망&#xa;(퍼블릭 RT에 경로 미부여)" style="sketch=0;outlineConnect=0;fontColor=#232F3E;fillColor=#8C4FFF;strokeColor=#ffffff;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=10;aspect=fixed;shape=mxgraph.aws4.resourceIcon;resIcon=mxgraph.aws4.transit_gateway;" vertex="1" parent="1">
+          <mxGeometry x="1470" y="170" width="60" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="pub-a" value="Public Subnet 10.239.161.0/27 (ap-northeast-2a)" style="points=[[0,0],[0.25,0],[0.5,0],[0.75,0],[1,0],[1,0.25],[1,0.5],[1,0.75],[1,1],[0.75,1],[0.5,1],[0.25,1],[0,1],[0,0.75],[0,0.5],[0,0.25]];outlineConnect=0;gradientColor=none;html=1;whiteSpace=wrap;fontSize=11;container=1;pointerEvents=0;collapsible=0;recursiveResize=0;shape=mxgraph.aws4.group;grIcon=mxgraph.aws4.group_public_subnet;strokeColor=#248814;fillColor=none;verticalAlign=top;align=left;spacingLeft=30;fontColor=#248814;" vertex="1" parent="1">
+          <mxGeometry x="280" y="270" width="540" height="220" as="geometry" />
+        </mxCell>
+        <mxCell id="coder" value="Coder Server&#xa;+ built-in DB&#xa;EIP · SG 443" style="sketch=0;outlineConnect=0;fontColor=#232F3E;fillColor=#E7157B;strokeColor=#ffffff;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=11;aspect=fixed;shape=mxgraph.aws4.resourceIcon;resIcon=mxgraph.aws4.ec2;" vertex="1" parent="1">
+          <mxGeometry x="380" y="350" width="78" height="78" as="geometry" />
+        </mxCell>
+        <mxCell id="ebs" value="영속 EBS" style="sketch=0;outlineConnect=0;fontColor=#232F3E;fillColor=#7AA116;strokeColor=#ffffff;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=11;aspect=fixed;shape=mxgraph.aws4.resourceIcon;resIcon=mxgraph.aws4.elastic_block_store;" vertex="1" parent="1">
+          <mxGeometry x="600" y="360" width="60" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="pub-c" value="Public Subnet 10.239.161.32/27 (2c)" style="points=[[0,0],[0.25,0],[0.5,0],[0.75,0],[1,0],[1,0.25],[1,0.5],[1,0.75],[1,1],[0.75,1],[0.5,1],[0.25,1],[0,1],[0,0.75],[0,0.5],[0,0.25]];outlineConnect=0;gradientColor=none;html=1;whiteSpace=wrap;fontSize=11;container=1;pointerEvents=0;collapsible=0;recursiveResize=0;shape=mxgraph.aws4.group;grIcon=mxgraph.aws4.group_public_subnet;strokeColor=#248814;fillColor=none;verticalAlign=top;align=left;spacingLeft=30;fontColor=#248814;" vertex="1" parent="1">
+          <mxGeometry x="860" y="270" width="280" height="220" as="geometry" />
+        </mxCell>
+        <mxCell id="nat" value="NAT GW&#xa;(EIP)" style="sketch=0;outlineConnect=0;fontColor=#232F3E;fillColor=#8C4FFF;strokeColor=#ffffff;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=11;aspect=fixed;shape=mxgraph.aws4.resourceIcon;resIcon=mxgraph.aws4.nat_gateway;" vertex="1" parent="1">
+          <mxGeometry x="960" y="350" width="60" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="pri-a" value="Private Subnet 10.239.162.0/26 (2a)" style="points=[[0,0],[0.25,0],[0.5,0],[0.75,0],[1,0],[1,0.25],[1,0.5],[1,0.75],[1,1],[0.75,1],[0.5,1],[0.25,1],[0,1],[0,0.75],[0,0.5],[0,0.25]];outlineConnect=0;gradientColor=none;html=1;whiteSpace=wrap;fontSize=11;container=1;pointerEvents=0;collapsible=0;recursiveResize=0;shape=mxgraph.aws4.group;grIcon=mxgraph.aws4.group_private_subnet;strokeColor=#147EBA;fillColor=none;verticalAlign=top;align=left;spacingLeft=30;fontColor=#147EBA;" vertex="1" parent="1">
+          <mxGeometry x="280" y="570" width="540" height="220" as="geometry" />
+        </mxCell>
+        <mxCell id="ws1" value="Workspace 1&#xa;Claude Code" style="sketch=0;outlineConnect=0;fontColor=#232F3E;fillColor=#E7157B;strokeColor=#ffffff;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=10;aspect=fixed;shape=mxgraph.aws4.resourceIcon;resIcon=mxgraph.aws4.ec2;" vertex="1" parent="1">
+          <mxGeometry x="340" y="640" width="60" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="ws2" value="Workspace 2" style="sketch=0;outlineConnect=0;fontColor=#232F3E;fillColor=#E7157B;strokeColor=#ffffff;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=10;aspect=fixed;shape=mxgraph.aws4.resourceIcon;resIcon=mxgraph.aws4.ec2;" vertex="1" parent="1">
+          <mxGeometry x="490" y="640" width="60" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="ws3" value="Workspace 3" style="sketch=0;outlineConnect=0;fontColor=#232F3E;fillColor=#E7157B;strokeColor=#ffffff;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=10;aspect=fixed;shape=mxgraph.aws4.resourceIcon;resIcon=mxgraph.aws4.ec2;" vertex="1" parent="1">
+          <mxGeometry x="640" y="640" width="60" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="pri-c" value="Private Subnet 10.239.162.64/26 (2c)&#xa;예비 (HA 확장용)" style="points=[[0,0],[0.25,0],[0.5,0],[0.75,0],[1,0],[1,0.25],[1,0.5],[1,0.75],[1,1],[0.75,1],[0.5,1],[0.25,1],[0,1],[0,0.75],[0,0.5],[0,0.25]];outlineConnect=0;gradientColor=none;html=1;whiteSpace=wrap;fontSize=11;container=1;pointerEvents=0;collapsible=0;recursiveResize=0;shape=mxgraph.aws4.group;grIcon=mxgraph.aws4.group_private_subnet;strokeColor=#147EBA;fillColor=none;verticalAlign=top;align=left;spacingLeft=30;fontColor=#147EBA;dashed=1;" vertex="1" parent="1">
+          <mxGeometry x="860" y="570" width="280" height="220" as="geometry" />
+        </mxCell>
+        <mxCell id="s3ep" value="S3 GW Endpoint&#xa;(기존)" style="sketch=0;outlineConnect=0;fontColor=#232F3E;fillColor=#7AA116;strokeColor=#ffffff;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=10;aspect=fixed;shape=mxgraph.aws4.resourceIcon;resIcon=mxgraph.aws4.vpc_endpoints;" vertex="1" parent="1">
+          <mxGeometry x="1260" y="350" width="60" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="bedep" value="Bedrock 인터페이스 EP&#xa;(나중)" style="sketch=0;outlineConnect=0;fontColor=#666666;fillColor=#FFFFFF;strokeColor=#999999;dashed=1;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=10;aspect=fixed;shape=mxgraph.aws4.resourceIcon;resIcon=mxgraph.aws4.vpc_endpoints;" vertex="1" parent="1">
+          <mxGeometry x="1260" y="500" width="60" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="bed" value="Amazon Bedrock&#xa;(Claude)" style="sketch=0;outlineConnect=0;fontColor=#232F3E;fillColor=#01A88D;strokeColor=#ffffff;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=11;aspect=fixed;shape=mxgraph.aws4.resourceIcon;resIcon=mxgraph.aws4.bedrock;" vertex="1" parent="1">
+          <mxGeometry x="1420" y="500" width="78" height="78" as="geometry" />
+        </mxCell>
+        <mxCell id="other" value="⚠ 동거 중: 기존 Pri-TGW-C (10.239.163.16/28)에 DS_dev_server (t3.large) 가동 중 — 타인 테스트 자원" style="text;html=1;align=left;verticalAlign=top;fontSize=10;fontStyle=2;fontColor=#999999;" vertex="1" parent="1">
+          <mxGeometry x="280" y="820" width="800" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="ue1" value="HTTPS 443" style="endArrow=classic;html=1;rounded=0;fontSize=10;" edge="1" parent="1" source="u" target="igw">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ue2" value="" style="endArrow=classic;html=1;rounded=0;fontSize=10;" edge="1" parent="1" source="igw" target="coder">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ue3" value="Coder 프로비저닝" style="endArrow=classic;html=1;rounded=0;fontSize=10;dashed=1;strokeColor=#666666;" edge="1" parent="1" source="coder" target="ws1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ue4" value="NAT egress" style="endArrow=classic;html=1;rounded=0;fontSize=10;" edge="1" parent="1" source="ws2" target="nat">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ue5" value="" style="endArrow=classic;html=1;rounded=0;fontSize=10;" edge="1" parent="1" source="nat" target="igw">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ue6" value="Bedrock invoke&#xa;(현재: NAT경유 / 나중: EP)" style="endArrow=classic;html=1;rounded=0;fontSize=10;" edge="1" parent="1" source="ws3" target="bed">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="fn2" value="⚙ 가드레일: 공개 진입 서브넷 RT에 TGW 경로 미부여 · SG 443 = 회사/VDI IP만 · TLS 자체서명&#xa;⚠ VPC 작음(/22)에 타인 자원 공존 → 운영 계정은 전용 신규 VPC (ADR-0002 dual-account)" style="text;html=1;align=left;verticalAlign=top;fontSize=10;fontStyle=2;fontColor=#666666;" vertex="1" parent="1">
+          <mxGeometry x="40" y="920" width="1500" height="50" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

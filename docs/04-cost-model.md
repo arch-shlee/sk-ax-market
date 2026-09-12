@@ -61,6 +61,8 @@ WHERE sku_name ILIKE '%APP%' AND price_end_time IS NULL;
 | Apps 실효 단가 | $0.5 ~ $1.0 / DBU (§1-2) |
 | 서버리스 SQL 단가 | $0.70 / DBU (공표 list price 기준) |
 | 환율 | 1 USD ≈ 1,400원 **(가정. 확정 시 수정)** |
+| 클라우드·리전 | ✅ AWS · ap-northeast-2 (서울). Databricks는 **별도 전용 계정** (`03` 문서 F1·F2) |
+| 계약 tier | ✅ **Enterprise** (`03` 문서 F3). 네트워크 정책 사용 가능 — §6-2 공용 웨어하우스 강제와 함께 이그레스 통제도 가능 |
 
 ---
 
@@ -264,3 +266,4 @@ OBO가 사용자 신원을 그대로 전달하므로 웨어하우스를 공유�
 - `docs/databricks-apps-reference.md` — Databricks Apps 기술 레퍼런스 (§3 비용·한도)
 - `docs/03-runtime-decision-and-architecture.md` — 런타임 판정 기준 (§3 Q8, §6 메타데이터)
 - `docs/02-cicd-pipeline-design.md` — CI/CD 파이프라인 설계 (§6-1 validate, §9-3 운영 지표)
+- `docs/05-physical-architecture.md` — 물리 아키텍처. §1-3 계산 전제(리전·계정·tier)의 근거

@@ -461,5 +461,6 @@ register:marketplace:
 
 - `docs/01-gitlab-databricks-wif-verification.md` — WIF 검증 설계
 - `docs/04-cost-model.md` — 운영 비용 모델 (§6-2 공용 웨어하우스 강제, §6-4 앱별 비용 귀속)
+- `docs/05-physical-architecture.md` — 물리 아키텍처 (계정·네트워크 경로, 앱마켓 배치)
 - `docs/cicd-devsecops-research.md` — CI/CD·DevSecOps 자료조사
 - `docs/databricks-apps-reference.md` — Databricks Apps 기술 레퍼런스

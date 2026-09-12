@@ -136,7 +136,7 @@ Databricks Apps는 OAuth 2.0 기반의 **두 가지 권한 모델을 병행**한
 **AX App Market 설계 함의**
 
 - Private Cloud 측 **Keycloak를 OIDC IdP로 하여 Databricks와 연동하는 경로가 열려 있다.** 이것이 성립하면 두 런타임의 신원 체계를 AD 기준으로 일원화할 수 있다.
-- ⚠️ **단, Azure Databricks의 경우 Entra ID로 고정**되므로 Keycloak 직접 연동이 불가할 수 있다. **어느 클라우드의 Databricks인지가 인증 설계 전체의 분기점**이다 (§11 참조).
+- ✅ **AWS Databricks로 확정(`03` 문서 F1)** — Azure의 Entra ID 고정 제약에 해당하지 않으므로 Keycloak OIDC 직접 연동 경로가 유효하다. 남은 것은 레퍼런스 사례 확인뿐이다(§11-7).
 - 권한의 단일 소스는 **AD 그룹**으로 두고, Keycloak(Private Cloud RBAC)과 Databricks 그룹(SCIM 동기화) 양쪽이 이를 상속하는 구조가 가장 단순하다.
 
 ---
@@ -172,17 +172,46 @@ Databricks Apps는 OAuth 2.0 기반의 **두 가지 권한 모델을 병행**한
 ### 아웃바운드 (Egress)
 
 - **NCC (Network Connectivity Configuration)**: 안정적인 아웃바운드 고정 IP 부여, private destination(S3 버킷, NLB 등)에 대한 PrivateLink 연결 지원
-- **네트워크 정책(Network policies)**: **Enterprise tier 전용.** 앱을 포함한 서버리스 워크로드의 이그레스를 제한.
+- **네트워크 정책(Network policies)**: **Enterprise tier 전용** — ✅ 우리 계약은 Enterprise이므로 사용 가능(`03` 문서 F3). 앱을 포함한 서버리스 워크로드의 이그레스를 제한.
   - ⚠️ 패키지 저장소(`pypi.org`, `registry.npmjs.org`)와 클라우드 서비스 엔드포인트를 **허용목록에 넣어야 한다.** 누락이 앱 배포 실패의 흔한 원인이다.
   - 앱은 빌드 시점과 런타임 모두 특정 Databricks 도메인에 대한 아웃바운드 접근이 필요하다.
 
-### ⚠️ 온프렘 시스템으로의 아웃바운드 — 최대 제약 (확인 필요)
+### ✅ 온프렘 시스템으로의 아웃바운드 — 경로 성립 (2026-09-12 갱신)
 
-NCC / PrivateLink는 **클라우드 사업자의 Private Link 인프라에 의존하며, 이 인프라는 온프렘 네트워크로 확장되지 않는다.** 따라서 서버리스 컴퓨트에서 온프렘 시스템으로의 네트워크 레벨 직접 연동이 성립하지 않는다는 지적이 있다. 우회책으로는 커스터머 플레인 클러스터 + Site-to-Site VPN으로 온프렘 데이터를 추출해 클라우드 스토리지에 적재하는 **스테이징 계층 방식**이 제시된다.
+> **종전 기술 (2026-09-10)**: "NCC / PrivateLink는 클라우드 사업자 인프라에 의존하며 온프렘으로 확장되지 않으므로, 서버리스에서 온프렘으로의 직접 연동이 성립하지 않는다"(커뮤니티 답변 근거). 우회책으로 스테이징 계층 방식을 제시했었다.
+>
+> **이 기술은 절반만 맞았다.** PrivateLink가 온프렘까지 직접 가지 않는 것은 사실이나, **우리 VPC를 중계점으로 두면 나머지 구간은 기구축 DX가 처리한다.**
 
-> **출처 등급 주의**: 이 내용은 Databricks 커뮤니티 답변 기준이며 공식 문서의 명시적 진술이 아니다. **아키텍처 확정 전 Databricks 측 공식 확인 필요.**
+**Apps 네트워킹 공식 문서**에 다음이 명시되어 있다.
 
-**AX App Market 설계 함의** — 이것이 사실로 확인되면, **MES / SRM / ERP / Wehub / CRM 직접 연동이 필요한 앱은 구조적으로 Private Cloud 트랙**이 된다. 이는 취향이나 정책이 아니라 물리적 제약이므로, PDF에서 보강이 필요하다고 적어 둔 **"런타임 분기의 배경과 명분" 중 가장 단단한 근거**가 된다. 반대로 인바운드(사내 사용자 → Databricks 앱)는 Direct Connect/VPN + 프론트엔드 PrivateLink로 해결 가능하므로, **문제는 앱→사내 시스템 방향 한쪽**이다.
+> "To restrict egress to private destinations such as an S3 bucket or **a network load balancer (NLB)**, configure PrivateLink connections as part of your NCC setup."
+
+따라서 다음 경로가 성립한다.
+
+```
+Databricks App (서버리스, Databricks 계정)
+   → NCC 사설 엔드포인트 (PrivateLink)
+   → 우리 VPC의 내부 NLB  ← VPC 엔드포인트 서비스로 노출
+   → NLB 타깃 → TGW → Direct Connect
+   → 온프렘 MES / SRM / ERP / Wehub / CRM
+```
+
+**요구사항과 한도**
+
+| 항목 | 내용 |
+|---|---|
+| **tier** | **Enterprise 전용.** VPC 내부 리소스로의 사설 연결은 Enterprise tier 워크스페이스에서만 가능 |
+| 구성요소 | 내부 스킴 NLB + VPC 엔드포인트 서비스 + 워크스페이스와 동일 리전의 NCC 객체 |
+| 한도 | 리전·계정당 NCC 10개 / 리전당 사설 엔드포인트 30개 / NCC당 워크스페이스 50개 / 엔드포인트 규칙당 도메인 100개 |
+| 제약 | **DNS chasing·DNS redirect 미지원** — 모든 도메인이 백엔드 리소스로 직접 해석되어야 한다 |
+
+**⚠️ 검증이 남은 단 한 구간** — **NLB 타깃을 온프렘 IP로 두는 구성**. AWS NLB의 IP 타입 타깃은 DX/VPN 너머 주소를 지원하므로 성립할 것으로 보나, **이 구간은 Databricks 문서 범위 밖**이며 네트워크 담당 확인이 필요하다.
+
+**AX App Market 설계 함의** — 종전에 "사내 시스템 연동 앱 = 구조적으로 Private Cloud"라고 적었던 판정 근거가 무효화된다. Q1은 **물리적 불가**가 아니라 **"사내 시스템을 내부 NLB 뒤에 노출하는 것에 대한 보안 승인 여부"** 로 재정의된다. → `03` 문서 §3 Q1, `05` 문서 §3
+
+그 결과 **"런타임 분기의 배경과 명분"을 지탱하는 축이 Q1에서 Q5(UC 행·열 보안 상속)로 이동한다.** 물리적으로 막혀서 갈라지는 것이 아니라 통제 이점 때문에 선택하는 구조가 되므로, 명분 자체는 오히려 단단해진다.
+
+인바운드(사내 사용자 → Databricks 앱)는 종전 기술대로 Direct Connect/VPN + 프론트엔드 PrivateLink로 해결된다.
 
 ---
 
@@ -241,9 +270,9 @@ PDF의 AX App 정의는 일반 Web App뿐 아니라 **Databricks Agent 연계 �
 
 아키텍처 확정 전 반드시 답을 받아야 하는 항목이다.
 
-1. **어느 클라우드의 Databricks인가 (Azure / AWS / GCP)** — 인증 설계 전체의 분기점. Azure면 Entra ID 고정으로 Keycloak 직접 연동 경로가 막힐 수 있다.
-2. **계약 tier가 Enterprise인가** — 네트워크 정책(이그레스 제한)이 Enterprise 전용이다.
-3. **서버리스 → 온프렘 아웃바운드 연결 가능 여부** — §7의 커뮤니티 출처 내용에 대한 공식 확인. 런타임 분기 기준의 근거가 여기에 걸려 있다.
+1. ~~어느 클라우드의 Databricks인가~~ → ✅ **해소: AWS · ap-northeast-2 · 별도 전용 계정** (`03` 문서 F1·F2)
+2. ~~계약 tier가 Enterprise인가~~ → ✅ **해소: Enterprise** (`03` 문서 F3). 네트워크 정책과 **VPC 내부 리소스로의 사설 연결**을 모두 사용할 수 있다.
+3. ~~서버리스 → 온프렘 아웃바운드 연결 가능 여부~~ → ✅ **경로 확인 완료** (§7). **남은 검증은 NLB 타깃을 온프렘 IP로 두는 구성 한 가지**이며, 이는 Databricks가 아니라 네트워크 담당 확인 사항이다.
 4. **커스텀 컨테이너 이미지 배포 지원 여부** — 문서에 없으나 로드맵/프리뷰 존재 가능성.
 5. **앱 100개 한도의 예외 협의 가능 여부** 및 멀티 워크스페이스 운영 시 권장 패턴.
 6. **수평 확장(Beta)의 GA 시점** — 전사 앱의 동시 사용자 규모를 감당하려면 필요.
@@ -284,3 +313,4 @@ PDF의 AX App 정의는 일반 Web App뿐 아니라 **Databricks Agent 연계 �
 
 - `docs/AX앱마켓구성1.pdf` — AX App Market 기획 초안 (전체 구성, As-Is/To-Be, 주요 기능)
 - `docs/04-cost-model.md` — 운영 비용 모델. §3의 DBU는 앱 컨테이너 몫뿐이며, 전체 비용 구조는 이 문서를 볼 것
+- `docs/05-physical-architecture.md` — 물리 아키텍처. §7 네트워크의 경로를 물리 자원에 매핑
