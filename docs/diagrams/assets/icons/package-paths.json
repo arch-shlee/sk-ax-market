@@ -14,5 +14,21 @@
   "generic-app.svg": "Resource-Icons_07312026/Res_General-Icons/Res_48_Light/Res_Generic-Application_48_Light.svg",
   "generic-git.svg": "Resource-Icons_07312026/Res_General-Icons/Res_48_Light/Res_Git-Repository_48_Light.svg",
   "generic-shield.svg": "Resource-Icons_07312026/Res_General-Icons/Res_48_Light/Res_Shield_48_Light.svg",
-  "coder.svg": "01_Logo/01_Coder_Logo_RGB/01_SVG/03_Coder_Shorthand_Logo_RGB_Black.svg"
+  "coder.svg": "01_Logo/01_Coder_Logo_RGB/01_SVG/03_Coder_Shorthand_Logo_RGB_Black.svg",
+  "aws-ecs-task.svg": "Resource-Icons_07312026/Res_Containers/Res_Amazon-Elastic-Container-Service_Task_48.svg",
+  "aws-ecr.svg": "Architecture-Service-Icons_07312026/Arch_Containers/48/Arch_Amazon-Elastic-Container-Registry_48.svg",
+  "aws-aurora-postgresql.svg": "Resource-Icons_07312026/Res_Databases/Res_Amazon-Aurora-PostgreSQL-Instance_48.svg",
+  "aws-s3-object-lock.svg": "Resource-Icons_07312026/Res_Storage/Res_Amazon-Simple-Storage-Service_S3-Object-Lock_48.svg",
+  "aws-cognito.svg": "Architecture-Service-Icons_07312026/Arch_Security-Identity/48/Arch_Amazon-Cognito_48.svg",
+  "aws-waf.svg": "Architecture-Service-Icons_07312026/Arch_Security-Identity/48/Arch_AWS-WAF_48.svg",
+  "aws-kms.svg": "Architecture-Service-Icons_07312026/Arch_Security-Identity/48/Arch_AWS-Key-Management-Service_48.svg",
+  "aws-secrets-manager.svg": "Architecture-Service-Icons_07312026/Arch_Security-Identity/48/Arch_AWS-Secrets-Manager_48.svg",
+  "aws-cloudfront.svg": "Architecture-Service-Icons_07312026/Arch_Networking-Content-Delivery/48/Arch_Amazon-CloudFront_48.svg",
+  "aws-route53-hosted-zone.svg": "Resource-Icons_07312026/Res_Networking-Content-Delivery/Res_Amazon-Route-53-Hosted-Zone_48.svg",
+  "aws-nat-gateway.svg": "Resource-Icons_07312026/Res_Networking-Content-Delivery/Res_Amazon-VPC_NAT-Gateway_48.svg",
+  "aws-internet-gateway.svg": "Resource-Icons_07312026/Res_Networking-Content-Delivery/Res_Amazon-VPC_Internet-Gateway_48.svg",
+  "aws-vpc-endpoints.svg": "Resource-Icons_07312026/Res_Networking-Content-Delivery/Res_Amazon-VPC_Endpoints_48.svg",
+  "aws-cloudwatch.svg": "Architecture-Service-Icons_07312026/Arch_Management-Tools/48/Arch_Amazon-CloudWatch_48.svg",
+  "generic-users.svg": "Resource-Icons_07312026/Res_General-Icons/Res_48_Light/Res_Users_48_Light.svg",
+  "generic-office.svg": "Resource-Icons_07312026/Res_General-Icons/Res_48_Light/Res_Office-building_48_Light.svg"
 }

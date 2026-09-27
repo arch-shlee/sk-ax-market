@@ -79,6 +79,7 @@
 
 | 도면 | 위치 |
 |---|---|
+| **앱마켓 인프라 아키텍처 v1.0 (최신)** | [PNG](diagrams/ax-market_infra.drawio.png) · [SVG](diagrams/ax-market_infra.drawio.svg) · [PDF](diagrams/ax-market_infra.drawio.pdf) · [편집용 draw.io](diagrams/ax-market_infra.drawio) · [해설](diagrams/ax-market_infra.md). 앱마켓 운영 계정 중심. `AXM-0007`·`0013`~`0016` 반영 — web/worker 모듈 배치, ECS 클러스터 2개, 로그인 프록시(split-horizon DNS), 증적 Object Lock. AWS 아이콘은 2026-07-31 공식 패키지 SVG. 재생성은 [`tools/build_market_infra.py`](diagrams/tools/build_market_infra.py) |
 | **AX 앱 운영 체계 — 배치·DevSecOps 통합 뷰 (현재)** | [SVG](diagrams/ax-app-operating-devsecops.svg) · [PNG](diagrams/ax-app-operating-devsecops.png) · [PDF](diagrams/ax-app-operating-devsecops.pdf) · [편집용 draw.io](diagrams/ax-app-operating-devsecops.drawio.xml). 참고 이미지의 도메인·인프라 계층 표현을 반영. 검증·승인·배포 지시는 온프렘 GitLab에, 개발은 AWS Playground에, 실행 통제는 VKS·Databricks에 배치. VKS GitOps와 Databricks Bundle 배포 경로를 구분 |
 | **AX 앱 운영 체계 — 논리·인프라 통합 뷰** | [SVG](diagrams/ax-app-operating-hybrid.svg) · [PNG](diagrams/ax-app-operating-hybrid.png) · [PDF](diagrams/ax-app-operating-hybrid.pdf) · [편집용 draw.io](diagrams/ax-app-operating-hybrid.drawio.xml). 온프렘·AWS 계정·Databricks 운영 경계 안에 논리 기능, 앱마켓 Multi-AZ, 저장소, 사설 진입·사내 연동 경로를 함께 표현. 자원 아이콘 수는 실제 수량과 무관 |
 | **AX 앱 운영 체계 — 도메인·구성요소 뷰** | [SVG](diagrams/ax-app-operating-architecture.svg) · [PNG](diagrams/ax-app-operating-architecture.png) · [PDF](diagrams/ax-app-operating-architecture.pdf) · [편집용 draw.io](diagrams/ax-app-operating-architecture.drawio.xml). 참고 이미지의 도메인 경계·아이콘·인프라 계층 표현을 반영한 주요 구성도 |
@@ -96,7 +97,7 @@
 | 목표 인프라 뷰 v0.2 — AWS 공식 아이콘 | [SVG](diagrams/ax-market_target-infra-aws-v2.svg) · [PNG](diagrams/ax-market_target-infra-aws-v2.png) · [PDF](diagrams/ax-market_target-infra-aws-v2.pdf). 위 파일 4페이지. v0.3과 같은 배치에 근거·미결 주석을 함께 실은 판. 재생성은 [`tools/build_target_aws_view.py`](diagrams/tools/build_target_aws_view.py) |
 | Playground PoC | [`diagrams/axplayground_PoC 아키텍처.drawio.xml`](diagrams/) (2페이지) |
 
-> ⚠️ draw.io 도면에는 아직 **Keycloak**이 남아 있고 로그인 프록시가 없다. `AXM-0014`·`AXM-0015` 반영 전이다.
+> ⚠️ `ax-market_infra` 외의 draw.io 도면에는 아직 **Keycloak**이 남아 있고 로그인 프록시가 없다. `AXM-0014`·`AXM-0015` 반영 전이다.
 
 > 논리·흐름 도면은 **mermaid로 문서 안에** 둔다(diff가 읽히고 수정이 빠름). 물리 배치는 **draw.io**로 둔다.
 

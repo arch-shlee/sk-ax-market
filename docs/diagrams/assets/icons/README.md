@@ -4,6 +4,8 @@
 
 > 이 다섯 페이지는 **AWS 자원에 draw.io 내장 `mxgraph.aws4` 스텐실**(공식 AWS Architecture Icons)을 쓰고, AWS 외 제품(GitLab · Harbor · Flux · Kyverno · Keycloak · Kubernetes · Databricks 계열)만 이 폴더의 자산을 내장한다. 재생성은 `python3 docs/diagrams/tools/build_target_aws_view.py`(v0.2) · `python3 docs/diagrams/tools/build_target_aws_v3.py`(v0.3) · `python3 docs/diagrams/tools/build_target_aws_v4.py`(v0.4) · `python3 docs/diagrams/tools/build_target_aws_v5.py`(v0.5) · `python3 docs/diagrams/tools/build_target_aws_v6.py`(v0.6).
 
+> **`ax-market_infra`(앱마켓 인프라 v1.0)** 는 방식이 다르다. `mxgraph.aws4` 스텐실 대신 **AWS Architecture Icons 2026-07-31 패키지의 공식 SVG를 이 폴더에서 내장**한다(스텐실은 패키지보다 늦게 갱신된다). 계정 · VPC · 서브넷 경계만 draw.io AWS 그룹 도형을 쓴다. 2026-09-27에 `aws-fargate.svg` · `aws-cognito.svg` 등 공식 SVG를 추가했다. 재생성은 `python3 docs/diagrams/tools/build_market_infra.py`.
+
 아래는 이 폴더 자산의 출처다. 다운로드 일자는 2026-09-12이며, 개별 다운로드 URL·패키지 내부 경로·SHA-256은 [sources.json](sources.json)에 기록했다.
 
 | 대상 | 공식 출처 |
