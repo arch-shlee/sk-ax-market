@@ -83,7 +83,7 @@ flowchart TB
 | 실행 허용 판정 | **Kyverno admission** | 워크스페이스 관리자 리소스 승인 |
 | 누가 승인했나 | 보호된 환경 승인 이력 | 보호된 환경 승인 이력 |
 | 실제 서빙 버전 | 매니페스트 다이제스트 | `assert-version` 결과 |
-| 사용자 인증 | Ingress forward-auth (Keycloak) | Databricks OAuth |
+| 사용자 인증 | Ingress forward-auth (Cognito, `AXM-0014`) | Databricks OAuth (Cognito OIDC) |
 | 데이터 접근 통제 | **앱 코드 책임 ← 격차** | **OBO → UC 자동 적용** |
 | 이그레스 통제 | 클러스터 네트워크 정책 | Databricks 네트워크 정책 |
 | 감사 | GitLab 감사 로그 + 클러스터 로그 | `system.access.audit` + 추론 테이블(에이전트) |

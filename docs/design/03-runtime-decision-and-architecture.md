@@ -195,11 +195,11 @@ flowchart TB
     end
 
     subgraph IDENTITY["신원 · 권한 (단일 소스)"]
-        AD["Active Directory<br/>권한의 단일 소스"]
-        KC["Keycloak<br/>SSO · RBAC"]
-        DBXID["Databricks 계정<br/>SSO + SCIM"]
-        AD --> KC
-        AD --> DBXID
+        AD["원천 IdP · AD<br/>권한의 단일 소스<br/>(타 조직 관리)"]
+        KC["Amazon Cognito<br/>SSO 중계 (AXM-0014)"]
+        DBXID["Databricks 계정<br/>SSO + 그룹"]
+        AD -->|SAML 연계 1회| KC
+        KC -->|OIDC| DBXID
     end
 
     subgraph MAKE["MAKE · 개발"]
@@ -276,7 +276,7 @@ flowchart TB
     OWN -->|"공개범위 · 승인"| REG
     OWN --> APR
     REG -.CAN_USE 부여·회수.-> DBXAPP
-    REG -.RBAC 반영.-> KC
+    REG -.그룹 동기화 · SCIM API.-> DBXID
 
     EMP --> VIEW
     VIEW --> LAUNCH
@@ -344,7 +344,7 @@ flowchart LR
 | ADOPT | **Private Cloud (VKS)** | 사내 시스템 연동 앱, 커스텀 런타임 앱 | 기구축 |
 | ADOPT | **Databricks Apps** | UC 데이터 앱, Agent App. **1안 우선 적용 대상** | 신규 |
 | MARKET | **AX App Market** | **레지스트리(진실의 원천) + 프로젝션.** 조정 루프가 세 소스에서 상태를 수집하고, 카탈로그·운영 대시보드·증적 뷰는 그 파생. 실행은 리다이렉트 | 신규 |
-| 신원 | **AD → Keycloak / Databricks** | 권한의 단일 소스 | 일부 기구축 |
+| 신원 | **원천 IdP → Cognito → 각 시스템** (`AXM-0014`) | 원천 IdP가 권한의 단일 소스, Cognito가 SSO 중계 | Cognito 신규 |
 
 ---
 
@@ -354,18 +354,28 @@ flowchart LR
 
 ### 5-1. 신원 체계
 
-**AD를 권한의 단일 소스로 두고, 양쪽이 이를 상속하는 구조**가 가장 단순하다.
+> **2026-09-27 개정.** Keycloak 가정을 철회하고 **Amazon Cognito를 SSO 중계**로 둔다(`AXM-0014`).
+
+**원천 IdP를 권한의 단일 소스로 두되, 모든 시스템은 Cognito 하나에만 연계한다.** 원천 IdP는 타 조직이 관리하며 연계 1건당 약 700만 원이 들고 변경 통제권이 없다. 중계를 두면 원천 연계는 1회로 끝난다.
 
 ```
-Active Directory (단일 소스)
-├─ Keycloak (OIDC/SAML)  ──▶ App Market 로그인
-│                        ──▶ Private Cloud 앱 SSO + RBAC
-└─ Databricks 계정 SSO   ──▶ Databricks 워크스페이스 로그인
-   (SAML 2.0 / OIDC,        ──▶ Databricks 그룹 (SCIM 동기화)
-    unified login)
+원천 IdP (타 조직 관리, 단일 소스)
+└─ SAML 연계 1회 (그룹 속성 포함)
+   └─ Amazon Cognito 사용자 풀 (SSO 중계)
+      ├─ OIDC ──▶ App Market 로그인
+      ├─ OIDC ──▶ VKS Ingress forward-auth (AXM-0011)
+      ├─ OIDC ──▶ Databricks 계정 SSO (unified login)
+      ├─ OIDC ──▶ GitLab (온프렘)
+      └─ OIDC ──▶ AX Playground (Coder)
+
+그룹 동기화 (별도 작업) ──▶ Databricks 그룹 (SCIM API)
 ```
 
-✅ **F1로 해소되었다.** AWS Databricks이므로 Entra ID 고정 제약이 없고, 계정 레벨 SSO가 SAML 2.0 / OIDC를 지원하므로 **Keycloak을 OIDC IdP로 직접 연동하는 경로가 열려 있다.** 다만 레퍼런스 사례 확인은 남아 있다(`databricks-apps-reference.md` §11-7).
+**제약** — 상세는 `AXM-0014`
+
+- Cognito 로그인 도메인은 **퍼블릭 경로로만 도달**한다(PrivateLink 불가). 사내 DNS가 이 도메인을 **사내 L4 리버스 프록시**로 해석해, 인터넷 도달을 프록시 한 곳으로 모은다(`AXM-0015`). 사용자 풀 WAF는 프록시 NAT EIP와 Databricks 컨트롤 플레인 출구 IP만 허용한다
+- **Cognito는 SCIM 프로비저닝을 하지 않는다.** Databricks 그룹은 별도 동기화 작업이 채운다(앱마켓 `authz` 워커 후보)
+- 원천 그룹은 속성 매핑 또는 Pre token generation Lambda로 토큰 클레임에 실어야 한다
 
 ### 5-2. 앱 실행 권한의 투영
 
@@ -374,15 +384,15 @@ Active Directory (단일 소스)
 | 단계 | Private Cloud | Databricks Apps |
 |---|---|---|
 | 앱마켓에서 공개범위 지정 | AD 그룹 / 조직 단위 지정 | 동일 |
-| 런타임 권한 부여 | Keycloak RBAC + **Ingress forward-auth** (`AXM-0011`) | **Databricks 그룹에 `CAN_USE` 부여** |
-| 사용자 인증 | Keycloak SSO | Databricks 계정 SSO |
+| 런타임 권한 부여 | Cognito 그룹 클레임 + **Ingress forward-auth** (`AXM-0011`) | **Databricks 그룹에 `CAN_USE` 부여** |
+| 사용자 인증 | Cognito SSO (forward-auth) | Databricks 계정 SSO (Cognito OIDC) |
 | 데이터 접근 통제 | **앱 코드 책임** | **OBO → UC 행·열 보안 자동 적용** |
-| 권한 회수 반영 | Keycloak 즉시 | 그룹 동기화 주기에 의존 |
+| 권한 회수 반영 | 토큰 수명에 의존 (Cognito 액세스 토큰 기본 1시간) | 그룹 동기화 주기에 의존 |
 
 **설계 결정 3가지**
 
 1. **`CAN_USE`가 Databricks 트랙의 실질적 실행 권한 수단이다.** 앱마켓 RBAC → AD 그룹 → Databricks 그룹 → `CAN_USE` 경로를 API로 자동화한다.
-2. **권한 회수 반영 지연을 명시한다.** SCIM 동기화 주기만큼 시차가 발생한다. 즉시 차단이 필요한 경우(퇴사·사고)의 별도 절차를 정의해야 한다.
+2. **권한 회수 반영 지연을 명시한다.** 그룹 동기화 작업 주기(Databricks)와 토큰 수명(VKS)만큼 시차가 발생한다. 즉시 차단이 필요한 경우(퇴사·사고)의 별도 절차를 정의해야 한다.
 3. **앱 권한이 `CAN_USE`/`CAN_MANAGE` 2단계뿐이므로**, 앱 내부의 세분 역할(조회자/승인자/관리자)은 앱마켓이 전달하는 권한 정보 또는 UC 권한으로 처리한다. Databricks 앱 권한만으로는 표현할 수 없다.
 
 **4. 실행은 리다이렉트다 (`AXM-0009`).** 앱마켓은 트래픽 경로에 있지 않다. 마켓이 소유한 실행 엔드포인트(`/launch/:app_id`)를 한 번 거쳐 현재 런타임 주소로 302하고 빠진다. 두 런타임의 물리적 위치가 다르므로(앱마켓 AWS / VKS 온프렘) 프록시 방식은 온프렘 트래픽을 AWS로 왕복시킨다.

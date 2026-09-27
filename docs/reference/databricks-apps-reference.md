@@ -137,9 +137,9 @@ Databricks Apps는 OAuth 2.0 기반의 **두 가지 권한 모델을 병행**한
 
 **AX App Market 설계 함의**
 
-- Private Cloud 측 **Keycloak를 OIDC IdP로 하여 Databricks와 연동하는 경로가 열려 있다.** 이것이 성립하면 두 런타임의 신원 체계를 AD 기준으로 일원화할 수 있다.
-- ✅ **AWS Databricks로 확정(`03` 문서 F1)** — Azure의 Entra ID 고정 제약에 해당하지 않으므로 Keycloak OIDC 직접 연동 경로가 유효하다. 남은 것은 레퍼런스 사례 확인뿐이다(§11-7).
-- 권한의 단일 소스는 **AD 그룹**으로 두고, Keycloak(Private Cloud RBAC)과 Databricks 그룹(SCIM 동기화) 양쪽이 이를 상속하는 구조가 가장 단순하다.
+- ✅ **AWS Databricks로 확정(`03` 문서 F1)** — Azure의 Entra ID 고정 제약에 해당하지 않으므로 임의의 OIDC IdP를 계정 SSO로 쓸 수 있다.
+- **SSO 중계는 Amazon Cognito**(`AXM-0014`). Cognito를 계정 SSO의 OIDC IdP로 등록한다. Keycloak 가정은 철회.
+- ⚠️ **Cognito는 SCIM·automatic identity management를 제공하지 않는다.** JIT는 사용자만 만든다. Databricks 그룹은 원천 그룹을 SCIM API로 넣는 별도 동기화 작업이 채워야 한다.
 
 ---
 
@@ -259,7 +259,7 @@ PDF의 AX App 정의는 일반 Web App뿐 아니라 **Databricks Agent 연계 �
 | 2 | 워크스페이스당 앱 **100개 고정** | 워크스페이스 분할 전략을 초기 설계에 포함. 메타데이터에 워크스페이스 ID 포함 |
 | 3 | OBO 시 **UC 행·열 보안 자동 상속** | OBO를 기본 정책으로 확정, SP 모드는 예외 승인 대상 |
 | 4 | 앱 권한이 `CAN_USE`/`CAN_MANAGE` 2단계뿐 | 앱마켓 RBAC → Databricks 그룹 → `CAN_USE` 매핑 규칙 + 회수 반영 지연 명시. 세분 역할은 앱마켓/UC가 담당 |
-| 5 | 계정 SSO가 SAML/OIDC 지원 | Keycloak OIDC 연동 경로 존재 (단 Azure는 Entra ID 고정 — 확인 필요) |
+| 5 | 계정 SSO가 SAML/OIDC 지원 | Cognito를 OIDC IdP로 연계(`AXM-0014`). 그룹은 SCIM API 동기화 별도 구현 |
 | 6 | `bundle deploy`는 앱을 재시작하지 않음 | 배포 상태 판정 기준을 **헬스체크 통과**로 정의. `bundle run` + 상태 폴링 필수 |
 | 7 | 서버리스 → 온프렘 아웃바운드 제약 (확인 필요) | 사실 확인 시 **사내 시스템 직접 연동 앱 = Private Cloud 트랙**. 런타임 분기의 핵심 근거 |
 | 8 | 시스템 테이블로 감사·비용·사용현황 수집 가능 | 두 런타임의 지표 정규화 계층 + 비용 환산 기준 정의 |
@@ -278,7 +278,7 @@ PDF의 AX App 정의는 일반 Web App뿐 아니라 **Databricks Agent 연계 �
 4. **커스텀 컨테이너 이미지 배포 지원 여부** — 문서에 없으나 로드맵/프리뷰 존재 가능성.
 5. **앱 100개 한도의 예외 협의 가능 여부** 및 멀티 워크스페이스 운영 시 권장 패턴.
 6. **수평 확장(Beta)의 GA 시점** — 전사 앱의 동시 사용자 규모를 감당하려면 필요.
-7. **Keycloak를 OIDC IdP로 한 unified login 구성의 레퍼런스 사례** 유무.
+7. **Amazon Cognito를 OIDC IdP로 한 unified login 구성의 레퍼런스 사례** 유무 (Keycloak 가정은 `AXM-0014`로 철회).
 8. **Apps의 유휴 자동 정지(auto-stop) 기능 로드맵** — 현재 부재(§3). 제공되면 `04-cost-model.md` §6-1의 자체 구현이 불필요해진다.
 9. **Apps SKU의 실효 단가와 과금 최소 단위** — 공표 가격 페이지가 동적 로딩이라 정적 확인 불가. `04-cost-model.md` §1-2의 `system.billing.list_prices` 쿼리로 확정할 것.
 

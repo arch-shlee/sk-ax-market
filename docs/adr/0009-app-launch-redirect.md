@@ -42,8 +42,10 @@
 
 | 런타임 | 인증 | 인가 |
 |---|---|---|
-| Databricks Apps | Databricks 계정 SSO | `CAN_USE` + OBO → UC 행·열 보안 |
-| Private Cloud | Keycloak SSO (Ingress forward-auth → `AXM-0011`) | Keycloak RBAC + Ingress 인가 정책 |
+| Databricks Apps | Databricks 계정 SSO (Cognito OIDC) | `CAN_USE` + OBO → UC 행·열 보안 |
+| Private Cloud | Cognito SSO (Ingress forward-auth → `AXM-0011`) | Cognito 그룹 클레임 + Ingress 인가 정책 |
+
+> 2026-09-27 — SSO 중계를 Keycloak에서 Cognito로 교체(`AXM-0014`). 결정 자체는 불변.
 
 ## 근거
 

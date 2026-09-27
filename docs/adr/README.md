@@ -30,6 +30,10 @@ AX App Market 플랫폼의 아키텍처 결정을 기록한다. **왜 그렇게 
 | [AXM-0005](0005-app-cost-controls.md) | Databricks Apps 비용 통제 — 유휴 정지 의무와 공용 웨어하우스 강제 | Accepted | 2026-09-12 |
 | [AXM-0006](0006-playground-on-coder.md) | AX Playground는 Coder 기반 클라우드 개발환경 | Accepted | 2026-09-12 |
 | [AXM-0009](0009-app-launch-redirect.md) | 앱 실행은 리다이렉트 — 마켓 소유 실행 엔드포인트 경유 | Accepted | 2026-09-12 |
+| [AXM-0013](0013-app-market-infra-characteristics.md) | 앱마켓 인프라 아키텍처 특성 — 보안성 · 감사 가능성 · 상호운용성 · 가용성 · 운영 용이성 | Accepted | 2026-09-27 |
+| [AXM-0014](0014-cognito-sso-broker.md) | SSO 중계는 Amazon Cognito — Keycloak을 쓰지 않는다 | Accepted | 2026-09-27 |
+| [AXM-0015](0015-cognito-login-proxy.md) | Cognito 로그인 경로는 split-horizon DNS + 사내 L4 리버스 프록시 | Accepted | 2026-09-27 |
+| [AXM-0016](0016-app-market-compute-fargate.md) | 앱마켓 컴퓨트는 ECS Fargate — 클러스터 2개(market · auth-proxy) | Accepted | 2026-09-27 |
 
 ### 제안 — 승인 대기
 

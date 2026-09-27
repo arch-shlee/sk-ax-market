@@ -55,6 +55,8 @@
 - 앱마켓은 **AWS 전용 계정에 별도 구현**
 - AX Playground = **Coder 기반 클라우드 개발환경** (PoC 가동 중)
 
+2026-09-27 결정 (ADR): 인프라 특성 5개(`AXM-0013`) · SSO 중계 **Cognito**(`AXM-0014`) · 로그인 프록시 + split-horizon DNS(`AXM-0015`) · 컴퓨트 **ECS Fargate**(`AXM-0016`)
+
 ## 지금 막혀 있는 것
 
 전체 목록은 [`design/03` §8](design/03-runtime-decision-and-architecture.md), 물리 항목은 [`design/05` §8](design/05-physical-architecture.md).
@@ -68,6 +70,8 @@
 | 5 | WIF 성립 여부 | Databricks 트랙 배포 인증 |
 | 6 | 앱마켓 운영 계정 CIDR 확보 | 물리 구성 착수 — **리드타임 최장** |
 | 7 | 목표 수량 (앱 수 · 동시 사용자 · SLA 등급 정의) | 사이징 전반 |
+| 8 | **원천 IdP 확인 + Cognito SAML 연계 (그룹 속성 포함)** | 전 시스템 SSO. 연계 1건 약 700만 원 — 한 번에 범위 확정 (`AXM-0014`) |
+| 9 | **로그인 프록시 PoC** + Databricks 컨트롤 플레인 출구 IP | Cognito 로그인 경로 성립 (`AXM-0015`) |
 
 > 1~3번은 한 묶음이다. 셋 다 Q1(사내 시스템 연동 앱을 Databricks에 둘 수 있는가)에 걸려 있다.
 
@@ -91,6 +95,8 @@
 | 목표 인프라 뷰 v0.2 ~ v0.5 | 각각 위 파일 4~7페이지. [v0.5](diagrams/ax-market_target-infra-aws-v5.svg) 글자·강조 체계 도입, [v0.4](diagrams/ax-market_target-infra-aws-v4.svg) 현 배치의 원본, [v0.3](diagrams/ax-market_target-infra-aws-v3.svg) AWS 그룹 스텐실·7색, [v0.2](diagrams/ax-market_target-infra-aws-v2.svg) 근거·미결 주석 포함 |
 | 목표 인프라 뷰 v0.2 — AWS 공식 아이콘 | [SVG](diagrams/ax-market_target-infra-aws-v2.svg) · [PNG](diagrams/ax-market_target-infra-aws-v2.png) · [PDF](diagrams/ax-market_target-infra-aws-v2.pdf). 위 파일 4페이지. v0.3과 같은 배치에 근거·미결 주석을 함께 실은 판. 재생성은 [`tools/build_target_aws_view.py`](diagrams/tools/build_target_aws_view.py) |
 | Playground PoC | [`diagrams/axplayground_PoC 아키텍처.drawio.xml`](diagrams/) (2페이지) |
+
+> ⚠️ draw.io 도면에는 아직 **Keycloak**이 남아 있고 로그인 프록시가 없다. `AXM-0014`·`AXM-0015` 반영 전이다.
 
 > 논리·흐름 도면은 **mermaid로 문서 안에** 둔다(diff가 읽히고 수정이 빠름). 물리 배치는 **draw.io**로 둔다.
 

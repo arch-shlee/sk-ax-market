@@ -97,7 +97,8 @@ flowchart LR
 
 | 대상 | 진입 | 필요 구성 |
 |---|---|---|
-| **앱마켓** | 내부 ALB (private subnet) | ACM 인증서 + 사내 도메인. IGW 불필요 |
+| **앱마켓** | 내부 ALB (private subnet) | ACM 인증서 + 사내 도메인. 진입용 IGW 불필요 |
+| **Cognito 로그인** (`auth.<사내도메인>`) | 내부 NLB → 로그인 프록시 | split-horizon DNS. §5-3-1, `AXM-0015` |
 | **Databricks 워크스페이스 · Apps** | front-end PrivateLink 인터페이스 EP | **`databricksapps.com` 조건부 DNS 포워딩 필수**(§4). 계정 콘솔의 private access settings 등록 |
 
 ### 2-3. PoC와의 차이 — 전환 시 반드시 교체
@@ -106,7 +107,7 @@ PoC는 **퍼블릭 인터넷 진입 + SG IP allowlist**(사용자 → IGW → EI
 
 | PoC | 운영 |
 |---|---|
-| IGW + EIP 퍼블릭 진입 | DX/TGW 사설 진입, IGW 없음 |
+| IGW + EIP 퍼블릭 진입 | DX/TGW 사설 진입. IGW는 로그인 프록시의 이그레스 전용 NAT에만 (§5-3-1) |
 | SG 443 = 회사/VDI IP allowlist | 사내망 도달 자체가 경계 |
 | 자체서명 TLS | ACM 인증서 + 사내 DNS 도메인 |
 | **"임시 외부 오픈"** | **PoC 종료 시 즉시 회수** |
@@ -186,6 +187,7 @@ Q1의 실질 판정 기준이 "보안 승인 가능 여부"가 되었으므로, 
 | 1 | `*.databricksapps.com` (앱 URL) | 사내 → AWS | **조건부 포워딩** → front-end PrivateLink EP의 프라이빗 IP |
 | 2 | Databricks 워크스페이스 도메인 | 사내 → AWS | 동일. 워크스페이스 URL과 REST API가 같은 EP를 쓴다 |
 | 3 | 앱마켓 사내 도메인 | 사내 → AWS | 내부 ALB를 가리키는 A 레코드 |
+| 3′ | **Cognito 커스텀 도메인** `auth.<사내도메인>` | 사내 → AWS | **split-horizon.** 사내 DNS·앱마켓 PHZ는 로그인 프록시 NLB 사설 IP, 퍼블릭 DNS는 CloudFront (§5-3-1) |
 | 4 | 사내 시스템 FQDN | **Databricks → 온프렘** | §3-2의 **DNS chasing 미지원** 제약. 엔드포인트 규칙의 도메인이 NLB로 직접 해석되어야 한다 |
 
 **필요 구성**
@@ -205,22 +207,33 @@ Q1의 실질 판정 기준이 "보안 승인 가능 여부"가 되었으므로, 
 
 | 항목 | 최소 요건 |
 |---|---|
-| 컴퓨트 | Multi-AZ. 최소 2 AZ에 분산 |
+| 컴퓨트 | Multi-AZ. 최소 2 AZ에 분산 — ECS Fargate (`AXM-0016`) |
 | DB | 관리형(RDS/Aurora) Multi-AZ. 자동 백업 + 시점 복구 |
 | 진입 | 내부 ALB (2 AZ의 private subnet) |
-| 증적 저장 | S3 + 버전 관리 + 수명주기. 증적은 감사 대상이므로 삭제 방지 |
+| 증적 저장 | S3 + 버전 관리 + 수명주기. 증적은 감사 대상이므로 삭제 방지 (Object Lock) |
+| **로그인 프록시** | **앱마켓 이상.** 전사 로그인의 단일 경로 — 2 AZ × 태스크 2, 별도 클러스터 (`AXM-0015`) |
 
 > **사이징 근거**: `AXM-0009`(리다이렉트)에 따라 앱마켓은 **저트래픽 서비스**다. 처리하는 것은 카탈로그 조회·검색·실행 클릭이며 앱 사용 트래픽은 통과하지 않는다. 임직원 1만 명이 하루 5회 열어도 5만 요청/일 · 피크 수십 건/초 수준이므로 **작은 인스턴스 2대(2 AZ)면 충분**하다.
 >
 > 프록시 방식을 택했다면 전 앱 트래픽의 합을 받아야 하고, 온프렘 VKS 앱 트래픽이 DX를 왕복하게 된다. 사이징이 자릿수 단위로 달라진다.
 
-### 5-2. 컴퓨트 선택 (결정 필요)
+### 5-2. 컴퓨트 — ECS Fargate, 클러스터 2개 (`AXM-0016`)
 
-| 안 | 평가 |
+| 클러스터 | 서비스 | 사양(안) | 진입 |
+|---|---|---|---|
+| `market` | `web` | 0.5 vCPU / 1 GB × 2 (AZ 분산) | 내부 ALB |
+| `market` | `worker` | 0.5 vCPU / 1 GB × 1 — **DB advisory lock으로 단일 리더** | 없음 |
+| `auth-proxy` | `proxy` | 0.25 vCPU / 0.5 GB × 2 (AZ 분산) | 내부 NLB :443 |
+
+| 서브넷 계층 | 자원 |
 |---|---|
-| **ECS Fargate** ⭐ | 웹 서비스 하나에는 운영 부담이 가장 낮다. 노드 관리 없음 |
-| EKS | 온프렘 VKS와 매니페스트·운영 방식을 통일하고 싶으면. 다만 앱마켓 하나를 위해 클러스터를 운영하는 비용 |
-| EC2 | PoC 연장선. 운영에는 비권장 |
+| 진입 | 내부 ALB, 내부 NLB |
+| 애플리케이션 | Fargate 태스크 (퍼블릭 IP 없음) |
+| 데이터 | Aurora PostgreSQL Multi-AZ, S3 증적 (Gateway EP) |
+| 이그레스 | NAT GW × 2 — auth-proxy 전용 |
+| VPC 엔드포인트 | ECR(api·dkr) · S3 · CloudWatch Logs · Secrets Manager · KMS · STS · Databricks front-end PrivateLink |
+
+EKS(서비스 3개를 위한 클러스터 운영)와 EC2(노드 관리)는 기각했다. 근거는 `AXM-0016`.
 
 ### 5-3. 앱마켓의 대외 연결
 
@@ -228,9 +241,33 @@ Q1의 실질 판정 기준이 "보안 승인 가능 여부"가 되었으므로, 
 |---|---|
 | **Databricks REST API** (앱 등록·`CAN_USE` 부여·상태 조회) | cross-account. §2-2의 front-end PrivateLink EP를 앱마켓 VPC에도 두는 것이 F5와 일관 |
 | **VKS API / Ingress** (상태 조회, 실행 엔드포인트의 런타임 주소 확인) | TGW → DX. `AXM-0008` 조정 루프가 사용 |
-| **온프렘 AD / Keycloak** | TGW → DX. 앱마켓 컴퓨트는 private subnet에 두고 사내망 경로를 갖는다 |
+| **Amazon Cognito** (토큰 교환 · JWKS) | Route53 PHZ → 로그인 프록시 → NAT (§5-3-1). market 서브넷에는 NAT 경로를 주지 않는다 |
 | **온프렘 GitLab** (증적·파이프라인 조회) | 동일 |
 | 시스템 테이블 질의 (지표·비용) | Databricks SQL. 공용 웨어하우스 경유 (`04` §6-2) |
+
+#### 5-3-1. Cognito 로그인 경로 — split-horizon DNS + 사내 L4 리버스 프록시 (`AXM-0015`)
+
+Cognito 도메인은 PrivateLink로 도달할 수 없고, 도메인이 붙은 풀은 PrivateLink와 호환되지 않는다(✅ AWS 공식). 그래서 **인터넷 도달 지점을 프록시 한 곳으로 모은다.**
+
+```
+VDI · GitLab · VKS · Coder · 앱마켓
+      │  auth.<사내도메인> → 사내 DNS(A 레코드) / Route53 PHZ(앱마켓 VPC) → 내부 NLB 고정 사설 IP
+      ▼
+내부 NLB :443 ──▶ auth-proxy (ECS Fargate × 2, nginx stream + ssl_preread, TLS 패스스루)
+                        │  upstream = CloudFront 별칭 대상 (dxxxx.cloudfront.net)
+                        ▼
+                  NAT GW × 2 (EIP) ──▶ Cognito CloudFront  ← WAF: NAT EIP 2개 + Databricks CP 출구 IP
+```
+
+| 항목 | 내용 |
+|---|---|
+| 프록시 | **L4 SNI 패스스루** — 인증서 발급 불필요, 쿠키·헤더 무변형 |
+| upstream | CloudFront 별칭 대상. `auth.<사내도메인>`을 쓰면 사내 DNS 때문에 자기 자신으로 루프 |
+| 이그레스 | 이그레스 전용 NAT × 2, **auth-proxy 서브넷에만** 라우팅. 사내 인터넷 출구는 쓰지 않는다(타 조직 관리) |
+| WAF | IP 허용목록만. **IP 기반 rate 규칙 금지** — 전 사용자가 NAT IP 2개로 보인다 |
+| 폴백 | 사내 DNS 레코드 삭제 → 퍼블릭 경로. VDI에 인터넷 출구가 있을 때만 유효 |
+
+> ⚠️ Databricks 컨트롤 플레인은 퍼블릭 DNS로 Cognito에 온다. 서울 리전 컨트롤 플레인 출구 IP를 WAF에 허용해야 한다 — 확인 필요
 
 > PoC의 가드레일("퍼블릭 RT에 TGW 경로 미부여")은 옳지만, **앱마켓은 사내망을 봐야 한다.** 진입 경로와 사내망 경로를 같은 서브넷에 섞지 말고, **진입 = 내부 ALB / 애플리케이션 = private subnet + TGW 경로**로 계층을 분리한다.
 
@@ -268,6 +305,10 @@ PoC 도면의 원칙("단일 replica · 도메인 X · built-in DB · 자체서�
 [ ] 자체서명 TLS → ACM 인증서 + 사내 도메인
 [ ] Bedrock NAT 경유 → 인터페이스 VPC 엔드포인트
 [ ] VPC 플로우 로그 · ALB/NLB 액세스 로그 활성화
+[ ] Cognito 사용자 풀 + 원천 IdP SAML 연계 (그룹 속성 포함, AXM-0014)
+[ ] Cognito 커스텀 도메인 (us-east-1 퍼블릭 ACM 인증서 + 퍼블릭 DNS)
+[ ] 로그인 프록시 + split-horizon DNS (§5-3-1, AXM-0015) — PoC 선행
+[ ] WAF 허용목록: NAT EIP 2개 + Databricks CP 출구 IP
 
 [가용성]
 [ ] 단일 EC2 → Multi-AZ
@@ -308,9 +349,10 @@ PoC 도면의 원칙("단일 replica · 도메인 X · built-in DB · 자체서�
 | 3 | **NLB IP 타깃 → 온프렘 도달 검증** | Q1 성립 | 네트워크 담당 (§3-3) |
 | 4 | 사내 시스템 FQDN의 해석 방식 (CNAME/GSLB 여부) | DNS chasing 제약 (§4) | 시스템 담당 |
 | 5 | 앱마켓 운영 계정 CIDR 확보 | §7 | IP 대역 관리 부서 — **리드타임 최장** |
-| 6 | 앱마켓 컴퓨트 선택 (ECS/EKS/EC2) | §5-2 | 플랫폼팀 |
+| 6 | ~~앱마켓 컴퓨트 선택~~ → ✅ ECS Fargate (`AXM-0016`) | §5-2 | — |
 | 7 | **Agent App 런타임의 LLM** — Databricks 모델서빙인가 Bedrock인가 | `02` §8 Agent 게이트, `04` §2-3 변동비 | 아키텍처 결정 |
 | 8 | **Playground ADR 시리즈와의 정합** (ADR-0002 외에 무엇이 있는가) | 전반 | PoC 주관자 확인. 본 프로젝트 결정은 `docs/adr/`의 `AXM-` 시리즈 |
+| 9 | **로그인 프록시 PoC** + Databricks CP 출구 IP 확인 | `AXM-0015` 성립 | 플랫폼팀 · AWS SA |
 
 > 3번과 5번을 먼저 착수할 것. 3번은 Q1 판정의 마지막 조각이고, 5번은 리드타임이 가장 길다.
 
