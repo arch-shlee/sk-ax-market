@@ -22,7 +22,7 @@ input::placeholder,textarea::placeholder{color:#8A8A8A}
     <a href="Main.dc.html" style="font-size: 16px; font-weight: 700; letter-spacing: -0.01em; text-decoration: none; min-height: 44px; display: flex; align-items: center">AX App Market</a>
     <nav aria-label="주 메뉴" style="display: flex; gap: 28px">
       <a href="Main.dc.html" style="font-size: 14px; color: #6B6B6B; text-decoration: none; padding: 12px 0; border-bottom: 2px solid transparent">앱 찾기</a>
-      <a href="MyApps.dc.html" style="font-size: 14px; color: #6B6B6B; text-decoration: none; padding: 12px 0; border-bottom: 2px solid transparent">내 앱</a>
+      <a href="MyApps.dc.html" style="font-size: 14px; color: #6B6B6B; text-decoration: none; padding: 12px 0; border-bottom: 2px solid transparent">등록 현황</a>
     </nav>
     <div style="margin-left: auto; display: flex; align-items: center; gap: 16px">
       <span style="width: 32px; height: 32px; border-radius: 50%; background: #F2F2F2; display: flex; align-items: center; justify-content: center; font-size: 13px; font-weight: 600">홍</span>
@@ -98,6 +98,28 @@ input::placeholder,textarea::placeholder{color:#8A8A8A}
       </sc-if>
     </fieldset>
 
+    <fieldset style="margin: 0; padding: 0; border: 0; display: flex; flex-direction: column; gap: 24px">
+      <legend style="padding: 0 0 8px; font-size: 13px; font-weight: 600; color: #6B6B6B; letter-spacing: 0.02em">이용 규모</legend>
+      <p style="margin: 0; font-size: 13px; line-height: 1.6; color: #6B6B6B">앱은 하나를 여러 사람이 함께 씁니다. 실행 환경의 크기와 운영 시간을 정하는 데 쓰입니다.</p>
+      <div style="display: flex; flex-direction: column; gap: 10px">
+        <span style="font-size: 14px; font-weight: 600">동시에 쓰는 사람은 최대 몇 명인가요?</span>
+        <div role="radiogroup" aria-label="예상 동시 사용자" style="display: flex; flex-wrap: wrap; gap: 8px">
+          <sc-for list="{{sizes}}" as="o" hint-placeholder-count="4">
+            <button type="button" role="radio" aria-checked="{{o.checked}}" onClick="{{o.pick}}" style="height: 44px; padding: 0 18px; border-radius: 10px; border: {{o.border}}; background: #FFFFFF; font: inherit; font-size: 14px; font-weight: {{o.weight}}; color: #111111; cursor: pointer">{{o.label}}</button>
+          </sc-for>
+        </div>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 10px">
+        <span style="font-size: 14px; font-weight: 600">언제 쓰나요?</span>
+        <div role="radiogroup" aria-label="이용 시간대" style="display: flex; flex-wrap: wrap; gap: 8px">
+          <sc-for list="{{hours}}" as="o" hint-placeholder-count="2">
+            <button type="button" role="radio" aria-checked="{{o.checked}}" onClick="{{o.pick}}" style="height: 44px; padding: 0 18px; border-radius: 10px; border: {{o.border}}; background: #FFFFFF; font: inherit; font-size: 14px; font-weight: {{o.weight}}; color: #111111; cursor: pointer">{{o.label}}</button>
+          </sc-for>
+        </div>
+        <span style="font-size: 13px; color: #6B6B6B">{{hoursHint}}</span>
+      </div>
+    </fieldset>
+
     <fieldset style="margin: 0; padding: 0; border: 0; display: flex; flex-direction: column; gap: 8px">
       <legend style="padding: 0 0 20px; font-size: 13px; font-weight: 600; color: #6B6B6B; letter-spacing: 0.02em">소스 코드</legend>
       <label for="repo" style="font-size: 14px; font-weight: 600">Git 저장소</label>
@@ -131,20 +153,20 @@ input::placeholder,textarea::placeholder{color:#8A8A8A}
       </li>
       <li style="display: flex; gap: 14px">
         <span style="flex: none; width: 24px; height: 24px; border-radius: 50%; background: #FFFFFF; border: 1px solid #D4D4D4; display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 600">4</span>
-        <div style="display: flex; flex-direction: column; gap: 2px"><span style="font-size: 14px; font-weight: 600">마켓 공개</span><span style="font-size: 13px; color: #6B6B6B; line-height: 1.5">대상 사용자에게 앱이 보이고 실행할 수 있습니다</span></div>
+        <div style="display: flex; flex-direction: column; gap: 2px"><span style="font-size: 14px; font-weight: 600">마켓 공개</span><span style="font-size: 13px; color: #6B6B6B; line-height: 1.5">대상 사용자에게 앱이 보이고 열어 쓸 수 있습니다</span></div>
       </li>
     </ol>
-    <p style="margin: 0; font-size: 13px; line-height: 1.6; color: #6B6B6B">진행 상황은 <a href="MyApps.dc.html">내 앱</a>에서 확인할 수 있습니다.</p>
+    <p style="margin: 0; font-size: 13px; line-height: 1.6; color: #6B6B6B">진행 상황은 <a href="MyApps.dc.html">등록 현황</a>에서 확인할 수 있습니다.</p>
   </aside>
 </main>
 
 </div>
 </x-dc>
-<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":1480}}'>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":1760}}'>
 class Component extends DCLogic {
   constructor(props) {
     super(props);
-    this.state = { target: 'org' };
+    this.state = { target: 'org', size: 's50', hours: 'biz' };
   }
   renderVals() {
     const cur = this.state.target;
@@ -164,7 +186,15 @@ class Component extends DCLogic {
       role: { label: '직무 선택', ph: '직무로 검색', chips: ['설비 엔지니어'] },
       user: { label: '사용자 선택', ph: '이름으로 검색', chips: ['김설비', '이정비'] }
     }[cur];
+    const opt = (key, id, label) => {
+      const on = this.state[key] === id;
+      return { label, checked: on ? 'true' : 'false', border: on ? '1.5px solid #111111' : '1px solid #D4D4D4', weight: on ? '600' : '400', pick: () => this.setState({ [key]: id }) };
+    };
+    const sizes = [['s10', '10명 이하'], ['s50', '50명 이하'], ['s200', '200명 이하'], ['s200p', '200명 넘음']].map(([id, l]) => opt('size', id, l));
+    const hours = [['biz', '업무시간에만'], ['always', '24시간 상시']].map(([id, l]) => opt('hours', id, l));
+    const hoursHint = this.state.hours === 'biz' ? '쓰지 않는 시간에는 자동으로 쉬게 해 비용을 줄입니다.' : '상시 운영은 비용이 커서 플랫폼팀과 협의 후 정합니다.';
     return {
+      sizes, hours, hoursHint,
       targets, hasScope: !!scope,
       scopeLabel: scope ? scope.label : '', scopePh: scope ? scope.ph : '', chips: scope ? scope.chips : []
     };

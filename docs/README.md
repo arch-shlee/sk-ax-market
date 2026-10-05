@@ -96,7 +96,7 @@
 | **목표 인프라 뷰 v0.6 — AWS 공식 아이콘 (현행)** | [SVG](diagrams/ax-market_target-infra-aws-v6.svg) · [PNG](diagrams/ax-market_target-infra-aws-v6.png) · [PDF](diagrams/ax-market_target-infra-aws-v6.pdf). 위 파일 **8페이지**. 구성요소·선 라벨을 굵게 하고, 사내 업무 시스템을 **MES · ERP · SRM · CRM · Wehub** 개별 시스템으로 펼치고 여섯 번째 칸을 `그 외`로 열어 둔 판. 재생성은 [`tools/build_target_aws_v6.py`](diagrams/tools/build_target_aws_v6.py) |
 | 목표 인프라 뷰 v0.2 ~ v0.5 | 각각 위 파일 4~7페이지. [v0.5](diagrams/ax-market_target-infra-aws-v5.svg) 글자·강조 체계 도입, [v0.4](diagrams/ax-market_target-infra-aws-v4.svg) 현 배치의 원본, [v0.3](diagrams/ax-market_target-infra-aws-v3.svg) AWS 그룹 스텐실·7색, [v0.2](diagrams/ax-market_target-infra-aws-v2.svg) 근거·미결 주석 포함 |
 | 목표 인프라 뷰 v0.2 — AWS 공식 아이콘 | [SVG](diagrams/ax-market_target-infra-aws-v2.svg) · [PNG](diagrams/ax-market_target-infra-aws-v2.png) · [PDF](diagrams/ax-market_target-infra-aws-v2.pdf). 위 파일 4페이지. v0.3과 같은 배치에 근거·미결 주석을 함께 실은 판. 재생성은 [`tools/build_target_aws_view.py`](diagrams/tools/build_target_aws_view.py) |
-| **화면 목업 v1 — 경영진 보고용** | [해설 · 앱 등록 프로세스](mockups/app-market/README.md) · [캔버스](https://claude.ai/artifact/WS3m3U5Rm6G5k6WfEiuQHe). 앱 찾기 · 앱 상세 · 앱 등록 · 내 앱 4화면. 에이전트 · 운영 콘솔 제외 |
+| **화면 목업 v1 — 경영진 보고용** | [해설 · 앱 등록 프로세스](mockups/app-market/README.md) · [캔버스](https://claude.ai/artifact/WS3m3U5Rm6G5k6WfEiuQHe). 앱 찾기 · 앱 상세 · 앱 등록 · 등록 현황 4화면. 에이전트 · 운영 콘솔 제외 |
 | Playground PoC | [`diagrams/axplayground_PoC 아키텍처.drawio.xml`](diagrams/) (2페이지) |
 
 > ⚠️ `ax-market_infra` 외의 draw.io 도면에는 아직 **Keycloak**이 남아 있고 로그인 프록시가 없다. `AXM-0014`·`AXM-0015` 반영 전이다.
