@@ -14,6 +14,7 @@ docs/
 ├── adr/         아키텍처 결정 기록 (AXM-)
 ├── reference/   기술 사실관계 · 자료조사
 ├── diagrams/    draw.io 도면
+├── mockups/     화면 목업
 └── source/      원 기획서
 ```
 

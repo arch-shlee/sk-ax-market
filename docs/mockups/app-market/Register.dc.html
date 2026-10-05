@@ -1,0 +1,175 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<title>앱 등록</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@400;500;600;700&amp;display=swap">
+<style>
+body{margin:0;background:#FFFFFF;font-family:'IBM Plex Sans KR',system-ui,sans-serif;color:#111111;word-break:keep-all;-webkit-font-smoothing:antialiased}
+a{color:#111111}a:hover{color:#444444}
+input::placeholder,textarea::placeholder{color:#8A8A8A}
+</style>
+</helmet>
+<div style="min-height: 100vh; background: #FFFFFF; font-family: 'IBM Plex Sans KR', system-ui, sans-serif; color: #111111">
+
+<header style="border-bottom: 1px solid #EAEAEA">
+  <div style="max-width: 1200px; margin: 0 auto; padding: 10px 32px; display: flex; flex-wrap: wrap; align-items: center; gap: 8px 40px">
+    <a href="Main.dc.html" style="font-size: 16px; font-weight: 700; letter-spacing: -0.01em; text-decoration: none; min-height: 44px; display: flex; align-items: center">AX App Market</a>
+    <nav aria-label="주 메뉴" style="display: flex; gap: 28px">
+      <a href="Main.dc.html" style="font-size: 14px; color: #6B6B6B; text-decoration: none; padding: 12px 0; border-bottom: 2px solid transparent">앱 찾기</a>
+      <a href="MyApps.dc.html" style="font-size: 14px; color: #6B6B6B; text-decoration: none; padding: 12px 0; border-bottom: 2px solid transparent">내 앱</a>
+    </nav>
+    <div style="margin-left: auto; display: flex; align-items: center; gap: 16px">
+      <span style="width: 32px; height: 32px; border-radius: 50%; background: #F2F2F2; display: flex; align-items: center; justify-content: center; font-size: 13px; font-weight: 600">홍</span>
+    </div>
+  </div>
+</header>
+
+<main style="max-width: 1200px; margin: 0 auto; padding: 56px 32px 96px; display: flex; flex-wrap: wrap; gap: 64px; align-items: flex-start">
+
+  <form style="flex: 999 1 560px; min-width: 0; display: flex; flex-direction: column; gap: 48px">
+    <div style="display: flex; flex-direction: column; gap: 8px">
+      <h1 style="margin: 0; font-size: 30px; font-weight: 700; letter-spacing: -0.025em">앱 등록</h1>
+      <p style="margin: 0; font-size: 15px; color: #6B6B6B">등록하면 플랫폼팀 검토와 보안 검증을 거쳐 마켓에 공개됩니다.</p>
+    </div>
+
+    <fieldset style="margin: 0; padding: 0; border: 0; display: flex; flex-direction: column; gap: 24px">
+      <legend style="padding: 0 0 20px; font-size: 13px; font-weight: 600; color: #6B6B6B; letter-spacing: 0.02em">기본 정보</legend>
+      <div style="display: flex; flex-direction: column; gap: 8px">
+        <label for="name" style="font-size: 14px; font-weight: 600">앱 이름</label>
+        <input id="name" type="text" value="설비 예지보전" style="height: 48px; padding: 0 14px; border: 1px solid #D4D4D4; border-radius: 10px; font: inherit; font-size: 15px; color: #111111">
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 8px">
+        <div style="display: flex; justify-content: space-between; align-items: baseline">
+          <label for="summary" style="font-size: 14px; font-weight: 600">한 줄 설명</label>
+          <span style="font-size: 12px; color: #6B6B6B">앱 목록에 표시 · 50자 이내</span>
+        </div>
+        <input id="summary" type="text" value="설비 센서 데이터로 고장 가능성을 미리 알려줍니다." style="height: 48px; padding: 0 14px; border: 1px solid #D4D4D4; border-radius: 10px; font: inherit; font-size: 15px; color: #111111">
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 8px">
+        <label for="desc" style="font-size: 14px; font-weight: 600">상세 설명</label>
+        <textarea id="desc" rows="4" placeholder="주요 기능, 사용 방법, 필요한 데이터를 적어 주세요" style="padding: 12px 14px; border: 1px solid #D4D4D4; border-radius: 10px; font: inherit; font-size: 15px; line-height: 1.6; color: #111111; resize: vertical"></textarea>
+      </div>
+    </fieldset>
+
+    <fieldset style="margin: 0; padding: 0; border: 0; display: flex; flex-direction: column; gap: 24px">
+      <legend style="padding: 0 0 20px; font-size: 13px; font-weight: 600; color: #6B6B6B; letter-spacing: 0.02em">제작자</legend>
+      <div style="display: flex; flex-wrap: wrap; gap: 16px">
+        <div style="flex: 1 1 240px; display: flex; flex-direction: column; gap: 8px">
+          <span style="font-size: 14px; font-weight: 600">담당자</span>
+          <div style="height: 48px; padding: 0 14px; border-radius: 10px; background: #F6F6F6; display: flex; align-items: center; gap: 10px; font-size: 15px">
+            <span style="width: 26px; height: 26px; border-radius: 50%; background: #E4E4E4; display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 600">홍</span>홍길동 · 품질혁신팀
+          </div>
+        </div>
+        <div style="flex: 1 1 240px; display: flex; flex-direction: column; gap: 8px">
+          <label for="backup" style="font-size: 14px; font-weight: 600">부담당자</label>
+          <input id="backup" type="text" placeholder="이름으로 검색" style="height: 48px; padding: 0 14px; border: 1px solid #D4D4D4; border-radius: 10px; font: inherit; font-size: 15px; color: #111111">
+        </div>
+      </div>
+    </fieldset>
+
+    <fieldset style="margin: 0; padding: 0; border: 0; display: flex; flex-direction: column; gap: 16px">
+      <legend style="padding: 0 0 20px; font-size: 13px; font-weight: 600; color: #6B6B6B; letter-spacing: 0.02em">대상 사용자</legend>
+      <div role="radiogroup" aria-label="대상 사용자 유형" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 10px">
+        <sc-for list="{{targets}}" as="t" hint-placeholder-count="4">
+          <button type="button" role="radio" aria-checked="{{t.checked}}" onClick="{{t.pick}}" style="text-align: left; padding: 16px; border-radius: 10px; border: {{t.border}}; background: #FFFFFF; font: inherit; color: #111111; cursor: pointer; display: flex; flex-direction: column; gap: 4px">
+            <span style="font-size: 15px; font-weight: 600">{{t.label}}</span>
+            <span style="font-size: 13px; color: #6B6B6B; line-height: 1.5">{{t.hint}}</span>
+          </button>
+        </sc-for>
+      </div>
+      <sc-if value="{{hasScope}}" hint-placeholder-val="{{true}}">
+        <div style="display: flex; flex-direction: column; gap: 8px">
+          <label for="scope" style="font-size: 14px; font-weight: 600">{{scopeLabel}}</label>
+          <div style="min-height: 48px; padding: 6px 8px; border: 1px solid #D4D4D4; border-radius: 10px; display: flex; flex-wrap: wrap; align-items: center; gap: 6px; box-sizing: border-box">
+            <sc-for list="{{chips}}" as="c" hint-placeholder-count="2">
+              <span style="height: 32px; display: flex; align-items: center; gap: 6px; padding: 0 6px 0 12px; border-radius: 6px; background: #F2F2F2; font-size: 14px">{{c}}
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#6B6B6B" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"></path></svg>
+              </span>
+            </sc-for>
+            <input id="scope" type="text" placeholder="{{scopePh}}" style="flex: 1; min-width: 120px; height: 34px; border: 0; outline: none; font: inherit; font-size: 15px; color: #111111">
+          </div>
+        </div>
+      </sc-if>
+    </fieldset>
+
+    <fieldset style="margin: 0; padding: 0; border: 0; display: flex; flex-direction: column; gap: 8px">
+      <legend style="padding: 0 0 20px; font-size: 13px; font-weight: 600; color: #6B6B6B; letter-spacing: 0.02em">소스 코드</legend>
+      <label for="repo" style="font-size: 14px; font-weight: 600">Git 저장소</label>
+      <input id="repo" type="url" value="https://gitlab.[사내 도메인]/ax-apps/equipment-pdm" style="height: 48px; padding: 0 14px; border: 1px solid #D4D4D4; border-radius: 10px; font: inherit; font-size: 15px; color: #111111">
+      <span style="display: flex; align-items: center; gap: 6px; font-size: 13px; color: #15803D">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5 9-10"></path></svg>
+        AX Playground 저장소 확인됨 · 표준 파이프라인 연결됨
+      </span>
+    </fieldset>
+
+    <div style="display: flex; flex-wrap: wrap; gap: 10px; padding-top: 32px; border-top: 1px solid #EAEAEA">
+      <a href="MyApps.dc.html" style="height: 48px; display: flex; align-items: center; padding: 0 28px; border-radius: 10px; background: #111111; color: #FFFFFF; font-size: 15px; font-weight: 600; text-decoration: none">등록 신청</a>
+      <button type="button" style="height: 48px; padding: 0 20px; border-radius: 10px; border: 1px solid #D4D4D4; background: #FFFFFF; font: inherit; font-size: 15px; font-weight: 500; color: #111111; cursor: pointer">임시 저장</button>
+    </div>
+  </form>
+
+  <aside aria-labelledby="next" style="flex: 1 1 280px; padding: 28px; border-radius: 14px; background: #F6F6F6; display: flex; flex-direction: column; gap: 20px">
+    <h2 id="next" style="margin: 0; font-size: 15px; font-weight: 600">등록 후 진행</h2>
+    <ol style="margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 18px">
+      <li style="display: flex; gap: 14px">
+        <span style="flex: none; width: 24px; height: 24px; border-radius: 50%; background: #FFFFFF; border: 1px solid #D4D4D4; display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 600">1</span>
+        <div style="display: flex; flex-direction: column; gap: 2px"><span style="font-size: 14px; font-weight: 600">플랫폼팀 검토</span><span style="font-size: 13px; color: #6B6B6B; line-height: 1.5">실행 환경을 정하고 신청 내용을 확인합니다</span></div>
+      </li>
+      <li style="display: flex; gap: 14px">
+        <span style="flex: none; width: 24px; height: 24px; border-radius: 50%; background: #FFFFFF; border: 1px solid #D4D4D4; display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 600">2</span>
+        <div style="display: flex; flex-direction: column; gap: 2px"><span style="font-size: 14px; font-weight: 600">보안 검증</span><span style="font-size: 13px; color: #6B6B6B; line-height: 1.5">저장소 코드를 자동으로 점검합니다</span></div>
+      </li>
+      <li style="display: flex; gap: 14px">
+        <span style="flex: none; width: 24px; height: 24px; border-radius: 50%; background: #FFFFFF; border: 1px solid #D4D4D4; display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 600">3</span>
+        <div style="display: flex; flex-direction: column; gap: 2px"><span style="font-size: 14px; font-weight: 600">배포 승인</span><span style="font-size: 13px; color: #6B6B6B; line-height: 1.5">승인자가 운영 배포를 승인합니다</span></div>
+      </li>
+      <li style="display: flex; gap: 14px">
+        <span style="flex: none; width: 24px; height: 24px; border-radius: 50%; background: #FFFFFF; border: 1px solid #D4D4D4; display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 600">4</span>
+        <div style="display: flex; flex-direction: column; gap: 2px"><span style="font-size: 14px; font-weight: 600">마켓 공개</span><span style="font-size: 13px; color: #6B6B6B; line-height: 1.5">대상 사용자에게 앱이 보이고 실행할 수 있습니다</span></div>
+      </li>
+    </ol>
+    <p style="margin: 0; font-size: 13px; line-height: 1.6; color: #6B6B6B">진행 상황은 <a href="MyApps.dc.html">내 앱</a>에서 확인할 수 있습니다.</p>
+  </aside>
+</main>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":1480}}'>
+class Component extends DCLogic {
+  constructor(props) {
+    super(props);
+    this.state = { target: 'org' };
+  }
+  renderVals() {
+    const cur = this.state.target;
+    const defs = [
+      { id: 'all', label: '전 임직원', hint: '누구나 사용할 수 있습니다' },
+      { id: 'org', label: '특정 조직', hint: '부문 · 팀 단위로 지정합니다' },
+      { id: 'role', label: '특정 직무', hint: '직무 · 직책으로 지정합니다' },
+      { id: 'user', label: '지정 사용자', hint: '개인을 직접 지정합니다' }
+    ];
+    const targets = defs.map((d) => ({
+      ...d, checked: cur === d.id ? 'true' : 'false',
+      border: cur === d.id ? '1.5px solid #111111' : '1px solid #D4D4D4',
+      pick: () => this.setState({ target: d.id })
+    }));
+    const scope = {
+      org: { label: '조직 선택', ph: '부문 · 팀 이름으로 검색', chips: ['제조부문', '설비기술팀'] },
+      role: { label: '직무 선택', ph: '직무로 검색', chips: ['설비 엔지니어'] },
+      user: { label: '사용자 선택', ph: '이름으로 검색', chips: ['김설비', '이정비'] }
+    }[cur];
+    return {
+      targets, hasScope: !!scope,
+      scopeLabel: scope ? scope.label : '', scopePh: scope ? scope.ph : '', chips: scope ? scope.chips : []
+    };
+  }
+}
+</script>
+</body>
+</html>
